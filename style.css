@@ -1,0 +1,810 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+
+* {
+    box-sizing: border-box;
+    margin: 0px;
+}
+
+body {
+    height: 100%;
+    font-family: "Poppins", sans-serif;
+}
+
+#optionDIv {
+    position: fixed !important;
+    top: 3% !important;
+    width: fit-content;
+    left: 69%;
+}
+
+#buttonOption {
+    cursor: pointer;
+}
+
+#clickReturn {
+    position: absolute;
+    bottom: 12px;
+    text-align: center;
+    color: blue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 75%;
+}
+
+.main_row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 60px;
+}
+
+.gradient {
+    background-image: linear-gradient(-45deg, #FF66CC, #e73c7e, #23a6d5, #FFA500);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+    height: 100vh;
+    width: 100%;
+}
+
+.gradient1 {
+    background-image: linear-gradient(-45deg, #045a0d, #23a6d5);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+    height: 100vh;
+    width: 100%;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.w-62 {
+    width: 62%;
+}
+
+.w-20 {
+    width: 20%;
+}
+
+.pt-92 {
+    padding-top: 92px;
+}
+
+form,
+.form {
+    width: 400px;
+}
+
+.container1 {
+    padding: 30px;
+    height: 250px;
+    background: rgba(125, 249, 255, 0.2);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(7px);
+    -webkit-backdrop-filter: blur(7px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+input[type=text] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+}
+
+select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+}
+
+label {
+    /* padding: 12px 12px 12px 0; */
+    display: inline-block;
+}
+
+.lb {
+    line-break: anywhere;
+}
+
+.flex {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.button-center {
+    /* display: flex;
+    justify-content: center;
+    align-items: end;
+    height: 130px; */
+
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    z-index: -1;
+    top: 145%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.button {
+    background: none;
+    border: none;
+    /* cursor: pointer; */
+}
+
+.button:focus {
+    outline: none;
+}
+
+.button__text {
+    background: #3867d6;
+    color: #fff;
+    padding: 1em 3em;
+    border-radius: 3em;
+    font: 600 1rem/1 "Lato", sans-serif;
+    white-space: nowrap;
+    position: relative;
+    z-index: 1;
+    letter-spacing: 0.075em;
+    border: 3px solid transparent;
+    text-transform: uppercase;
+}
+
+.confetti {
+    position: relative;
+}
+
+.confetti__image {
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    z-index: -1;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    /* border: solid; */
+}
+
+input[type=submit] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    float: right;
+}
+
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+
+.col-25 {
+    /* float: left; */
+    width: 25%;
+    /* margin-top: 6px; */
+}
+
+.col-75 {
+    /* float: left; */
+    width: 75%;
+    /* margin-top: 6px; */
+}
+
+.row {
+    display: flex;
+    margin-bottom: 15px;
+    align-items: center;
+}
+
+/* Clear floats after the columns */
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.addrow {
+    align-items: flex-end;
+    width: 49%;
+    justify-content: space-between;
+    /* justify-content: center; */
+    margin: auto;
+    height: 12%;
+}
+
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+
+@media screen and (max-width: 767px) {
+    .buttonDIvOpt {
+        position: absolute;
+        top: -119% !important;
+        left: 67% !important;
+    }
+
+    .buttonDIvOptoveride {
+        position: absolute;
+        top: -17% !important;
+        right: -8% !important;
+    }
+
+    #optionDIv {
+        position: fixed !important;
+        top: 4% !important;
+        width: fit-content;
+        left: 69%;
+    }
+
+    .btn-primary {
+        position: relative !important;
+        left: 0% !important;
+    }
+
+    .button-center {
+        position: absolute;
+        width: 400px;
+        height: 400px;
+        z-index: -1;
+        top: 134% !important;
+
+    }
+
+    .addrow {
+        align-items: center;
+        width: 87%;
+    }
+
+    .main_row {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 45px;
+    }
+
+    #barid {
+        padding-left: 24px;
+        margin-top: 88px;
+    }
+
+    .bar .face {
+        font-size: 1.5em;
+        position: relative;
+        width: 92% !important;
+    }
+
+    .bar .face.side-a,
+    .bar .face.side-b {
+        visibility: hidden;
+        width: 2em;
+    }
+
+    .col-25,
+    .col-75,
+    input[type=submit] {
+        width: 100%;
+        margin-top: 0;
+    }
+
+    .main_row {
+        flex-direction: column;
+    }
+
+    .container1 {
+        width: 90%;
+        margin-bottom: 20px;
+        margin-left: 0px !important;
+        padding-bottom: 100px !important;
+    }
+
+    .container1 {
+        padding: 30px;
+        height: 250px;
+    }
+
+    form {
+        width: auto;
+    }
+
+    .pt-92 {
+        margin: auto;
+    }
+
+    form,
+    .form {
+        width: 100%
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1224px) {
+    #optionDIv {
+        position: fixed !important;
+        top: 0% !important;
+        width: fit-content;
+        left: 75%;
+    }
+
+    .wSm50 {
+        width: 49% !important;
+
+    }
+
+    .col-75 {
+        width: 50% !important;
+    }
+
+    .main_row {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 95%;
+        margin: auto;
+        margin-top: 26px;
+
+    }
+
+    .mInpad {
+        margin: auto;
+    }
+}
+
+
+h1 {
+    font-size: 2.5em;
+    margin: 2em 0 0.5em;
+}
+
+h2 {
+    margin-bottom: 3em;
+}
+
+em,
+strong {
+    font-weight: 700;
+}
+
+header p {
+    margin-bottom: 0;
+}
+
+section {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-bottom: 2em;
+    padding: 0;
+}
+
+section:last-of-type {
+    margin-bottom: 0;
+}
+
+section article {
+    align-self: center;
+    width: 20em;
+    margin-bottom: 2em;
+}
+
+section article p,
+section article:last-of-type {
+    margin-bottom: 0;
+}
+
+.container {
+    z-index: 1;
+    display: flex;
+    overflow: hidden;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 4em;
+}
+
+/* * * START // CHART'S RULES -> "if you're picking code, don't forget the variables :)" */
+.chart {
+    font-size: 1em;
+    perspective: 1000px;
+    perspective-origin: 50% 50%;
+    backface-visibility: visible;
+}
+
+.bar {
+    font-size: 1em;
+    position: relative;
+    height: 10em;
+    transition: all 0.3s ease-in-out;
+    transform: rotateX(60deg) rotateY(0deg);
+    transform-style: preserve-3d;
+}
+
+.bar .face {
+    font-size: 2em;
+    position: relative;
+    width: 100%;
+    height: 2em;
+    background-color: #fff;
+    overflow: hidden;
+}
+
+.bar .face.side-a,
+.bar .face.side-b {
+    width: 2em;
+}
+
+.bar .side-a {
+    transform: rotateX(90deg) rotateY(-90deg) translateX(2em) translateY(1em) translateZ(1em);
+}
+
+.bar .side-b {
+    transform: rotateX(90deg) rotateY(-90deg) translateX(4em) translateY(1em) translateZ(-1em);
+    position: absolute;
+    right: 0;
+}
+
+.bar .side-0 {
+    transform: rotateX(90deg) rotateY(0) translateX(0) translateY(1em) translateZ(-1em);
+}
+
+.bar .side-1 {
+    transform: rotateX(90deg) rotateY(0) translateX(0) translateY(1em) translateZ(3em);
+}
+
+.bar .top {
+    transform: rotateX(0deg) rotateY(0) translateX(0em) translateY(4em) translateZ(2em);
+}
+
+.form2 {
+    width: 375px;
+}
+
+#formText,
+.buttonDIvOpt {
+    position: absolute;
+    top: -45px;
+    left: 0;
+}
+
+.buttonDIvOpt {
+    position: absolute;
+    top: -55px;
+    left: 0;
+}
+
+.bar .floor {
+    box-shadow: 0 0.1em 0.6em rgba(0, 0, 0, .3), 0.6em -0.5em 3em rgba(0, 0, 0, .3), 1em -1em 8em #fefefe;
+}
+
+.addrow1 {
+    width: 67%;
+    justify-content: center;
+    position: relative;
+
+}
+
+.growing-bar {
+    width: 100%;
+    height: 2em;
+    animation: indeterminateAnimation 2s infinite linear;
+    height: 100%;
+    transform-origin: 0% 100%;
+    background-color: rgba(236, 0, 140, .6);
+    box-shadow: -0.5em -1.5em 4em rgb(236 0 140 / 80%);
+
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+    border: 1px solid transparent;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: 0.6rem;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+.growing_bar {
+    background-color: rgba(236, 0, 140, .6);
+    /* animation: fill 14s linear 1 !important; */
+
+}
+
+.growing_barA {
+    background-color: rgba(236, 0, 140, .6);
+}
+
+.growing_barBPurple {
+    background-color: purple !important;
+    animation: filll 14s linear 1 !important;
+}
+
+.growingBarAnimation {
+    background-color: purple !important;
+}
+
+@keyframes fill {
+    0% {
+        width: 0%;
+    }
+
+    100% {
+        width: 100%;
+    }
+}
+
+@keyframes filll {
+    0% {
+        width: 0%;
+    }
+
+    100% {
+        width: 100%;
+    }
+}
+
+.progress-bar {
+    height: 4px;
+    background-color: rgba(5, 114, 206, 0.2);
+    width: 100%;
+    overflow: hidden;
+}
+
+.progress-bar-value {
+    width: 100%;
+    height: 100%;
+    background-color: rgb(5, 114, 206);
+    animation: indeterminateAnimation 1s infinite linear;
+    transform-origin: 0% 50%;
+}
+
+@keyframes indeterminateAnimation {
+    0% {
+        transform: translateX(0) scaleX(0);
+    }
+
+    40% {
+        transform: translateX(0) scaleX(0.4);
+    }
+
+    100% {
+        transform: translateX(100%) scaleX(0.5);
+    }
+}
+
+.alert {
+    position: relative;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+    font-size: 14px;
+}
+
+/* animation css */
+:root {
+    --animate-duration: 1s;
+    --animate-delay: 1s;
+    --animate-repeat: 1
+}
+
+.animate__animated {
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-duration: var(--animate-duration);
+    animation-duration: var(--animate-duration);
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both
+}
+
+.animate__animated.animate__infinite {
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite
+}
+
+
+.animate__animated.animate__slow {
+    -webkit-animation-duration: 0s;
+    animation-duration: 0s;
+    -webkit-animation-duration: calc(var(--animate-duration)*2);
+    animation-duration: calc(var(--animate-duration)*2)
+}
+
+.animate__animated.animate__slower {
+    -webkit-animation-duration: 0s;
+    animation-duration: 0s;
+    -webkit-animation-duration: calc(var(--animate-duration)*2);
+    animation-duration: calc(var(--animate-duration)*2)
+}
+
+@-webkit-keyframes fadeIn {
+    0% {
+        opacity: 0
+    }
+
+    to {
+        opacity: 1
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0
+    }
+
+    to {
+        opacity: 1
+    }
+}
+
+.animate__fadeIn {
+    -webkit-animation-name: fadeIn;
+    animation-name: fadeIn
+}
+
+@-webkit-keyframes fadeInLeft {
+    0% {
+        opacity: 0;
+        -webkit-transform: translate3d(-100%, 0, 0);
+        transform: translate3d(-100%, 0, 0)
+    }
+
+    to {
+        opacity: 1;
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0)
+    }
+}
+
+@keyframes fadeInLeft {
+    0% {
+        opacity: 0;
+        -webkit-transform: translate3d(-100%, 0, 0);
+        transform: translate3d(-100%, 0, 0)
+    }
+
+    to {
+        opacity: 1;
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0)
+    }
+}
+
+.animate__fadeInLeft {
+    -webkit-animation-name: fadeInLeft;
+    animation-name: fadeInLeft
+}
+
+@-webkit-keyframes fadeInRight {
+    0% {
+        opacity: 0;
+        -webkit-transform: translate3d(100%, 0, 0);
+        transform: translate3d(100%, 0, 0)
+    }
+
+    to {
+        opacity: 1;
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0)
+    }
+}
+
+@keyframes fadeInRight {
+    0% {
+        opacity: 0;
+        -webkit-transform: translate3d(100%, 0, 0);
+        transform: translate3d(100%, 0, 0)
+    }
+
+    to {
+        opacity: 1;
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0)
+    }
+}
+
+@-webkit-keyframes fadeInRight1 {
+    0% {
+        opacity: 0;
+        -webkit-transform: translate3d(70%, 0, 0);
+        transform: translate3d(70%, 0, 0)
+    }
+
+    to {
+        opacity: 1;
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0)
+    }
+}
+
+@keyframes fadeInRight1 {
+    0% {
+        opacity: 0;
+        -webkit-transform: translate3d(70%, 0, 0);
+        transform: translate3d(70%, 0, 0)
+    }
+
+    to {
+        opacity: 1;
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0)
+    }
+}
+
+.animate__fadeInRight {
+    -webkit-animation-name: fadeInRight;
+    animation-name: fadeInRight
+}
+
+.animate__fadeInRight1 {
+    -webkit-animation-name: fadeInRight1 !important;
+    animation-name: fadeInRight1 !important;
+    /* animation-delay: 1s; */
+}
+
+@-webkit-keyframes fadeOut {
+    0% {
+        opacity: 1
+    }
+
+    to {
+        opacity: 0
+    }
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1
+    }
+
+    to {
+        opacity: 0
+    }
+}
+
+.animate__fadeOut {
+    -webkit-animation-name: fadeOut;
+    animation-name: fadeOut;
+}
+
+svg {
+    opacity: 0;
+    position: absolute;
+    width: 40%;
+    max-height: 95%;
+    left: 30%;
+    top: 61%;
+    transform: translateY(-50%);
+}
