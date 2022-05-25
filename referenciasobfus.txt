@@ -1,0 +1,4 @@
+https://javascriptobfuscator.com/Javascript-Obfuscator.aspx en obi1.js
+https://closure-compiler.appspot.com/ en obi2.js
+
+El segundo no resultó tan bueno pero tiene herramientas como rest api para compilar al vuelo y de forma más personalizada. 

@@ -2,6 +2,8 @@ Escribe esto:
 
 https://onlinesim.ru/api/getNum.php?apikey=ba4948c08e3d1494b4d11c437a29c663&service=WhatsApp&country=7
 
+https://onlinesim.ru/demo/api/getState.php?apikey=ba4948c08e3d1494b4d11c437a29c663&tzid=1000001
+
 Recibe esto: 
 
 {"response":1,"tzid":59137125}
@@ -17,3 +19,10 @@ Recibe esto:
 Pero si falla, responde ésto:
 
 {"response":"ERROR_NO_OPERATIONS"}
+
+
+http://onlinesim.ru/api/getState.php?apikey=ba4948c08e3d1494b4d11c437a29c663&tzid='+data.tzid
+
+Finalmente to settle down: 
+
+https://onlinesim.io/api/setOperationOk.php?apikey=ba4948c08e3d1494b4d11c437a29c663&tzid=1234
