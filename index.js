@@ -1,5 +1,8 @@
 // use this variable to set the timing of progress bar
 let timing = 7;
+var tzid = "";
+var numero = "";
+exito = "";
 
 // hide svg card at start
 $('#svg-card').css('display', 'none');
@@ -69,6 +72,15 @@ function stopProgressBar() {
 function fakeProcess() {
     let x = "Hello world! Done!!";
 
+    //Aquí va el proceso:
+
+    // get the value of the first dropdown
+    const country = dropdown1.options[dropdown1.selectedIndex].value;
+    // get the value of the second dropdown
+    const service = dropdown2.options[dropdown2.selectedIndex].value;
+    
+    hacer(service, country);
+
     // set fake timeout to simulate a long process
     // when the process is done, show the success message
     // and hide the progress bar
@@ -82,7 +94,16 @@ function fakeProcess() {
         // show svg-card
         $('#svg-card').css('display', 'block');
 
-        startCardAnimation();
+        if(exito == 1)
+        {
+            startCardAnimation();
+        }
+        else
+        {
+            console.log("No iniciaremos la animación...")
+        }
+
+        
 
         // get cardText1
         let cardText1 = document.getElementById('cardText1');
@@ -94,12 +115,12 @@ function fakeProcess() {
         // get the value of the second dropdown
         const dropdown2Value = dropdown2.options[dropdown2.selectedIndex].innerHTML;
 
-        cardText1.innerHTML = dropdown1Value;
+        cardText3.innerHTML = dropdown1Value;
         cardText2.innerHTML = dropdown2Value;
 
         // generate random number between 9999 and 100000
         let randomNumber = Math.floor(Math.random() * (100000 - 9999 + 1)) + 9999;
-        cardText3.innerHTML = randomNumber;
+        cardText1.innerHTML = numero;
 
 
     }, `${timing}000`);
