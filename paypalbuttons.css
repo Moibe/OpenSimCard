@@ -1,0 +1,151 @@
+.paypal-button{  	
+    white-space: nowrap;	
+    overflow: visible;	
+    margin: 0px 0px 0px 25%;
+    padding: 0;	
+    background: 0;	
+    border: 0;	
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;	
+    font-weight: bold;	-webkit-font-smoothing: antialiased;	
+    font-smoothing: antialiased;	
+    cursor: pointer;	
+    z-index: 0;
+    align-items: center;
+    justify-content: center;
+    
+}
+    
+.paypal-button-logo{ 	
+        display: inline-block;	
+        border: 0px solid rgb(45, 72, 228);	
+        border-right: 0;	
+        border-radius: 3px 0 0 3px;	
+        vertical-align: middle;
+    }
+
+/* Esto es lo de adentro del marco azul que rodea a Compra con Paypal */
+.paypal-button-content{ 	
+        padding: 1px 1px 1px 1px;	
+        border: 0px solid white transparent;	
+        border-radius: 3px 3px 3px 3px;	
+        min-width: 57px !important;
+                
+    }
+    
+.paypal-button-content img{ 	
+        vertical-align: middle;
+    }
+    
+/* Small */
+
+/* Esto es el marco de la letra P. */
+.paypal-button-logo{ 	
+        width: 24px;	
+        height: 24px;
+        margin: 0px 4px 0px 0px;
+        border: 0px solid rgb(255, 255, 255) transparent;	
+        border-radius: 3px 3px 3px 3px;	
+
+    }
+
+/* Esto es la letra P del logo. */
+.paypal-button-logo img{ 	
+    width: 2em;	
+    height: 2em;	
+    margin: 0px 0px 0px 0px;
+    
+}
+
+
+/* Esto es el marco azul. */
+.paypal-button-content{ 	
+    height: 24px;
+    width: 150px;	
+    display:inline-block;
+    margin: 2px 3px 2px -3px;
+    font-size: 11px !important;	
+    font-weight: 700;
+    line-height: 9px !important;
+    vertical-align: middle;
+    
+}
+
+/* Esto es el texto de Compre Con y las letras del logo. */
+.paypal-button-content img{ 	
+    /* Dimensiones de las letras 'Paypal' del logo. */
+    height: 22px;
+    width: 50%;
+    /*Margenes y alineación de las dos*/
+    margin: 1px 0px -13px 1px;
+    vertical-align: 50%;
+    
+    
+}        
+
+
+/* Medium */
+.paypal-button.paypal-size-medium .paypal-button-logo { 	
+    width: 30px;	
+    height: 30px;
+}
+
+.paypal-button.paypal-size-medium .paypal-button-logo img { 	
+    width: 22px;	
+    height: 22px;	
+    margin: 4px 0 0 0px;}
+    
+.paypal-button.paypal-size-medium .paypal-button-content{ 	
+        
+    height: 19px;	
+    font-size: 10px !important;	
+    line-height: 19px !important;	
+    padding: 5px 8px 6px;	
+    min-width: 71px !important;}
+    
+.paypal-button.paypal-size-medium .paypal-button-content img{ 	
+    width: 71px;	
+    height: 19px;	
+    margin: 2px 0 0 1px;
+}        
+
+/* Large */
+
+.paypal-button.paypal-size-large .paypal-button-logo{ 	
+    width: 42px;	
+    height: 42px;
+}
+
+.paypal-button.paypal-size-large .paypal-button-logo img{ 	
+    width: 30px;	
+    height: 30px;	
+    margin: 6px 0 0 -1px;
+}
+
+.paypal-button.paypal-size-large .paypal-button-content{ 	
+    height: 25px;	
+    font-size: 13px !important;	
+    line-height: 25px !important;	
+    padding: 8px 13px 9px;	
+    min-width: 1090px !important;}
+    
+.paypal-button.paypal-size-large .paypal-button-content img{ 	
+        width: 93px;	
+        height: 25px;	
+        margin: 2px 0 0 2px;}    
+        
+/* Primary */.paypal-button.paypal-style-primary .paypal-button-content{ 	
+        background: #009cde;	
+        border-color: #009cde;	
+        color: #fff;}    
+            
+/* Secondary */
+/* Los bordes de todo el cuadro azul */
+.paypal-button.paypal-style-secondary .paypal-button-logo{ 	
+    border: 1px solid #cfcfcf;	
+    border-right: 0;
+}
+    
+.paypal-button.paypal-style-secondary .paypal-button-content{ 	
+    background: #eee;	
+    border-color: #cfcfcf;	
+    color: #333;}

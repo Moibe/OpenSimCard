@@ -1,5 +1,33 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
 
+div {
+    /* display: block; */
+    border: 0px solid rgb(247, 243, 24);
+    align-items: center !important;
+    justify-content: center !important;
+    /* padding-top: 10px; */
+    
+  }
+
+  div img {
+    
+    position:relative;
+    align-items: center;
+    justify-content: center;
+    /* padding-top: 10px; */
+    margin-left: 25%;
+    
+  }
+
+    .divController{
+        display: block;
+        border:0px solid;
+        align-items: center !important;
+        justify-content: center !important;
+        /* position:relative;
+        margin-left: 140px; */
+    }
+
 * {
     box-sizing: border-box;
     margin: 0px;
@@ -86,9 +114,29 @@ form,
     width: 400px;
 }
 
+.container1up {
+    padding: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    height: 100px;
+    width: 400px;
+    min-width: 402px;
+    align-items: center;
+    justify-content: center;
+    background: rgba(125, 249, 255, 0.2);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(7px);
+    -webkit-backdrop-filter: blur(7px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    }
+
+
 .container1 {
     padding: 30px;
-    height: 250px;
+    height: 200px;
+    align-items: center;
+    justify-content: center;
     background: rgba(125, 249, 255, 0.2);
     box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
     backdrop-filter: blur(7px);
@@ -179,7 +227,7 @@ label {
     position: relative;
     z-index: 1;
     letter-spacing: 0.075em;
-    border: 3px solid transparent;
+    border: 30px solid transparent;
     text-transform: uppercase;
 }
 
@@ -199,8 +247,9 @@ label {
     /* border: solid; */
 }
 
-input[type=submit] {
+input[type=submit]{
     background-color: #4CAF50;
+    background-color: #3b47ec;
     color: white;
     padding: 12px 20px;
     border: none;
@@ -333,7 +382,7 @@ input[type=submit]:hover {
 
     .container1 {
         padding: 30px;
-        height: 250px;
+        height: 200px;
     }
 
     form {
@@ -348,9 +397,10 @@ input[type=submit]:hover {
     .form {
         width: 100%
     }
+
 }
 
-@media only screen and (min-width: 768px) and (max-width: 1224px) {
+@media only screen and (min-width: 768px) {
     #optionDIv {
         position: fixed !important;
         top: 0% !important;
@@ -373,7 +423,7 @@ input[type=submit]:hover {
         align-items: center;
         width: 95%;
         margin: auto;
-        margin-top: 26px;
+        margin-top: 30px;
 
     }
 
@@ -385,7 +435,7 @@ input[type=submit]:hover {
 
 h1 {
     font-size: 2.5em;
-    margin: 2em 0 0.5em;
+    /* margin: 2em 0 0.5em; */
 }
 
 h2 {
@@ -430,7 +480,9 @@ section article:last-of-type {
     overflow: hidden;
     flex-direction: column;
     justify-content: center;
-    margin-bottom: 4em;
+    align-items: center;
+    width: 940px;
+    /* margin-bottom: 4em; */
 }
 
 /* * * START // CHART'S RULES -> "if you're picking code, don't forget the variables :)" */
@@ -800,11 +852,41 @@ section article:last-of-type {
 }
 
 svg {
-    opacity: 0;
+    /* opacity: 0;
     position: absolute;
     width: 40%;
     max-height: 95%;
     left: 30%;
     top: 61%;
-    transform: translateY(-50%);
+    transform: translateY(-50%); */
+}
+
+.svg-center {
+    width: 35%;
+    margin: auto;
+    margin-top: 50px;
+}
+
+.glass2 {
+    width: 950px;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    margin-top: 0px;
+    
+}
+
+/* when screen is less than 768p */
+@media screen and (max-width: 768px) {
+    .svg-center {
+        width: 90%;
+        margin: auto;
+        margin-top: 50px;
+    }
+
+    .glass2 {
+        width: 100%;
+        margin: auto;
+        margin-top: 50px;
+    }
 }

@@ -1,9 +1,27 @@
+//VARIABLES
 // use this variable to set the timing of progress bar
-let timing = 7;
-var tzid = "";
-var numero = "";
-exito = "";
+let timing_bar = 5;
+let timing_elements = 0;
+let timing_glass = 0;
 
+// use this variable to control coundDownTimer waiting time
+let countDownTimerTime = 5;
+let coolDownTimerTime = 4;
+let lowBalanceTimerTime = 10;
+
+var countDownTimer;
+
+// get btnSubmit
+const btnSubmit = document.getElementById('btnSubmit');
+//btnSubmit.style.display = 'none';
+
+// get btnPaypal
+const btnPaypal = document.getElementById('btnPaypal');
+btnPaypal.style.display = 'none';
+
+
+
+//ARRANQUE
 // hide svg card at start
 $('#svg-card').css('display', 'none');
 
@@ -47,19 +65,172 @@ const clickToReturn = (e) => {
     location.reload();
 }
 
+//FUNCIONES
+
 function startProgressBar() {
     console.log("startProgressBar");
-    $('#barid').css('visibility', 'visible');
-    $('.growing-bar').css('animation', `${timing}s linear 0s 1 normal none running fill`);
+
+    // hide the submit button
+    btnSubmit.style.display = 'none';
+    
+
+    let glass1 = document.getElementById('glass1');
+    
+
     glass1.classList.add('animate__fadeOut');
-    $('#glass1').css('opacity', '0');
-    optionDIv.classList.add('buttonDIvOptoveride');
-    setTimeout(function () {
-        $('#glass2').css('position', 'absolute')
-        glass2.classList.remove('animate__fadeInRight')
-        glass2.classList.add('animate__fadeInRight1')
+
+    setTimeout(() => {
+        glass1.style.display = 'none';
+        $('#barid').css('display', 'block');
+        $('.growing-bar').css('animation', `${timing_bar}s linear 0s 1 normal none running fill`);
+    }, 1000);
+
+
+    
+}
+
+function startGlassWindow(){
+
+    let glass2Textrows = document.getElementById('glass2_textrows');
+    glass2Textrows.style.height = '150px'
+
+    let glass2 = document.getElementById('glass2');
+
+    setTimeout(() => {
+        $('#barid').css('display', 'none');
+        glass2.style.display = 'flex';
+        
+        glass2.classList.add('animate__fadeInUp');
+    }, timing_glass * 1000);
+
+    //Ésta función solo despliega la ventana, pero no los mensajes que despliega.
+    //Esos mensajes se despliegan desde numbers.
+
+}
+
+function displayMessage(mensaje_error, pais, servicio) {
+    //Ésta función maneja el texto a desplegar y las acciones cuando regresa un error en lugar del servicio.
+    
+    if((mensaje_error=="NO_NUMBER")||(mensaje_error=="NO_NUMBER_FOR_FORWARD")){
+ 
+        //En estos casos no habrá tiempo de espera y se invitará a usar otro servicio.
+
+        addTextRow('No available numbers for ' + pais + '-' + servicio + ' right now.', 1, "renglon_uno");
+        addTextRow('We are supercharging new simcards.', 2, "renglon_dos");
+        addTextRow('In the meanwhile try another country or service. Thanks. 💖', 3, "renglon_tres");
+        habilitarBoton();
+
+    }
+    else if(mensaje_error=="WARNING_LOW_BALANCE"){
+
+        //En éste caso no podrás proporcionar el servicio hasta que se descongele saldo o pongas más. 
+
+        addTextRow('Service unavailable, please try again in 10 minutes...', 4, "renglon_uno");
+        addTextRow('5:00', 2, "countDownText");
+        startCountdownTimer("low_balance");
+
+    } else     
+    {
+        //Todos los demás casos
+        addTextRow(mensaje_error, 1, "renglon_uno");
+        addTextRow('5:00', 2, "countDownText");
+        addTextRow('We recommend you to wait a bit to try again...', 4, "renglon_tres");
+        startCountdownTimer("mensaje");
+    }
+   
+    //optionDIv.classList.add('buttonDIvOptoveride');
+
+}
+
+function displayCountDown() {
+   
+    // add p element to the glass2_textrows
+    addTextRow('Your simcard is ready for use.', 2 ,"renglon_uno");
+    addTextRow(numero, 4 ,"renglon_dos");
+    addTextRow('You can use this number for the next:', 8 ,"renglon_tres");
+    addTextRow('', 9, "countDownText");
+    addTextRow('Ready to receive messages, listening...', 10, "renglon_cinco");
+    
+    startCountdownTimer();
+
+    //optionDIv.classList.add('buttonDIvOptoveride');
+ 
+}
+
+function startCountdownTimer(tipo_de_conteo) {
+    //El inicio del contador puede ser por tipo: mensaje, que es debido a un error, 
+    //o tipo servicio que es el tiempo que se tiene para la espera del servicio. 
+
+    //Establece la fecha de éste momento sea cual sea el tipo de contador.
+    let countDownTime = new Date();
+    console.log("Tipo de Conteo:");
+    console.log(tipo_de_conteo);
+    if(tipo_de_conteo == "mensaje"){
+        conteo = coolDownTimerTime;
+        countDown_message = "Now you can try again..."}
+    else if(tipo_de_conteo == "low_balance"){
+        conteo = lowBalanceTimerTime;
+        countDown_message = "Now you can try again, thanks for waiting..."}
+    else {
+        conteo = tiempo;
+        //Hardcode solo para hacer rápido lo de cuando caduda.
+        conteo = 400;
+        countDown_message = "Your simcard expired."}
+
+    //Set the parameters based the count choosen.
+    //countDownTime.setMinutes(countDownTime.getMinutes() + conteo);
+    countDownTime.setSeconds(countDownTime.getSeconds() + conteo)
+   
+    // Update the count down every 1 second
+    countDownTimer = setInterval(function () {
+        // Get today's date and time
+        var now = new Date().getTime();
+        // Find the distance between now and the count down date
+        var distance = countDownTime - now;
+
+        // Time calculations for days, hours, minutes and seconds
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        document.getElementById("countDownText").innerHTML = minutes + "m " + seconds + "s ";
+        // If the count down is finished, write some text
+        if (distance < 0) {
+            clearInterval(countDownTimer);
+            document.getElementById("welcome").innerHTML = "";
+            document.getElementById("numero").innerHTML = "";
+            document.getElementById("tittle").innerHTML = "";
+            document.getElementById("countDownText").innerHTML = countDown_message;
+            document.getElementById("listener").innerHTML = "You can try again anytime you want.";
+
+            // enable button
+            habilitarBoton();
+        }
+        if(tipo_de_conteo != "mensaje"){
+        // run the fake process every minute
+        if (seconds == 1) {
+            // console log
+            console.log("running leer(tzid) at " + minutes + ":" + seconds);
+            leer(tzid);
+        }
+    }
+
     }, 1000);
 }
+
+function habilitarBoton(){
+
+     // enable button
+     btnSubmit.style.display = 'block';
+     btnSubmit.value = "Start Over";
+     
+     /* // enable button
+     btnPaypal.style.display = 'block'; */
+     
+     // reload the page on click
+     btnSubmit.addEventListener('click', clickToReturn);
+
+}
+
 
 // use this function to stop the progress bar
 function stopProgressBar() {
@@ -68,18 +239,56 @@ function stopProgressBar() {
     $('#barid').css('visibility', 'hidden');
 }
 
+function mensajeEncontrado(mensaje){
+        
+    //Glasswindow showed when message found...
+        document.getElementById("renglon_uno").innerHTML = "Your message has been received:";
+        document.getElementById("countDownText").innerHTML = "";
+        document.getElementById("renglon_tres").innerHTML = mensaje;
+        document.getElementById("renglon_cinco").innerHTML = "";
+        clearInterval(countDownTimer);
+        btnPaypal.style.display = 'block';
+        
+}
+
+function displayCard() {
+    //Solo se ejecutará si se logra obtener el número...
+        
+    setTimeout(function () {
+        let x = "Hello world! Done!!";
+        $('#adddedSuccessfull').html(x);
+        $('#adddedSuccessfull').css('display', 'block');
+        stopProgressBar();
+
+        // get cardText1
+        let cardText1 = document.getElementById('cardText1');
+        let cardText2 = document.getElementById('cardText2');
+        let cardText3 = document.getElementById('cardText3');
+
+        //Revisar si está siendo redundante ésto.
+        // get the text of the first dropdown
+        const dropdown1Value = dropdown1.options[dropdown1.selectedIndex].innerHTML;
+        // get the text of the second dropdown
+        const dropdown2Value = dropdown2.options[dropdown2.selectedIndex].innerHTML;
+
+        cardText1.innerHTML = dropdown1Value;
+        cardText2.innerHTML = dropdown2Value;
+
+        // generate random phone number
+        //let phoneNumber = Math.floor(Math.random() * 10000000000000);
+        //cardText3.innerHTML = '+' + phoneNumber;
+        cardText3.innerHTML = numero;
+
+        // show svg-card
+        $('#svg-card').css('display', 'block');
+
+        startCardAnimation();
+        }, `${timing_elements}000`);
+
+}
+
 // long running process goes here
-function fakeProcess() {
-    let x = "Hello world! Done!!";
-
-    //Aquí va el proceso:
-
-    // get the value of the first dropdown
-    const country = dropdown1.options[dropdown1.selectedIndex].value;
-    // get the value of the second dropdown
-    const service = dropdown2.options[dropdown2.selectedIndex].value;
-    
-    hacer(service, country);
+function startProcess(Country_value, Service_value, Pais_texto, Servicio_texto) {
 
     // set fake timeout to simulate a long process
     // when the process is done, show the success message
@@ -87,66 +296,10 @@ function fakeProcess() {
     setTimeout(function () {
         console.log("Timeout...");
 
-        $('#adddedSuccessfull').html(x);
-        $('#adddedSuccessfull').css('display', 'block');
-        stopProgressBar();
+        hacer(Country_value, Service_value, Pais_texto, Servicio_texto)
 
-        if(exito == 1)
-        {
-            // show svg-card
-            $('#svg-card').css('display', 'block');
-            startCardAnimation();
-        }
-        else
-        {
-            console.log("No iniciaremos la animación...")
-            //Regresar al origen.
-        }
-
-        
-
-        // get cardText1
-        let cardText1 = document.getElementById('cardText1');
-        let cardText2 = document.getElementById('cardText2');
-        let cardText3 = document.getElementById('cardText3');
-
-        // get the value of the first dropdown
-        const dropdown1Value = dropdown1.options[dropdown1.selectedIndex].innerHTML;
-        // get the value of the second dropdown
-        const dropdown2Value = dropdown2.options[dropdown2.selectedIndex].innerHTML;
-
-        cardText3.innerHTML = dropdown1Value;
-        cardText2.innerHTML = dropdown2Value;
-
-        // generate random number between 9999 and 100000
-        let randomNumber = Math.floor(Math.random() * (100000 - 9999 + 1)) + 9999;
-        cardText1.innerHTML = numero;
-
-
-    }, `${timing}000`);
+    }, `${timing_bar}000`);
 }
-
-// once dropdown1 and dropdown2 are both selected, call startProgressBar and fakeProcess
-const dropdown1 = document.getElementById('dropdown1');
-const dropdown2 = document.getElementById('dropdown2');
-
-
-dropdown1.addEventListener('change', function () {
-    if (dropdown1.value != '' && dropdown2.value != '') {
-        startProgressBar();
-        fakeProcess();
-    }
-});
-
-
-dropdown2.addEventListener('change', function () {
-    if (dropdown1.value != '' && dropdown2.value != '') {
-        startProgressBar();
-        fakeProcess();
-    }
-});
-
-// const tl = startCardAnimation();
 
 function startCardAnimation() {
     gsap.timeline()
@@ -188,3 +341,35 @@ function startCardAnimation() {
         .to('#star', { scale: 1, repeat: 1, yoyo: true, yoyoEase: true, duration: 0.4, ease: 'power4' }, 0)
         .fromTo('#star', { rotate: -20 }, { rotate: 120, duration: 0.8, ease: 'none' }, 0);
 }
+
+
+//INICIO
+// once dropdown1 and dropdown2 are both selected, call startProgressBar and startProcess
+const dropdown1 = document.getElementById('dropdown1');
+const dropdown2 = document.getElementById('dropdown2');
+
+// call startProgressBar and startProcess when btnSubmit is clicked
+btnSubmit.addEventListener('click', function () {
+    if (dropdown1.value != "" && dropdown2.value != "") {
+
+        //Se estableció ésta búsqueda aquí, porque si se hace después de buscar tzid, no puede escribir...
+        //...correctamente errores que lleven los textos de Country y Service.
+        // get the value of the first dropdown
+        const Country = dropdown1.options[dropdown1.selectedIndex].value;
+        //get the value of the second dropdown
+        const Service = dropdown2.options[dropdown2.selectedIndex].value;
+
+        // get the value of the first dropdown
+        const Pais = dropdown1.options[dropdown1.selectedIndex].innerHTML;
+        //get the value of the second dropdown
+        const Servicio = dropdown2.options[dropdown2.selectedIndex].innerHTML;
+
+        startProgressBar();
+        startProcess(Country, Service, Pais, Servicio);
+        
+    }
+    else {
+        alert("Please select Country and Service options.");
+    }
+});
+

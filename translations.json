@@ -1,0 +1,7 @@
+{
+    [texto_cliente]: {"ingles": "Hello Client",
+                        "espanol": "Hola Cliente"}
+},
+
+[ingles]: {"texto_cliente": "Hello Client",
+"servicio_cliente": "This is the service"}
