@@ -1,7 +1,0 @@
-https://javascriptobfuscator.com/Javascript-Obfuscator.aspx en obi1.js
-https://closure-compiler.appspot.com/ en obi2.js
-
-El segundo no resultó tan bueno pero tiene herramientas como rest api para compilar al vuelo y de forma más personalizada.
-
-
-https://onlinesim.ru/api/getNum.php?apikey=C9zkn1LW4uKXy71-cKUVjb82-v5VxJK39-Q1pzusA5-nVPk96AW8h1J9J5&service=Whatsapp&country=33 
