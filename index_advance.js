@@ -91,11 +91,10 @@ function fakeProcess() {
         $('#adddedSuccessfull').css('display', 'block');
         stopProgressBar();
 
-        // show svg-card
-        $('#svg-card').css('display', 'block');
-
         if(exito == 1)
         {
+            // show svg-card
+            $('#svg-card').css('display', 'block');
             startCardAnimation();
         }
         else
