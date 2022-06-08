@@ -7,6 +7,7 @@ function hacer(country, service, pais, servicio){
   console.log(country);
   console.log("Éste es el service:")
   console.log(service);
+  var token = config.MY_API_TOKEN;
 
 //obtenTzid es una promesa, aquí la estamos declarando...
 //Aquí obtenemos la validación de que recibimos el servicio, pero el número lo obtendremos hasta la siguiente.
@@ -14,7 +15,7 @@ var obtenTzid = new Promise(
   
   function(resolve, reject){
     
-    fetch('https://onlinesim.ru/api/getNum.php?apikey=C9zkn1LW4uKXy71-cKUVjb82-v5VxJK39-Q1pzusA5-nVPk96AW8h1J9J5&service='+service+ '&country=' +country)
+    fetch('https://onlinesim.ru/api/getNum.php?apikey=' + token + '&service='+service+ '&country=' +country)
     .then(response => response.json()) //convierte la respuesta en datos.
     .then(data => 
       {if(data.response == 1) //Si data.response tiene un 1 significa que si se otorgó el servicio.
@@ -51,7 +52,7 @@ var obtenTzid = new Promise(
 
       function(resolve, reject){
         
-        fetch('http://onlinesim.ru/api/getState.php?apikey=C9zkn1LW4uKXy71-cKUVjb82-v5VxJK39-Q1pzusA5-nVPk96AW8h1J9J5&tzid='+tzid)
+        fetch('http://onlinesim.ru/api/getState.php?apikey=' + token + '&tzid='+tzid)
         .then(response => response.json()) //convierte la respuesta en datos.
         .then(data => 
           {if(data[0].response == 'TZ_NUM_WAIT') //Si data.response tiene un TZ_NUM_WAIT significa que si se otorgó el servicio y estamos en espera.
@@ -126,7 +127,7 @@ function leer(tzid){
    function(resolve, reject){
 
     //Vamos a agregar dos tipos de url, la de pruebas y la real...
-    url_real = 'http://onlinesim.ru/api/getState.php?apikey=C9zkn1LW4uKXy71-cKUVjb82-v5VxJK39-Q1pzusA5-nVPk96AW8h1J9J5&message_to_code=0&tzid='
+    url_real = 'http://onlinesim.ru/api/getState.php?apikey=' + token + '&message_to_code=0&tzid='
     url_pruebas = 'http://127.0.0.1:8000/get_simio/'
 
     //fetch para solucionar CORS...
