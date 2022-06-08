@@ -1,13 +1,15 @@
 //Éste documento contiene dos funciones: 
 //hacer() obtiene el número y lo despliega al usuario. Es lanzado por el user al terminar de seleccionar país y servicio.
 //leer() se mantiene leyendo la api cada minuto 15 veces. Es lanzado por la glasswindow para saber que desplegar.
+var token = config.MY_API_TOKEN;
+
 function hacer(country, service, pais, servicio){
 
   console.log("Éste es el country:")
   console.log(country);
   console.log("Éste es el service:")
   console.log(service);
-  var token = config.MY_API_TOKEN;
+  
 
 //obtenTzid es una promesa, aquí la estamos declarando...
 //Aquí obtenemos la validación de que recibimos el servicio, pero el número lo obtendremos hasta la siguiente.
