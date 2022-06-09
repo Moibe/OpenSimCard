@@ -145,11 +145,12 @@ function displayMessage(mensaje_error, pais, servicio) {
 function displayCountDown() {
    
     // add p element to the glass2_textrows
-    addTextRow('Your simcard is ready for use.', 2 ,"renglon_uno");
-    addTextRow(numero, 4 ,"renglon_dos");
-    addTextRow('You can use this number for the next:', 8 ,"renglon_tres");
-    addTextRow('', 9, "countDownText");
-    addTextRow('Ready to receive messages, listening...', 10, "renglon_cinco");
+    addTextRow('Your simcard is ready.', 1 ,"renglon_uno");
+    addTextRow(numero, 2 ,"renglon_dos");
+    addTextRow('You can use this number for the next:', 3 ,"renglon_tres");
+    addTextRow('', 4, "countDownText");
+    addTextRow('Ready to receive messages, listening...', 5, "renglon_cinco");
+    addTextRow('', 6, "renglon_seis");
     
     startCountdownTimer();
 
@@ -242,10 +243,11 @@ function stopProgressBar() {
 function mensajeEncontrado(mensaje){
         
     //Glasswindow showed when message found...
-        document.getElementById("renglon_uno").innerHTML = "Your message has been received:";
+        document.getElementById("renglon_uno").innerHTML = "Your message has been received at:";
         document.getElementById("countDownText").innerHTML = "";
         document.getElementById("renglon_tres").innerHTML = mensaje;
-        document.getElementById("renglon_cinco").innerHTML = "";
+        document.getElementById("renglon_cinco").innerHTML = "Complete your payment to realease the full message ✉️.";
+        document.getElementById("renglon_seis").innerHTML = "Thanks for using our service :)";
         clearInterval(countDownTimer);
         btnPaypal.style.display = 'block';
         

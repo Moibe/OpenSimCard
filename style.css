@@ -114,6 +114,17 @@ form,
     width: 400px;
 }
 
+.container {
+    z-index: 1;
+    display: flex;
+    overflow: hidden;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 940px;
+    /* margin-bottom: 4em; */
+}
+
 .container1up {
     padding: 10px;
     padding-left: 20px;
@@ -472,17 +483,6 @@ section article {
 section article p,
 section article:last-of-type {
     margin-bottom: 0;
-}
-
-.container {
-    z-index: 1;
-    display: flex;
-    overflow: hidden;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 940px;
-    /* margin-bottom: 4em; */
 }
 
 /* * * START // CHART'S RULES -> "if you're picking code, don't forget the variables :)" */
