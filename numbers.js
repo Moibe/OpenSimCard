@@ -156,7 +156,7 @@ function leer(tzid){
          //real
          //mensaje = data[0].msg; 
          //fake
-         mensaje = "[53904836] Éste es tu nuevo código de Instagram 540904836."
+         mensaje = "[53904836] This is your new Instagram code: 540904836."
          resolve(mensaje);
          exito = 1;
        }
