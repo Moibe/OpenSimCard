@@ -9,6 +9,7 @@ phone_icon = "📱";
 message_icon = "✉️";
 listening_icon = "📡";
 payment_icon = "💳";
+var starting_over;
 
 // use this variable to control coundDownTimer waiting time
 let countDownTimerTime = 5;
@@ -27,8 +28,41 @@ const btnSubmit = document.getElementById('btnSubmit');
 const btnPaypal = document.getElementById('btnPaypal');
 btnPaypal.style.display = 'none';
 
+// get glassIntro
+const glassIntro = document.getElementById('glassIntro');
+
 // hide svg card at start
 $('#svg-card').css('display', 'none');
+
+//INICIO
+// once dropdown1 and dropdown2 are both selected, call startProgressBar and startProcess
+const dropdown1 = document.getElementById('dropdown1');
+const dropdown2 = document.getElementById('dropdown2');
+
+// call startProgressBar and startProcess when btnSubmit is clicked
+btnSubmit.addEventListener('click', function () {
+    if (dropdown1.value != "" && dropdown2.value != "") {
+
+        //Se estableció ésta búsqueda aquí, porque si se hace después de buscar tzid, no puede escribir...
+        //...correctamente errores que lleven los textos de Country y Service.
+        // get the value of the first dropdown
+        const Country = dropdown1.options[dropdown1.selectedIndex].value;
+        //get the value of the second dropdown
+        const Service = dropdown2.options[dropdown2.selectedIndex].value;
+
+        // get the value of the first dropdown
+        const Pais = dropdown1.options[dropdown1.selectedIndex].innerHTML;
+        //get the value of the second dropdown
+        const Servicio = dropdown2.options[dropdown2.selectedIndex].innerHTML;
+
+        startProgressBar();
+        startProcess(Country, Service, Pais, Servicio);
+        
+    }
+    else {
+        alert("Please select Country and Service options.");
+    }
+});
 
 const optionButton = (e) => {
     if (e.classList.contains('optionOne')) {
@@ -74,9 +108,9 @@ const clickToReturn = (e) => {
 
 function initText(){
     //Text in the glasswindow:
-    addTextRow(bullet_icon + 'Receive SMS messages online, anywhere in the world 🌎', 1 ,"renglon_uno");
-    addTextRow(phone_icon + 'Superfast one-use simcards.', 2 ,"renglon_dos");
-    addTextRow(bullet_icon + 'For registering services and testing apps.', 3 ,"renglon_tres");
+    addTextRow(bullet_icon + 'Receive SMS messages online, anywhere in the world 🌎', 1 ,"intro_uno", 'glassIntro_textrows');
+    addTextRow(phone_icon + 'Superfast one-use simcards.', 2 ,"intro_dos", 'glassIntro_textrows');
+    addTextRow(bullet_icon + 'For registering services and testing apps.', 3 ,"intro_tres", 'glassIntro_textrows');
     }
     
 
@@ -85,6 +119,9 @@ function startProgressBar() {
 
     // hide the submit button
     btnSubmit.style.display = 'none';
+
+    //hide GlassIntro
+    glassIntro.style.display = 'none';
 
     //Desaparece el div que contenia a los dropdownlists:
     let selectores = document.getElementById('selectores');
@@ -134,9 +171,9 @@ function displayMessage(mensaje_error, pais, servicio) {
  
         //En estos casos no habrá tiempo de espera y se invitará a usar otro servicio.
 
-        addTextRow(bullet_icon + 'No available numbers for ' + pais + '-' + servicio + ' right now.', 1, "renglon_uno");
-        addTextRow(bullet_icon + 'We are supercharging new simcards.', 2, "renglon_dos");
-        addTextRow(bullet_icon + 'In the meanwhile try another country or service. Thanks. 💖', 3, "renglon_tres");
+        addTextRow(bullet_icon + 'No available numbers for ' + pais + '-' + servicio + ' right now.', 1, "renglon_uno", 'glass2_textrows');
+        addTextRow(bullet_icon + 'We are supercharging new simcards.', 2, "renglon_dos", 'glass2_textrows');
+        addTextRow(bullet_icon + 'In the meanwhile try another country or service. Thanks. 💖', 3, "renglon_tres", 'glass2_textrows');
         habilitarBoton();
 
     }
@@ -144,8 +181,8 @@ function displayMessage(mensaje_error, pais, servicio) {
 
         //En éste caso no podrás proporcionar el servicio hasta que se descongele saldo o pongas más. 
 
-        addTextRow(bullet_icon + 'Service unavailable, please try again in 10 minutes...', 4, "renglon_uno");
-        addTextRow(timer_icon + '5:00', 2, "countDownText");
+        addTextRow(bullet_icon + 'Service unavailable, please try again in 10 minutes...', 4, "renglon_uno", 'glass2_textrows');
+        addTextRow(timer_icon + '5:00', 2, "countDownText", 'glass2_textrows');
         startCountdownTimer("low_balance");
 
     } else     
@@ -164,12 +201,12 @@ function displayMessage(mensaje_error, pais, servicio) {
 function displayCountDown() {
    
     // add p element to the glass2_textrows
-    addTextRow(bullet_icon + 'Your simcard is ready.', 1 ,"renglon_uno");
-    addTextRow(phone_icon + numero, 2 ,"renglon_dos");
-    addTextRow(bullet_icon + 'You can use this number for the next:', 3 ,"renglon_tres");
-    addTextRow(timer_icon + '', 4, "countDownText");
-    addTextRow(listening_icon + 'Ready to receive messages, listening...', 5, "renglon_cinco");
-    addTextRow('', 6, "renglon_seis");
+    addTextRow(bullet_icon + 'Your simcard is ready.', 1 ,"renglon_uno", 'glass2_textrows');
+    addTextRow(phone_icon + numero, 2 ,"renglon_dos", 'glass2_textrows');
+    addTextRow(bullet_icon + 'You can use this number for the next:', 3 ,"renglon_tres", 'glass2_textrows');
+    addTextRow(timer_icon + '', 4, "countDownText", 'glass2_textrows');
+    addTextRow(listening_icon + 'Ready to receive messages, listening...', 5, "renglon_cinco", 'glass2_textrows');
+    addTextRow('', 6, "renglon_seis", 'glass2_textrows');
     
     startCountdownTimer();
  
@@ -244,6 +281,7 @@ function habilitarBoton(){
      // enable button
      btnSubmit.style.display = 'block';
      btnSubmit.value = "Start Over";
+     starting_over = true;
 
 
      
@@ -263,7 +301,8 @@ function stopProgressBar() {
     $('#barid').css('visibility', 'hidden');
 }
 
-function mensajeEncontrado(mensaje){
+function 
+mensajeEncontrado(mensaje){
 
     /* //Con los textos actuales el cambio de altura de la ventana no es necesario.
     let glass2Textrows = document.getElementById('glass2_textrows');
@@ -277,8 +316,8 @@ function mensajeEncontrado(mensaje){
         document.getElementById("renglon_seis").innerHTML = bullet_icon + "Thanks for using our service :)";
         clearInterval(countDownTimer);
         //Reaparece el div del botón Get:
-    //let divBoton = document.getElementById('divBoton');
-    divBoton.style.display = 'flex';
+        //let divBoton = document.getElementById('divBoton');
+        divBoton.style.display = 'flex';
         btnPaypal.style.display = 'block';
         
 }
@@ -373,35 +412,3 @@ function startCardAnimation() {
         .to('#star', { scale: 1, repeat: 1, yoyo: true, yoyoEase: true, duration: 0.4, ease: 'power4' }, 0)
         .fromTo('#star', { rotate: -20 }, { rotate: 120, duration: 0.8, ease: 'none' }, 0);
 }
-
-
-//INICIO
-// once dropdown1 and dropdown2 are both selected, call startProgressBar and startProcess
-const dropdown1 = document.getElementById('dropdown1');
-const dropdown2 = document.getElementById('dropdown2');
-
-// call startProgressBar and startProcess when btnSubmit is clicked
-btnSubmit.addEventListener('click', function () {
-    if (dropdown1.value != "" && dropdown2.value != "") {
-
-        //Se estableció ésta búsqueda aquí, porque si se hace después de buscar tzid, no puede escribir...
-        //...correctamente errores que lleven los textos de Country y Service.
-        // get the value of the first dropdown
-        const Country = dropdown1.options[dropdown1.selectedIndex].value;
-        //get the value of the second dropdown
-        const Service = dropdown2.options[dropdown2.selectedIndex].value;
-
-        // get the value of the first dropdown
-        const Pais = dropdown1.options[dropdown1.selectedIndex].innerHTML;
-        //get the value of the second dropdown
-        const Servicio = dropdown2.options[dropdown2.selectedIndex].innerHTML;
-
-        startProgressBar();
-        startProcess(Country, Service, Pais, Servicio);
-        
-    }
-    else {
-        alert("Please select Country and Service options.");
-    }
-});
-

@@ -7,14 +7,8 @@ console.log(origin)
 res.setHeader('Access-Control-Allow-Origin', origin); */
 
 function checkSuccess(){
-
-    
-    fetch(url, {
-        "method": "GET",
-        "headers": {
-            'Access-Control-Allow-Origin': 'http://127.0.0.1:5500/'
-        }
-      })
+   
+    fetch(url)
       .then(response => response.json())
       .then(data => {
           if(data.response != null){
@@ -29,8 +23,7 @@ function checkSuccess(){
                   console.log("Si hay un servicio relacionado.");
                   console.log(data[0].response);
                   mensaje = data[0].response;
-                  mensaje_obfuscado = obfusMessage(mensaje)
-                  escribeResultados(mensaje_obfuscado);
+                  escribeResultados(mensaje);
               }
           })
       .catch(err => {
@@ -39,12 +32,10 @@ function checkSuccess(){
 }
 
 function escribeResultados(){
-    addTextRow('Thanks for your purchase.', 1, "renglon_uno");
-    addTextRow('Here is your message.', 2, "renglon_dos");
-    addTextRow(mensaje_obfuscado, 3, "renglon_tres");
-    addTextRow('You can copy your code directly here:', 4, "renglon_cuatro");
-    addTextRow(mensaje_obfuscado, 3, "renglon_cinco");
-}
+    addTextRow('Thanks for your purchase.', 1, "renglon_uno", 'glass2_textrows');
+    addTextRow('Here is your complete message:', 2, "renglon_dos", 'glass2_textrows');
+    addTextRow(mensaje, 3, "renglon_tres", 'glass2_textrows');
+    }
 
 
 

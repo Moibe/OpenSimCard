@@ -1,6 +1,8 @@
-function addTextRow(text, delay, id) {
+function addTextRow(text, delay, id, glass) {
+  
+    which_glass = glass;
     
-    let glass2Textrows = document.getElementById('glass2_textrows');
+    let glass2Textrows = document.getElementById(which_glass);
     
     
     let p = document.createElement('p');
