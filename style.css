@@ -5,18 +5,13 @@ div {
     border: 0px solid rgb(247, 243, 24);
     align-items: center !important;
     justify-content: center !important;
-    /* padding-top: 10px; */
-    
-  }
+   }
 
   div img {
-    
     position:relative;
     align-items: center;
     justify-content: center;
-    /* padding-top: 10px; */
     margin-left: 25%;
-    
   }
 
     .divController{
@@ -38,7 +33,7 @@ body {
     font-family: "Poppins", sans-serif;
 }
 
-#optionDIv {
+#optionDiv {
     position: fixed !important;
     top: 3% !important;
     width: fit-content;
@@ -58,13 +53,6 @@ body {
     justify-content: center;
     align-items: center;
     width: 75%;
-}
-
-.main_row {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 60px;
 }
 
 .gradient {
@@ -114,36 +102,14 @@ form,
     width: 400px;
 }
 
-.container {
-    z-index: 1;
+.main_row {
     display: flex;
-    overflow: hidden;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 940px;
-    /* margin-bottom: 4em; */
+    margin-top: 0px;
 }
 
-.container1up {
-    padding: 10px;
-    padding-left: 20px;
-    padding-right: 20px;
-    height: 100px;
-    width: 400px;
-    min-width: 402px;
-    align-items: center;
-    justify-content: center;
-    background: rgba(125, 249, 255, 0.2);
-    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-    backdrop-filter: blur(7px);
-    -webkit-backdrop-filter: blur(7px);
-    border-radius: 10px;
-    border: 1px solid rgba(255, 255, 255, 0.18);
-    }
-
-
-.container1 {
+.containerOptions {
     padding: 30px;
     height: 200px;
     align-items: center;
@@ -154,7 +120,50 @@ form,
     -webkit-backdrop-filter: blur(7px);
     border-radius: 10px;
     border: 1px solid rgba(255, 255, 255, 0.18);
+    
 }
+
+.container {
+    z-index: 1;
+    display: flex;
+    overflow: hidden;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 940px;
+    /* width: 100%; */
+}
+
+.glass2 {
+    /* El superdiv que contiene también el área para escribir.  */
+        align-items: center;
+        justify-content: center;
+        /* margin: auto; */
+        margin-top: 0px;
+        width: 76%;
+        
+    }
+
+.containerGlassDisplay {
+    /* El área para escribir. */
+    padding: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    height: 100px;
+    /* width: fit-content;
+    block-size: fit-content; */
+    /* min-width: 400px; */
+    align-items: center;
+    justify-content: center;
+    background: rgba(125, 249, 255, 0.2);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(7px);
+    -webkit-backdrop-filter: blur(7px);
+    border-radius: 10px;
+    border: 1px solid rgba(147, 41, 235, 0.18);
+    }
+
+    
 
 input[type=text] {
     width: 100%;
@@ -213,7 +222,7 @@ label {
     width: 400px;
     height: 400px;
     z-index: -1;
-    top: 145%;
+    top: 1%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
@@ -287,7 +296,7 @@ input[type=submit]:hover {
 
 .row {
     display: flex;
-    margin-bottom: 15px;
+    margin-bottom: 5px;
     align-items: center;
 }
 
@@ -317,13 +326,13 @@ input[type=submit]:hover {
         left: 67% !important;
     }
 
-    .buttonDIvOptoveride {
+    .buttonDivOptoveride {
         position: absolute;
         top: -17% !important;
         right: -8% !important;
     }
 
-    #optionDIv {
+    #optionDiv {
         position: fixed !important;
         top: 4% !important;
         width: fit-content;
@@ -341,7 +350,6 @@ input[type=submit]:hover {
         height: 400px;
         z-index: -1;
         top: 134% !important;
-
     }
 
     .addrow {
@@ -353,7 +361,7 @@ input[type=submit]:hover {
         display: flex;
         justify-content: center;
         align-items: center;
-        margin-top: 45px;
+        margin-top: 0px;
     }
 
     #barid {
@@ -385,14 +393,14 @@ input[type=submit]:hover {
     }
 
     .container1 {
-        width: 90%;
-        margin-bottom: 20px;
+        width: 100%;
+        margin-bottom: 1px;
         margin-left: 0px !important;
-        padding-bottom: 100px !important;
+        padding-bottom: 0px !important;
     }
 
     .container1 {
-        padding: 30px;
+        padding: 10px;
         height: 200px;
     }
 
@@ -432,9 +440,9 @@ input[type=submit]:hover {
         display: flex;
         justify-content: center;
         align-items: center;
-        width: 95%;
-        margin: auto;
-        margin-top: 30px;
+        width: 100%;
+        /* margin: auto; */
+        margin-top: 20px;
 
     }
 
@@ -864,16 +872,9 @@ svg {
 .svg-center {
     width: 35%;
     margin: auto;
-    margin-top: 50px;
-}
-
-.glass2 {
-    width: 950px;
+    margin-top: 1px;
     align-items: center;
     justify-content: center;
-    margin: auto;
-    margin-top: 0px;
-    
 }
 
 /* when screen is less than 768p */

@@ -3,6 +3,12 @@
 let timing_bar = 5;
 let timing_elements = 0;
 let timing_glass = 0;
+bullet_icon  = "-";
+timer_icon = "⏱️";
+phone_icon = "📱";
+message_icon = "✉️";
+listening_icon = "📡";
+payment_icon = "💳";
 
 // use this variable to control coundDownTimer waiting time
 let countDownTimerTime = 5;
@@ -10,6 +16,8 @@ let coolDownTimerTime = 4;
 let lowBalanceTimerTime = 10;
 
 var countDownTimer;
+
+//ARRANQUE
 
 // get btnSubmit
 const btnSubmit = document.getElementById('btnSubmit');
@@ -19,9 +27,6 @@ const btnSubmit = document.getElementById('btnSubmit');
 const btnPaypal = document.getElementById('btnPaypal');
 btnPaypal.style.display = 'none';
 
-
-
-//ARRANQUE
 // hide svg card at start
 $('#svg-card').css('display', 'none');
 
@@ -67,16 +72,30 @@ const clickToReturn = (e) => {
 
 //FUNCIONES
 
+function initText(){
+    //Text in the glasswindow:
+    addTextRow(bullet_icon + 'Receive SMS messages online, anywhere in the world 🌎', 1 ,"renglon_uno");
+    addTextRow(phone_icon + 'Superfast one-use simcards.', 2 ,"renglon_dos");
+    addTextRow(bullet_icon + 'For registering services and testing apps.', 3 ,"renglon_tres");
+    }
+    
+
 function startProgressBar() {
     console.log("startProgressBar");
 
     // hide the submit button
     btnSubmit.style.display = 'none';
-    
 
+    //Desaparece el div que contenia a los dropdownlists:
+    let selectores = document.getElementById('selectores');
+    selectores.style.display = 'none';
+
+    //Desaparece el div del botón Get (temporalmente):
+    let divBoton = document.getElementById('divBoton');
+    divBoton.style.display = 'none';
+
+ 
     let glass1 = document.getElementById('glass1');
-    
-
     glass1.classList.add('animate__fadeOut');
 
     setTimeout(() => {
@@ -115,9 +134,9 @@ function displayMessage(mensaje_error, pais, servicio) {
  
         //En estos casos no habrá tiempo de espera y se invitará a usar otro servicio.
 
-        addTextRow('No available numbers for ' + pais + '-' + servicio + ' right now.', 1, "renglon_uno");
-        addTextRow('We are supercharging new simcards.', 2, "renglon_dos");
-        addTextRow('In the meanwhile try another country or service. Thanks. 💖', 3, "renglon_tres");
+        addTextRow(bullet_icon + 'No available numbers for ' + pais + '-' + servicio + ' right now.', 1, "renglon_uno");
+        addTextRow(bullet_icon + 'We are supercharging new simcards.', 2, "renglon_dos");
+        addTextRow(bullet_icon + 'In the meanwhile try another country or service. Thanks. 💖', 3, "renglon_tres");
         habilitarBoton();
 
     }
@@ -125,16 +144,16 @@ function displayMessage(mensaje_error, pais, servicio) {
 
         //En éste caso no podrás proporcionar el servicio hasta que se descongele saldo o pongas más. 
 
-        addTextRow('Service unavailable, please try again in 10 minutes...', 4, "renglon_uno");
-        addTextRow('5:00', 2, "countDownText");
+        addTextRow(bullet_icon + 'Service unavailable, please try again in 10 minutes...', 4, "renglon_uno");
+        addTextRow(timer_icon + '5:00', 2, "countDownText");
         startCountdownTimer("low_balance");
 
     } else     
     {
         //Todos los demás casos
-        addTextRow(mensaje_error, 1, "renglon_uno");
-        addTextRow('5:00', 2, "countDownText");
-        addTextRow('We recommend you to wait a bit to try again...', 4, "renglon_tres");
+        addTextRow(bullet_icon + mensaje_error, 1, "renglon_uno");
+        addTextRow(timer_icon + '5:00', 2, "countDownText");
+        addTextRow(bullet_icon + 'We recommend you to wait a bit to try again...', 4, "renglon_tres");
         startCountdownTimer("mensaje");
     }
    
@@ -145,16 +164,14 @@ function displayMessage(mensaje_error, pais, servicio) {
 function displayCountDown() {
    
     // add p element to the glass2_textrows
-    addTextRow('Your simcard is ready.', 1 ,"renglon_uno");
-    addTextRow(numero, 2 ,"renglon_dos");
-    addTextRow('You can use this number for the next:', 3 ,"renglon_tres");
-    addTextRow('', 4, "countDownText");
-    addTextRow('Ready to receive messages, listening...', 5, "renglon_cinco");
+    addTextRow(bullet_icon + 'Your simcard is ready.', 1 ,"renglon_uno");
+    addTextRow(phone_icon + numero, 2 ,"renglon_dos");
+    addTextRow(bullet_icon + 'You can use this number for the next:', 3 ,"renglon_tres");
+    addTextRow(timer_icon + '', 4, "countDownText");
+    addTextRow(listening_icon + 'Ready to receive messages, listening...', 5, "renglon_cinco");
     addTextRow('', 6, "renglon_seis");
     
     startCountdownTimer();
-
-    //optionDIv.classList.add('buttonDIvOptoveride');
  
 }
 
@@ -193,15 +210,15 @@ function startCountdownTimer(tipo_de_conteo) {
         var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
         var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-        document.getElementById("countDownText").innerHTML = minutes + "m " + seconds + "s ";
+        document.getElementById("countDownText").innerHTML = timer_icon + minutes + "m " + seconds + "s ";
         // If the count down is finished, write some text
         if (distance < 0) {
             clearInterval(countDownTimer);
             document.getElementById("welcome").innerHTML = "";
             document.getElementById("numero").innerHTML = "";
             document.getElementById("tittle").innerHTML = "";
-            document.getElementById("countDownText").innerHTML = countDown_message;
-            document.getElementById("listener").innerHTML = "You can try again anytime you want.";
+            document.getElementById("countDownText").innerHTML =countDown_message;
+            document.getElementById("listener").innerHTML = bullet_icon + "You can try again anytime you want.";
 
             // enable button
             habilitarBoton();
@@ -220,9 +237,15 @@ function startCountdownTimer(tipo_de_conteo) {
 
 function habilitarBoton(){
 
+    //Reaparece el div del botón Get:
+    //let divBoton = document.getElementById('divBoton');
+    divBoton.style.display = 'flex';
+
      // enable button
      btnSubmit.style.display = 'block';
      btnSubmit.value = "Start Over";
+
+
      
      /* // enable button
      btnPaypal.style.display = 'block'; */
@@ -241,14 +264,21 @@ function stopProgressBar() {
 }
 
 function mensajeEncontrado(mensaje){
+
+    /* //Con los textos actuales el cambio de altura de la ventana no es necesario.
+    let glass2Textrows = document.getElementById('glass2_textrows');
+    glass2Textrows.style.height = '150px' */
         
     //Glasswindow showed when message found...
-        document.getElementById("renglon_uno").innerHTML = "Your message has been received at:";
+        document.getElementById("renglon_uno").innerHTML = bullet_icon + "Your message has been received at:";
         document.getElementById("countDownText").innerHTML = "";
-        document.getElementById("renglon_tres").innerHTML = mensaje;
-        document.getElementById("renglon_cinco").innerHTML = "Complete your payment to realease the full message ✉️.";
-        document.getElementById("renglon_seis").innerHTML = "Thanks for using our service :)";
+        document.getElementById("renglon_tres").innerHTML = message_icon + mensaje;
+        document.getElementById("renglon_cinco").innerHTML = payment_icon + "Complete your payment to release the full message.";
+        document.getElementById("renglon_seis").innerHTML = bullet_icon + "Thanks for using our service :)";
         clearInterval(countDownTimer);
+        //Reaparece el div del botón Get:
+    //let divBoton = document.getElementById('divBoton');
+    divBoton.style.display = 'flex';
         btnPaypal.style.display = 'block';
         
 }

@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,22 +7,17 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="paypalbuttons.css">
   
-  
     <title>Open SimCard</title>
     
 </head>
 
-<body id="body" class="gradient">
-    <!-- <body id="body" class="gradient" onload=" initPayPalButton();"> -->
-    <div class="row addrow2 main_row">
-        <!-- <div class="buttonDIvOpt" id="optionDIv"><button type="button" class="optionOne btn-primary" id="buttonOption"
-                onclick="optionButton(this)">Option A</button></div> -->
-    </div>
-    <div class="row addrow2 main_row">
+<body id="body" class="gradient" onload="initText();">
+<br>
+    <div class="row main_row">
         <h1>OpenSimCard</h1>
-        <!-- <h2><b>by Moibe: </b><script>document.write(direccion);</script></h2> -->
     </div>
-        <!-- card div -->
+           <!-- card div -->
+    <div class="main_row">
         <div id="svg-card" class="svg-center">
             <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                 viewBox="0 0 600 368">
@@ -94,9 +88,9 @@
     
                     <g fill="#fff" stroke-linecap="round">
                         <g clip-path="url(#txtBoxes)">
-                            <text x="45" y="60" font-size="25" id="cardText1">Debit</text>
-                            <text x="45" y="320" font-size="25" id="cardText2">Gail Bell</text>
-                            <text x="350" y="320" font-size="26" id="cardText3">02/30</text>
+                            <text x="45" y="60" font-size="25" id="cardText1"></text>
+                            <text x="45" y="320" font-size="25" id="cardText2"></text>
+                            <text x="350" y="320" font-size="26" id="cardText3"></text>
                         </g>
                         <path fill="none" stroke="#fff" stroke-width="2.4" d="M42.5,146.5c2,2,2,6.3,0,8.2 M57,163.7c5.1-5.9,5.1-19.8,0-26.3 M52.1,160.7c4.4-4.5,4.9-15.2,0-20.2
                  M47.8,157.2c2.9-3,2.9-10,0-13.2" />
@@ -106,15 +100,17 @@
     
             </svg>
         </div>
+    </div>
 
     <div class="main_row">
         <div id="glass2" class="glass2 container animate__animated">
-            <div class="container1up wSm50" id="glass2_textrows">
+            <div class="containerGlassDisplay wSm50" id="glass2_textrows">
             </div>
         </div>
     </div>
-         <div class="main_row">
-        <div id="glass1" class="container1 animate__animated">
+    <div id="selectores" class="main_row">
+                <div id="glass1" class="containerOptions animate__animated">
+            
             <div id="formText"></div>
             <form action="#">
                 <!-- dropdown2 with list of some apps like whatsapp -->
@@ -134,6 +130,7 @@
                         </select>
                     </div>
                 </div>
+                
                 <!-- dropdown1 with list of countries  -->
                 <div class="row">
                     <div class="col-25">
@@ -152,13 +149,12 @@
                         </select>
                     </div>
                 </div>
-                
-             </form>
+              </form>
         </div>
     </div>
 
-    <div class="container main_row" style="margin-top: 20px; display: none;" id="barid">
-        <section>
+    <div class="container main_row" style="display: none;" id="barid">
+                       <section>
             <article>
                 <div class="chart">
                     <div class="bar bar-75 white">
@@ -180,14 +176,11 @@
                 </div>
         </section>
     </div>
-
+    
     <!-- submit button -->
-    <div class="main_row">       
-        
-        <input type="submit" value="Get SimCard" id="btnSubmit" style="width: auto;">
-       
+    <div id="divBoton" class="main_row">   
+              <input type="submit" value="Get SimCard" id="btnSubmit" style="width: auto;">
         <div id="btnPaypal" type="submit"> 
-                                                                                                                        
             <script src="/localpaypal.js?merchant=735A4R6642VWC"
                 data-button="buynow"
                 data-name="Digital Download"
@@ -204,23 +197,18 @@
             </script>
         </div>
 
-          <!-- <div id="smart-button-container">
+        <!-- <div id="smart-button-container">
             <div style="text-align: center;">
               <div id="paypal-button-container"></div>
             </div> -->
- 
-    </div>
+     </div>
 <br>
-<br>
-<br>
-        <div class="row addrow2 main_row">
-        <div>
+        <div class="row main_row">
+               <div>
             <img src="buynowpaypal.png" width="50%" height="50%">
         </div>
     </div>
-       
-    
-    
+   
 </body>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
     integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
@@ -231,10 +219,7 @@
 <script src="https://unpkg.co/gsap@3/dist/gsap.min.js"></script>
 <script src="https://unpkg.com/gsap@3/dist/MotionPathPlugin.min.js"></script>
 
-
-
 <!-- <script src="https://www.paypal.com/sdk/js?client-id=ASVK8WvrW0Qx0JZFP-Dz69uGeAvm6_2ZREhl3ZCdu97Dis6xi7ztHOFMZggCm6hh3VRce0oNtPuONg9H&enable-funding=venmo&currency=USD" data-sdk-integration-source="button-factory"></script> -->
-
 
 <!-- <script src="./paypal_checkout.js"></script> -->
 <script type='text/javascript' src='secret.js'></script>
@@ -242,6 +227,5 @@
 <script src="./numbers.js"></script>
 <script src="./tools.js"></script>
 <script src="./obfuscator.js"></script>
-
 
 </html>
