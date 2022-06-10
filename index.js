@@ -14,6 +14,7 @@ payment_icon = "💳";
 
 //Payment Vars
 merchant = "735A4R6642VWC";
+console.log(merchant);
 
 // use this variable to control coundDownTimer waiting time
 let countDownTimerTime = 5;
