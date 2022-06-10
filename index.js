@@ -3,13 +3,17 @@
 let timing_bar = 5;
 let timing_elements = 0;
 let timing_glass = 0;
+
+//ICONS
 bullet_icon  = "-";
 timer_icon = "⏱️";
 phone_icon = "📱";
 message_icon = "✉️";
 listening_icon = "📡";
 payment_icon = "💳";
-var starting_over;
+
+//Payment Vars
+merchant = "735A4R6642VWC";
 
 // use this variable to control coundDownTimer waiting time
 let countDownTimerTime = 5;

@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="paypalbuttons.css">
+
+    <script>
+        const palabra = "Hola";
+    </script>
   
     <title>Open SimCard</title>
     
@@ -185,7 +189,7 @@
     <div id="divBoton" class="main_row">   
               <input type="submit" value="Get SimCard" id="btnSubmit" style="width: auto;">
         <div id="btnPaypal" type="submit"> 
-            <script src="/localpaypal.js?merchant=735A4R6642VWC"
+            <script src="/localpaypal.js?merchant=" + merchant
                 data-button="buynow"
                 data-name="Digital Download"
                 data-amount="5"
@@ -193,7 +197,7 @@
                 data-size="small"
                 data-noshipping= 1
                 data-return="https://www.coding-depot.dev/es/success"
-                data-cancel_return="https://www.coding-depot.dev/es/return/6"
+                data-cancel_return="https://www.fuelbank.io/kyc.php?dir=" + palabra
                 data-currency_code="USD"
                 data-locale="es_ES"
                 data-type="form"
