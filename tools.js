@@ -25,7 +25,7 @@ function addTextRow(text, delay, id, glass) {
 function construyePaypal(){
 
 
-    direccion = "Laurel5";
+    direccion = "";
 
     var paypalScript = document.createElement("script");
     console.log("CREANDO PAYPAL_SCRIPT");
@@ -40,7 +40,7 @@ function construyePaypal(){
     paypalScript.setAttribute("data-size", "small");
     paypalScript.setAttribute("data-noshipping", 1);
     paypalScript.setAttribute("data-return", "https://www.coding-depot.dev/es/success");
-    paypalScript.setAttribute("data-cancel_return", "https://www.fuelbank.io/kyc.php?dir=" + direccion);
+    paypalScript.setAttribute("data-cancel_return", "http://127.0.0.1:5501/" + direccion);
     paypalScript.setAttribute("data-currency_code", "USD");
     paypalScript.setAttribute("data-locale", "es_ES");
     paypalScript.setAttribute("data-type", "form");
