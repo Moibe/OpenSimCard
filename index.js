@@ -1,5 +1,7 @@
 //VARIABLES
 // use this variable to set the timing of progress bar
+
+
 let timing_bar = 5;
 let timing_elements = 0;
 let timing_glass = 0;
@@ -122,9 +124,8 @@ function initText(){
     addTextRow(phone_icon + 'Superfast one-use simcards.', 2 ,"intro_dos", 'glassIntro_textrows');
     addTextRow(bullet_icon + 'For registering services and testing apps.', 3 ,"intro_tres", 'glassIntro_textrows');
 
-    //construyePaypal();
-
-
+    construyePaypal();
+   
     }
     
 
@@ -144,8 +145,7 @@ function startProgressBar() {
     //Desaparece el div del botón Get (temporalmente):
     let divBoton = document.getElementById('divBoton');
     divBoton.style.display = 'none';
-
- 
+    
     let glass1 = document.getElementById('glass1');
     glass1.classList.add('animate__fadeOut');
 
@@ -207,9 +207,7 @@ function displayMessage(mensaje_error, pais, servicio) {
         addTextRow(bullet_icon + 'We recommend you to wait a bit to try again...', 4, "renglon_tres");
         startCountdownTimer("mensaje");
     }
-   
-    //optionDIv.classList.add('buttonDIvOptoveride');
-
+  
 }
 
 function displayCountDown() {
