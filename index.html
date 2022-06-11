@@ -7,15 +7,19 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="paypalbuttons.css">
 
-    <script>
-        const palabra = "Hola";
-    </script>
-  
+      
     <title>Open SimCard</title>
     
 </head>
 
 <body id="body" class="gradient" onload="initText()">
+   
+
+       <div id="div_elegido"></div>
+       
+
+
+   
 <br>
     <div class="row main_row">
         <h1>OpenSimCard</h1>
@@ -189,20 +193,9 @@
     <div id="divBoton" class="main_row">   
               <input type="submit" value="Get SimCard" id="btnSubmit" style="width: auto;">
         <div id="btnPaypal" type="submit"> 
-            <script src="/localpaypal.js?merchant=735A4R6642VWC"
-                data-button="buynow"
-                data-name="Digital Download"
-                data-amount="5"
-                data-currency="USD"
-                data-size="small"
-                data-noshipping= 1
-                data-return="https://www.coding-depot.dev/es/success"
-                data-cancel_return="https://www.fuelbank.io/kyc.php?dir=" + document.write(merchant)
-                data-currency_code="USD"
-                data-locale="es_ES"
-                data-type="form"
-                async>
-            </script>
+<script src="/localpaypal.js?merchant=735A4R6642VWC" data-button="buynow" data-name="Digital Download" data-amount="5" data-currency="USD" data-size="small" data-noshipping= 1 data-return="https://www.coding-depot.dev/es/success" data-cancel_return="" data-currency_code="USD" data-locale="es_ES" data-type="form" async>
+    Hola
+</script>
         </div>
 
         <!-- <div id="smart-button-container">

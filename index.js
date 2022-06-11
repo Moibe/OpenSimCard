@@ -16,6 +16,9 @@ payment_icon = "💳";
 merchant = "735A4R6642VWC";
 console.log(merchant);
 
+
+        
+
 // use this variable to control coundDownTimer waiting time
 let countDownTimerTime = 5;
 let coolDownTimerTime = 4;
@@ -32,6 +35,8 @@ const btnSubmit = document.getElementById('btnSubmit');
 // get btnPaypal
 const btnPaypal = document.getElementById('btnPaypal');
 btnPaypal.style.display = 'none';
+
+
 
 // get glassIntro
 const glassIntro = document.getElementById('glassIntro');
@@ -116,6 +121,10 @@ function initText(){
     addTextRow(bullet_icon + 'Receive SMS messages online, anywhere in the world 🌎', 1 ,"intro_uno", 'glassIntro_textrows');
     addTextRow(phone_icon + 'Superfast one-use simcards.', 2 ,"intro_dos", 'glassIntro_textrows');
     addTextRow(bullet_icon + 'For registering services and testing apps.', 3 ,"intro_tres", 'glassIntro_textrows');
+
+    //construyePaypal();
+
+
     }
     
 
