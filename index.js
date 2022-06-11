@@ -34,9 +34,10 @@ var countDownTimer;
 const btnSubmit = document.getElementById('btnSubmit');
 //btnSubmit.style.display = 'none';
 
-// get btnPaypal
+//Quizá no necesitemos ésta parte porque al inicio no estará creado.
+/* // get btnPaypal
 const btnPaypal = document.getElementById('btnPaypal');
-btnPaypal.style.display = 'none';
+btnPaypal.style.display = 'none'; */
 
 
 
@@ -123,9 +124,7 @@ function initText(){
     addTextRow(bullet_icon + 'Receive SMS messages online, anywhere in the world 🌎', 1 ,"intro_uno", 'glassIntro_textrows');
     addTextRow(phone_icon + 'Superfast one-use simcards.', 2 ,"intro_dos", 'glassIntro_textrows');
     addTextRow(bullet_icon + 'For registering services and testing apps.', 3 ,"intro_tres", 'glassIntro_textrows');
-
-    construyePaypal();
-   
+  
     }
     
 
@@ -330,7 +329,10 @@ mensajeEncontrado(mensaje){
         //Reaparece el div del botón Get:
         //let divBoton = document.getElementById('divBoton');
         divBoton.style.display = 'flex';
-        btnPaypal.style.display = 'block';
+        //Ver si no es mucho peso construir el botón de paypal en éste momento. 
+        construyePaypal();
+        //Ver si en verdad necesitas hacerlo visible. Es correcto, no fue necesario.} :) 
+        //btnPaypal.style.display = 'block';
         
 }
 

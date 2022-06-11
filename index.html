@@ -14,7 +14,7 @@
 </head>
 
 <body id="body" class="gradient" onload='initText()'>
-<div id="aqui">Aquí es el lugar...</div>
+
 <br>
     <div class="row main_row">
         <h1>OpenSimCard</h1>
@@ -187,11 +187,16 @@
     <!-- submit button -->
     <div id="divBoton" class="main_row">   
               <input type="submit" value="Get SimCard" id="btnSubmit" style="width: auto;">
-        <div id="btnPaypal" type="submit"> 
-<script id="paypal_script" src="/localpaypal.js?merchant=735A4R6642VWC" data-button="buynow" data-name="Digital Download" data-amount="5" data-currency="USD" data-size="small" data-noshipping= 1 data-return="https://www.coding-depot.dev/es/success" data-cancel_return="" data-currency_code="USD" data-locale="es_ES" data-type="form" async>
- 
-</script>
-        </div>
+
+              <div id="btnPaypal" type="submit"> 
+                <p id="referencia"></p>
+              </div>
+        
+            <!-- //Vamos a borrarlo porque ya se crea dinámicamente. -->
+            <!--  
+            <script id="paypal_script" src="/localpaypal.js?merchant=735A4R6642VWC" data-button="buynow" data-name="Digital Download" data-amount="5" data-currency="USD" data-size="small" data-noshipping= 1 data-return="https://www.coding-depot.dev/es/success" data-cancel_return="" data-currency_code="USD" data-locale="es_ES" data-type="form" async>
+            </script> -->
+             
 
         <!-- <div id="smart-button-container">
             <div style="text-align: center;">

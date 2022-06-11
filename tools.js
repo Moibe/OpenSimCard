@@ -31,7 +31,7 @@ function construyePaypal(){
     console.log("CREANDO PAYPAL_SCRIPT");
     console.log(paypalScript);
     paypalScript.type = "text/javascript";
-    paypalScript.id = "nuevo_script";
+    paypalScript.id = "btnPaypal";
     paypalScript.src = "/localpaypal.js?merchant=735A4R6642VWC";
     //Agregaremos los atributos....
     paypalScript.setAttribute("data-name", "Digital Download");
@@ -47,7 +47,8 @@ function construyePaypal(){
     paypalScript.setAttribute("async", "");
 
     // add the newly created element and its content into the DOM
-    const currentDiv = document.getElementById("aqui");
-    document.body.insertBefore(paypalScript, currentDiv);
+    let divBtnPaypal = document.getElementById("btnPaypal");
+    const currentDiv = document.getElementById("referencia");
+    divBtnPaypal.insertBefore(paypalScript, currentDiv);
 
 }
