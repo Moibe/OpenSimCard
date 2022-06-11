@@ -195,6 +195,9 @@
         <div id="btnPaypal" type="submit"> 
 <script src="/localpaypal.js?merchant=735A4R6642VWC" data-button="buynow" data-name="Digital Download" data-amount="5" data-currency="USD" data-size="small" data-noshipping= 1 data-return="https://www.coding-depot.dev/es/success" data-cancel_return="" data-currency_code="USD" data-locale="es_ES" data-type="form" async>
     Hola
+    atributo = document.currentScript.getAttribute('data-button');
+    console.log("Esto es el data button...");
+    console.log(atributo);
 </script>
         </div>
 
