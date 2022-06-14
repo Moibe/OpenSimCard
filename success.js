@@ -6,7 +6,7 @@ verifNode_Success = localStorage.getItem('verifnode');
 console.log("Ésto es el chequeo desde Success:...")
 console.log(verifNode_Success);
 
-function checkSuccess(tzid_recibido, nodo_recibido){
+function checkNode(tzid_recibido, nodo_recibido){
 
     console.log("Estamos dentro de la función...");
     console.log("Y ésto es el tzid recibido por la función...");
@@ -15,6 +15,24 @@ function checkSuccess(tzid_recibido, nodo_recibido){
     console.log("Y ésto es el nodo recibido por la función...");
     console.log(nodo_recibido);
 
+    //Por otra parte, requerimos saber cual es el nodo que está guardado en el storagelocal. 
+        nodoOficial = localStorage.getItem('verifnode');
+        console.log("Éste es el nodo guardado de forma local:...")
+        console.log(nodoOficial);
+
+    //Si ambos son iguales, continua....
+
+    if(nodo_recibido == nodoOficial){
+        console.log("Ambos son iguales!");
+        obtenMensajeFinal();
+    }
+    else{
+        console.log("Son DIFERENTES!!!");
+    }
+
+}
+
+function obtenMensajeFinal(){
     //No se va a hacer el fetch si no coincide el código verificador, para evitar llamados innecesarios.
    
     fetch(url)
@@ -44,7 +62,9 @@ function checkSuccess(tzid_recibido, nodo_recibido){
         console.log("O INCLUSO QUE ALGUIEN ESTÁ PROBANDO CON NÚMEROS, even a crawler... ;) ");
         //location.replace("http://127.0.0.1:5501/");
       });
+
 }
+  
 
 function escribeResultados(){
     addTextRow('Thanks for your purchase.', 1, "renglon_uno", 'glass2_textrows');
