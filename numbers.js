@@ -157,7 +157,7 @@ function leer(tzid){
          //mensaje = data[0].msg; 
          //fake
          mensaje = "[53904836] This is your new Instagram code: 540904836."
-         resolve(mensaje);
+         resolve(mensaje, tzid);
          exito = 1;
        }
        else 
@@ -173,7 +173,7 @@ function leer(tzid){
    (
      function(result) //Si ésta promesa se cumple, entonces...
      {
-          mensajeEncontrado(obfusMessage(mensaje));
+          mensajeEncontrado(obfusMessage(mensaje), tzid);
      }, 
      
      function(err) //Si el mensaje no ha llegado, entonces...

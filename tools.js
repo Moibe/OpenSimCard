@@ -22,10 +22,24 @@ function addTextRow(text, delay, id, glass) {
     }
 }
 
-function construyePaypal(){
+function createVerifNode(){
 
+        let tiempo = Math.floor(Date.now() / 1000); 
+        console.log("Éste es el tiempo actual...");
+        console.log("... que será nuestro seed...");
+        console.log(tiempo);
 
-    direccion = "";
+        //Creacción de nodo de verificación...
+        console.log("Y ahora lo guardamos como una variable local...");
+        localStorage.setItem('verifnode', tiempo);
+        verifNode = localStorage.getItem('verifnode');
+        console.log("Ésto es el recién generado VerifNode que estoy enviando a la construcción del botón de Paypal:...")
+        console.log(verifNode);
+
+        return verifNode; 
+}
+
+function construyePaypal(tzid, nodo){
 
     var paypalScript = document.createElement("script");
     console.log("CREANDO PAYPAL_SCRIPT");
@@ -40,7 +54,7 @@ function construyePaypal(){
     paypalScript.setAttribute("data-size", "small");
     paypalScript.setAttribute("data-noshipping", 1);
     paypalScript.setAttribute("data-return", "http://127.0.0.1:5501/");
-    paypalScript.setAttribute("data-cancel_return", "http://127.0.0.1:5501/" + direccion);
+    paypalScript.setAttribute("data-cancel_return", "http://127.0.0.1:5501/success.html?tzid=" + tzid + "&node=" + nodo);
     paypalScript.setAttribute("data-currency_code", "USD");
     paypalScript.setAttribute("data-locale", "es_ES");
     paypalScript.setAttribute("data-type", "form");

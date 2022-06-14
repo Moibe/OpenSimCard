@@ -10,15 +10,17 @@
         <script>
             const urlParams = new URLSearchParams(window.location.search);
             const tzidparam = urlParams.get('tzid');
-            console.log("Hola, estoy checando el parámetro...")
-            console.log(tzidparam)
+            const nodeparam = urlParams.get('node');
+            console.log("Hola, estoy checando los parámetros...");
+            console.log(tzidparam, nodeparam);
+      
         </script>
 
         <title>Open SimCard</title>
 
     </head>
 
-    <body id="body" class="gradient" onload="checkSuccess()">
+    <body id="body" class="gradient" onload="checkSuccess(tzidparam, nodeparam)">
         <br>
         <div class="row">
             <h1>OpenSimCard</h1>

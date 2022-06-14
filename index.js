@@ -16,11 +16,9 @@ payment_icon = "💳";
 
 //Payment Vars
 merchant = "735A4R6642VWC";
+console.log("Éste es el merchant:");
 console.log(merchant);
-
-
-        
-
+ 
 // use this variable to control coundDownTimer waiting time
 let countDownTimerTime = 5;
 let coolDownTimerTime = 4;
@@ -67,7 +65,7 @@ btnSubmit.addEventListener('click', function () {
         const Pais = dropdown1.options[dropdown1.selectedIndex].innerHTML;
         //get the value of the second dropdown
         const Servicio = dropdown2.options[dropdown2.selectedIndex].innerHTML;
-
+      
         startProgressBar();
         startProcess(Country, Service, Pais, Servicio);
         
@@ -330,9 +328,9 @@ mensajeEncontrado(mensaje){
         //let divBoton = document.getElementById('divBoton');
         divBoton.style.display = 'flex';
         //Ver si no es mucho peso construir el botón de paypal en éste momento. 
-        construyePaypal();
-        //Ver si en verdad necesitas hacerlo visible. Es correcto, no fue necesario.} :) 
-        //btnPaypal.style.display = 'block';
+        //Los parámetros que se le dan son el tzid que viene del éxito en la obtención del mensaje...
+        //...y de la creación al vuelo del nodo de verificación.
+        construyePaypal(tzid, createVerifNode());
         
 }
 

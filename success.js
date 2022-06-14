@@ -2,7 +2,20 @@ url = 'http://onlinesim.ru/api/getState.php?apikey=C9zkn1LW4uKXy71-cKUVjb82-v5Vx
 console.log("Ésta es la url...")
 console.log(url);
 
-function checkSuccess(){
+verifNode_Success = localStorage.getItem('verifnode');
+console.log("Ésto es el chequeo desde Success:...")
+console.log(verifNode_Success);
+
+function checkSuccess(tzid_recibido, nodo_recibido){
+
+    console.log("Estamos dentro de la función...");
+    console.log("Y ésto es el tzid recibido por la función...");
+    console.log(tzid_recibido);
+
+    console.log("Y ésto es el nodo recibido por la función...");
+    console.log(nodo_recibido);
+
+    //No se va a hacer el fetch si no coincide el código verificador, para evitar llamados innecesarios.
    
     fetch(url)
       .then(response => response.json())
@@ -29,7 +42,7 @@ function checkSuccess(){
         console.log("ESTAMOS EN EL CATCH ;) ");
         console.log("LLEGAR AQUÏ SIGNIFICA QUE NI SI QUIERA EXISTE EL SERVICIO... ;) ");
         console.log("O INCLUSO QUE ALGUIEN ESTÁ PROBANDO CON NÚMEROS, even a crawler... ;) ");
-        location.replace("http://127.0.0.1:5501/");
+        //location.replace("http://127.0.0.1:5501/");
       });
 }
 
