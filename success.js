@@ -2,32 +2,34 @@ url = 'http://onlinesim.ru/api/getState.php?apikey=C9zkn1LW4uKXy71-cKUVjb82-v5Vx
 console.log("Ésta es la url...")
 console.log(url);
 
-/* const origin = req.headers.origin;
-console.log(origin)
-res.setHeader('Access-Control-Allow-Origin', origin); */
-
 function checkSuccess(){
    
     fetch(url)
       .then(response => response.json())
       .then(data => {
-          if(data.response != null){
-              console.log(data.response);
-              console.log("La respuesta es undefined.");
-              console.log("No hay un servicio relacionado.");
-              mensaje = "[53904836] Éste es tu código de Instagram 54090. Gracias.";
-              mensaje_obfuscado = obfusMessage(mensaje)
-              escribeResultados(mensaje_obfuscado);
-              }
-              else{
-                  console.log("Si hay un servicio relacionado.");
-                  console.log(data[0].response);
-                  mensaje = data[0].response;
-                  escribeResultados(mensaje);
+          if(data[0].response != 'TZ_NUM_WAIT'){
+
+            //Aquí llega si sí existe pero aún está esperando...
+            console.log("Seguimos en espera de que envíes un mensaje..");
+ 
+        }
+            else{
+                
+            //Aquí llega si ya le llegó el mensaje.
+            console.log("Esto es data[0].response;");
+            console.log(data[0].response);
+            mensaje = data[0].response;
+            escribeResultados(mensaje);
+               
+            
               }
           })
       .catch(err => {
         console.error(err);
+        console.log("ESTAMOS EN EL CATCH ;) ");
+        console.log("LLEGAR AQUÏ SIGNIFICA QUE NI SI QUIERA EXISTE EL SERVICIO... ;) ");
+        console.log("O INCLUSO QUE ALGUIEN ESTÁ PROBANDO CON NÚMEROS, even a crawler... ;) ");
+        location.replace("http://127.0.0.1:5501/");
       });
 }
 

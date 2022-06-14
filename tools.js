@@ -39,7 +39,7 @@ function construyePaypal(){
     paypalScript.setAttribute("data-currency", "USD");
     paypalScript.setAttribute("data-size", "small");
     paypalScript.setAttribute("data-noshipping", 1);
-    paypalScript.setAttribute("data-return", "https://www.coding-depot.dev/es/success");
+    paypalScript.setAttribute("data-return", "http://127.0.0.1:5501/");
     paypalScript.setAttribute("data-cancel_return", "http://127.0.0.1:5501/" + direccion);
     paypalScript.setAttribute("data-currency_code", "USD");
     paypalScript.setAttribute("data-locale", "es_ES");
