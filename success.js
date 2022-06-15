@@ -111,6 +111,10 @@ function fillCard(objeto){
   
 
 function escribeResultados(){
+
+    purchased1_text = 'Thanks for your purchase.';
+    purchased2_text = 'Here is your complete message:';
+   
     addTextRow('Thanks for your purchase.', 1, "renglon_uno", 'glass2_textrows');
     addTextRow('Here is your complete message:', 2, "renglon_dos", 'glass2_textrows');
     addTextRow(mensaje, 3, "renglon_tres", 'glass2_textrows');

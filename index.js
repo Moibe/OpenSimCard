@@ -119,9 +119,15 @@ const clickToReturn = (e) => {
 
 function initText(){
     //Text in the glasswindow:
-    addTextRow(bullet_icon + 'Receive SMS messages online, anywhere in the world 🌎', 1 ,"intro_uno", 'glassIntro_textrows');
-    addTextRow(phone_icon + 'Superfast one-use simcards.', 2 ,"intro_dos", 'glassIntro_textrows');
-    addTextRow(bullet_icon + 'For registering services and testing apps.', 3 ,"intro_tres", 'glassIntro_textrows');
+
+    //Esto se moverá a un json de lenguajes.
+    intro1_text = 'Receive SMS messages online, anywhere in the world 🌎';
+    intro2_text = 'Superfast one-use simcards.';
+    intro3_text = 'For registering services and testing apps.';
+
+    addTextRow(bullet_icon + intro1_text , 1 ,"intro_uno", 'glassIntro_textrows');
+    addTextRow(phone_icon + intro2_text , 2 ,"intro_dos", 'glassIntro_textrows');
+    addTextRow(bullet_icon + intro1_text, 3 ,"intro_tres", 'glassIntro_textrows');
   
     }
     
@@ -182,9 +188,13 @@ function displayMessage(mensaje_error, pais, servicio) {
  
         //En estos casos no habrá tiempo de espera y se invitará a usar otro servicio.
 
-        addTextRow(bullet_icon + 'No available numbers for ' + pais + '-' + servicio + ' right now.', 1, "renglon_uno", 'glass2_textrows');
-        addTextRow(bullet_icon + 'We are supercharging new simcards.', 2, "renglon_dos", 'glass2_textrows');
-        addTextRow(bullet_icon + 'In the meanwhile try another country or service. Thanks. 💖', 3, "renglon_tres", 'glass2_textrows');
+        noNumber1_text = 'No available numbers for ' + pais + '-' + servicio + ' right now.';
+        noNumber2_text = 'We are loading new simcards.';
+        noNumber3_text = 'In the meanwhile try another country or service. Thanks. 💖';
+
+        addTextRow(bullet_icon + noNumber1_text, 1, "renglon_uno", 'glass2_textrows');
+        addTextRow(bullet_icon + noNumber2_text, 2, "renglon_dos", 'glass2_textrows');
+        addTextRow(bullet_icon + noNumber3_text, 3, "renglon_tres", 'glass2_textrows');
         habilitarBoton();
 
     }
@@ -192,29 +202,39 @@ function displayMessage(mensaje_error, pais, servicio) {
 
         //En éste caso no podrás proporcionar el servicio hasta que se descongele saldo o pongas más. 
 
-        addTextRow(bullet_icon + 'Service unavailable, please try again in 10 minutes...', 4, "renglon_uno", 'glass2_textrows');
+        lowBalance1_text = 'Service unavailable, please try again in 10 minutes...'
+       
+        addTextRow(bullet_icon + lowBalance1_text, 4, "renglon_uno", 'glass2_textrows');
         addTextRow(timer_icon + '5:00', 2, "countDownText", 'glass2_textrows');
         startCountdownTimer("low_balance");
 
     } else     
     {
         //Todos los demás casos
+
+        elseCases1_text = 'We recommend you to wait a bit to try again...'
+
+
         addTextRow(bullet_icon + mensaje_error, 1, "renglon_uno");
         addTextRow(timer_icon + '5:00', 2, "countDownText");
-        addTextRow(bullet_icon + 'We recommend you to wait a bit to try again...', 4, "renglon_tres");
+        addTextRow(bullet_icon + elseCases1_text, 4, "renglon_tres");
         startCountdownTimer("mensaje");
     }
   
 }
 
 function displayCountDown() {
-   
+
+    simReady1_text = 'Your simcard is ready.';
+    simReady3_text = 'You can use this number for the next:'
+    simReady5_text = 'Ready to receive messages, listening...'
+    
     // add p element to the glass2_textrows
-    addTextRow(bullet_icon + 'Your simcard is ready.', 1 ,"renglon_uno", 'glass2_textrows');
+    addTextRow(bullet_icon + simReady1_text, 1 ,"renglon_uno", 'glass2_textrows');
     addTextRow(phone_icon + numero, 2 ,"renglon_dos", 'glass2_textrows');
-    addTextRow(bullet_icon + 'You can use this number for the next:', 3 ,"renglon_tres", 'glass2_textrows');
+    addTextRow(bullet_icon + simReady3_text , 3 ,"renglon_tres", 'glass2_textrows');
     addTextRow(timer_icon + '', 4, "countDownText", 'glass2_textrows');
-    addTextRow(listening_icon + 'Ready to receive messages, listening...', 5, "renglon_cinco", 'glass2_textrows');
+    addTextRow(listening_icon + simReady5_text, 5, "renglon_cinco", 'glass2_textrows');
     addTextRow('', 6, "renglon_seis", 'glass2_textrows');
     
     startCountdownTimer();
