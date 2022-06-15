@@ -66,3 +66,48 @@ function construyePaypal(tzid, nodo){
     divBtnPaypal.insertBefore(paypalScript, currentDiv);
 
 }
+
+function capitalize(word) {
+    const lower = word.toLowerCase();
+    return word
+    .charAt(0).toUpperCase() + lower.slice(1);
+  }
+
+function getInfoCountry(numero_pais, nombre_servicio){
+
+    url_pais= "https://onlinesim.io/api/getNumbersStats.php?apikey=C9zkn1LW4uKXy71-cKUVjb82-v5VxJK39-Q1pzusA5-nVPk96AW8h1J9J5&country=" + numero_pais + "&service=" + nombre_servicio;
+    console.log("Ésl país lo estamos sacando con ésta URL:")
+    console.log(url_pais);
+    
+    fetch(url_pais)
+      .then(response => response.json())
+      .then(data => {
+          if(data != null){
+
+            //Aquí llega si sí existe esa combinación de país y servicio...
+            console.log("Aquí llega si sí existe esa combinación de país y servicio...");
+
+            console.log("Esto es data.name;");
+            console.log(data.name);
+
+            pais_texto = data.name; 
+            return pais_texto; 
+                        
+        }
+            else{
+                
+            //Aquí llega si no hay respuesta.
+            console.log("No existe esa combinación...");
+              }
+          })
+      .catch(err => {
+        console.error(err);
+        console.log("ESTAMOS EN EL CATCH ;) ");
+        console.log("LLEGAR AQUÏ SIGNIFICA QUE NI SI QUIERA EXISTE EL SERVICIO... ;) ");
+        console.log("pero ya no debería llegar aquí porque todas las calls que se le envién se deberán hacer... ;) ");
+        //location.replace("http://127.0.0.1:5501/");
+      });
+
+
+
+}

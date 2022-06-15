@@ -378,7 +378,11 @@ function startProcess(Country_value, Service_value, Pais_texto, Servicio_texto) 
     // and hide the progress bar
     setTimeout(function () {
         console.log("Timeout...");
-
+        //Antes guarda el país para su uso futuro.
+        localStorage.setItem('pais', Pais_texto);
+        PaisNode = localStorage.getItem('pais');
+        console.log("Éste es el país en el local storage");
+        console.log(PaisNode);
         hacer(Country_value, Service_value, Pais_texto, Servicio_texto)
 
     }, `${timing_bar}000`);
