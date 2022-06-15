@@ -309,7 +309,10 @@ function habilitarBoton(){
 
      // enable button
      btnSubmit.style.display = 'block';
-     btnSubmit.value = "Start Over";
+
+     //También los textos de los botones se usarán como texto variable.
+     btnSubmit_text = "Start Over"
+     btnSubmit.value = btnSubmit_text;
      starting_over = true;
 
 
