@@ -1,7 +1,15 @@
 {
-    [texto_cliente]: {"ingles": "Hello Client",
-                        "espanol": "Hola Cliente"}
-},
+   "english": {
+    "intro1_text": "'Receive SMS messages online, anywhere in the world 🌎'",
+    "intro2_text": "'Superfast one-use simcards.'",
+    "intro3_text": "'For registering services and testing apps.'"
+   },
 
-[ingles]: {"texto_cliente": "Hello Client",
-"servicio_cliente": "This is the service"}
+"spanish":{
+    "intro1_text": "'Receive SMS messages online, anywhere in the world 🌎'",
+    "intro2_text": "'Superfast one-use simcards.'",
+    "intro3_text": "'For registering services and testing apps.'"
+}
+
+}    
+   
