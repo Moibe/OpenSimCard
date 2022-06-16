@@ -12,7 +12,9 @@ data =
     "elseCases1_text" : "We recommend you to wait a bit to try again...",
     "simReady1_text" : "Your simcard is ready.",
     "simReady3_text" : "You can use this number for the next:",
-    "simReady5_text" : "Ready to receive messages, listening..."
+    "simReady5_text" : "Ready to receive messages, listening...",
+    "btnSubmitInit_text" : "Get Simcard",
+    "btnSubmitStart_text" : "Start Over"
     }
    ,
     "spanish":
@@ -23,7 +25,8 @@ data =
     "noNumber1_text" : "No hay números disponibles para ",
     "noNumber1bis_text" : " en éste momento.",
     "noNumber2_text" : "Estamos cargando nuevas simcards.",
-    "noNumber3_text" : "Mientras tanto intenta con otro país o servicio. Gracias. 💖"
+    "noNumber3_text" : "Mientras tanto intenta con otro país o servicio. Gracias. 💖",
+    "btnSubmit_text" : "Iniciar Otra Vez"
     }
     
 }`

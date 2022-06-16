@@ -1,6 +1,6 @@
 //VARIABLES
 // use this variable to set the timing of progress bar
-let idioma = 'spanish';
+let idioma = 'english';
 let jsonData;
 
 let timing_bar = 5;
@@ -17,9 +17,7 @@ payment_icon = "💳";
 
 //Payment Vars
 merchant = "735A4R6642VWC";
-console.log("Éste es el merchant:");
-console.log(merchant);
- 
+
 // use this variable to control coundDownTimer waiting time
 let countDownTimerTime = 5;
 let coolDownTimerTime = 4;
@@ -122,9 +120,6 @@ const clickToReturn = (e) => {
 function initText(){
     //Text in the glasswindow:
 
-    pais = "Mexico"; 
-    servicio = 'Bitso'; 
-
     //Obtenemos el json con las variables de idioma.
     jsonData = JSON.parse(data);
 
@@ -132,6 +127,11 @@ function initText(){
     intro1_text = jsonData[idioma].intro1_text;
     intro2_text = jsonData[idioma].intro2_text;
     intro3_text = jsonData[idioma].intro3_text;
+    btnSubmit_text = jsonData[idioma].btnSubmitInit_text;
+
+    console.log("Encontramos éste primer valor para el botón...");
+    console.log(btnSubmit_text);
+    btnSubmit.value = btnSubmit_text;
 
     addTextRow(intro1_text, 1 ,"intro_uno", 'glassIntro_textrows');
     addTextRow(intro2_text , 2 ,"intro_dos", 'glassIntro_textrows');
@@ -325,12 +325,9 @@ function habilitarBoton(){
      btnSubmit.style.display = 'block';
 
      //También los textos de los botones se usarán como texto variable.
-     btnSubmit_text = "Start Over"
+     btnSubmit_text = jsonData[idioma].btnSubmitStart_text;
      btnSubmit.value = btnSubmit_text;
-     starting_over = true;
-
-
-     
+          
      /* // enable button
      btnPaypal.style.display = 'block'; */
      
