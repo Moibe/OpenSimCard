@@ -75,12 +75,13 @@ btnSubmit.addEventListener('click', function () {
     }
 });
 
+//Utilidades del botón.
 const optionButton = (e) => {
     if (e.classList.contains('optionOne')) {
         e.classList.remove('optionOne')
         e.classList.add('optionTwo')
         e.innerHTML = `Option B`;
-        formText.innerHTML = `My Form Version B`
+        //formText.innerHTML = `My Form Version B`
         body.classList.add('gradient1')
         body.classList.remove('gradient');
         // $('#adddedSuccessfull').css('display', 'none')
@@ -96,7 +97,7 @@ const optionButton = (e) => {
         e.classList.remove('optionTwo');
         e.classList.add('optionOne');
         e.innerHTML = `Option A`;
-        formText.innerHTML = `My Form Version A`
+        //formText.innerHTML = `My Form Version A`
         body.classList.remove('gradient1')
         body.classList.add('gradient')
         // $('#adddedSuccessfull').css('display', 'none')
@@ -109,6 +110,8 @@ const optionButton = (e) => {
         $('.confetti__button').css('cursor', 'default');
     }
 }
+
+
 
 // reset the form
 const clickToReturn = (e) => {

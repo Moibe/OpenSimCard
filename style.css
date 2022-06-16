@@ -44,6 +44,12 @@ body {
     cursor: pointer;
 }
 
+#boton_idioma
+{
+    margin-left: 85%;
+    margin-top: 0.5%;
+}
+
 #clickReturn {
     position: absolute;
     bottom: 12px;
@@ -320,7 +326,7 @@ input[type=submit]:hover {
 /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
 
 @media screen and (max-width: 767px) {
-    .buttonDIvOpt {
+    .buttonDivOpt {
         position: absolute;
         top: -119% !important;
         left: 67% !important;
@@ -420,7 +426,7 @@ input[type=submit]:hover {
 }
 
 @media only screen and (min-width: 768px) {
-    #optionDIv {
+    #optionDiv {
         position: fixed !important;
         top: 0% !important;
         width: fit-content;
@@ -441,8 +447,7 @@ input[type=submit]:hover {
         justify-content: center;
         align-items: center;
         width: 100%;
-        /* margin: auto; */
-        margin-top: 20px;
+        margin-top: 19px;
 
     }
 
@@ -551,13 +556,13 @@ section article:last-of-type {
 }
 
 #formText,
-.buttonDIvOpt {
+.buttonDivOpt {
     position: absolute;
     top: -45px;
     left: 0;
 }
 
-.buttonDIvOpt {
+.buttonDivOpt {
     position: absolute;
     top: -55px;
     left: 0;
