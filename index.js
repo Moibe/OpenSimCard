@@ -1,6 +1,7 @@
 //VARIABLES
 // use this variable to set the timing of progress bar
-
+let idioma = 'spanish';
+let jsonData;
 
 let timing_bar = 5;
 let timing_elements = 0;
@@ -66,6 +67,7 @@ btnSubmit.addEventListener('click', function () {
         //get the value of the second dropdown
         const Servicio = dropdown2.options[dropdown2.selectedIndex].innerHTML;
       
+        
         startProgressBar();
         startProcess(Country, Service, Pais, Servicio);
         
@@ -120,25 +122,20 @@ const clickToReturn = (e) => {
 function initText(){
     //Text in the glasswindow:
 
-    console.log("Estamos ahora probando el llenado de variables textuales desde un json.");
+    pais = "Mexico"; 
+    servicio = 'Bitso'; 
 
-    data = readJsonFile(translations.json);
-
-    let jsonData = JSON.parse(data);
-    for (let i = 0; i < jsonData.english.length; i++) {
-    let idioma = jsonData.english[i];
-    console.log(idioma.intro2_text);
-  }
+    //Obtenemos el json con las variables de idioma.
+    jsonData = JSON.parse(data);
 
     //Esto se moverá a un json de lenguajes.
-    intro1_text = 'Receive SMS messages online, anywhere in the world 🌎';
-    intro2_text = 'Superfast one-use simcards.';
-    intro3_text = 'For registering services and testing apps.';
+    intro1_text = jsonData[idioma].intro1_text;
+    intro2_text = jsonData[idioma].intro2_text;
+    intro3_text = jsonData[idioma].intro3_text;
 
-    addTextRow(bullet_icon + intro1_text , 1 ,"intro_uno", 'glassIntro_textrows');
-    addTextRow(phone_icon + intro2_text , 2 ,"intro_dos", 'glassIntro_textrows');
-    addTextRow(bullet_icon + intro1_text, 3 ,"intro_tres", 'glassIntro_textrows');
-  
+    addTextRow(intro1_text, 1 ,"intro_uno", 'glassIntro_textrows');
+    addTextRow(intro2_text , 2 ,"intro_dos", 'glassIntro_textrows');
+    addTextRow(intro3_text, 3 ,"intro_tres", 'glassIntro_textrows');
     }
     
 
@@ -198,13 +195,20 @@ function displayMessage(mensaje_error, pais, servicio) {
  
         //En estos casos no habrá tiempo de espera y se invitará a usar otro servicio.
 
-        noNumber1_text = 'No available numbers for ' + pais + '-' + servicio + ' right now.';
-        noNumber2_text = 'We are loading new simcards.';
-        noNumber3_text = 'In the meanwhile try another country or service. Thanks. 💖';
+        noNumber1_text = jsonData[idioma].noNumber1_text;
+        noNumber1bis_text = jsonData[idioma].noNumber1bis_text;
 
-        addTextRow(bullet_icon + noNumber1_text, 1, "renglon_uno", 'glass2_textrows');
-        addTextRow(bullet_icon + noNumber2_text, 2, "renglon_dos", 'glass2_textrows');
-        addTextRow(bullet_icon + noNumber3_text, 3, "renglon_tres", 'glass2_textrows');
+        noNumber2_text = jsonData[idioma].noNumber2_text;
+        noNumber3_text = jsonData[idioma].noNumber3_text;
+
+
+        //noNumber1_text = 'No available numbers for ' + pais + '-' + servicio + ' right now.';
+        //noNumber2_text = 'We are loading new simcards.';
+        //noNumber3_text = 'In the meanwhile try another country or service. Thanks. 💖';
+
+        addTextRow(noNumber1_text + pais + "-" + servicio + noNumber1bis_text, 1, "renglon_uno", 'glass2_textrows');
+        addTextRow(noNumber2_text, 2, "renglon_dos", 'glass2_textrows');
+        addTextRow(noNumber3_text, 3, "renglon_tres", 'glass2_textrows');
         habilitarBoton();
 
     }
@@ -222,7 +226,7 @@ function displayMessage(mensaje_error, pais, servicio) {
     {
         //Todos los demás casos
 
-        elseCases1_text = 'We recommend you to wait a bit to try again...'
+        elseCases1_text = 'We recommend you to wait a bit to try again...';
 
 
         addTextRow(bullet_icon + mensaje_error, 1, "renglon_uno");
@@ -236,8 +240,8 @@ function displayMessage(mensaje_error, pais, servicio) {
 function displayCountDown() {
 
     simReady1_text = 'Your simcard is ready.';
-    simReady3_text = 'You can use this number for the next:'
-    simReady5_text = 'Ready to receive messages, listening...'
+    simReady3_text = 'You can use this number for the next:';
+    simReady5_text = 'Ready to receive messages, listening...';
     
     // add p element to the glass2_textrows
     addTextRow(bullet_icon + simReady1_text, 1 ,"renglon_uno", 'glass2_textrows');
