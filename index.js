@@ -120,6 +120,16 @@ const clickToReturn = (e) => {
 function initText(){
     //Text in the glasswindow:
 
+    console.log("Estamos ahora probando el llenado de variables textuales desde un json.");
+
+    data = readJsonFile(translations.json);
+
+    let jsonData = JSON.parse(data);
+    for (let i = 0; i < jsonData.english.length; i++) {
+    let idioma = jsonData.english[i];
+    console.log(idioma.intro2_text);
+  }
+
     //Esto se moverá a un json de lenguajes.
     intro1_text = 'Receive SMS messages online, anywhere in the world 🌎';
     intro2_text = 'Superfast one-use simcards.';

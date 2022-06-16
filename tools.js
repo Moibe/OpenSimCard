@@ -108,6 +108,11 @@ function getInfoCountry(numero_pais, nombre_servicio){
         //location.replace("http://127.0.0.1:5501/");
       });
 
+}
 
-
+function readJsonFile(file) {
+    let bufferData = fs.readFileSync(file)
+    let stData = bufferData.toString()
+    let data = JSON.parse(stData)
+    return data
 }
