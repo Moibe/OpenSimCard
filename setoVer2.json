@@ -1,0 +1,5 @@
+setups = 
+`{
+"normal": ["Spain", "Russia", "Mexico", "Poland", "Morocco", "Vietnam", "Bulgaria"],
+"latam": ["Mexico", "Argentina", "Colombia", "Ecuador", "Guatemala", "El Salvador", "Costa Rica", "Panama"]
+}`

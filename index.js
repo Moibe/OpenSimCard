@@ -1,8 +1,13 @@
 //VARIABLES
-// use this variable to set the timing of progress bar
+//Idioma
 let idioma = 'english';
-let jsonData;
+let jsonTranslations;
 
+//Colección de países a usar.
+let seto = 'normal';
+let jsonSetups;
+
+// use this variable to set the timing of progress bar
 let timing_bar = 7;
 let timing_elements = 0;
 let timing_glass = 0;
@@ -46,7 +51,7 @@ $('#svg-card').css('display', 'none');
 
 //INICIO
 // once dropdownCountry and dropdownService are both selected, call startProgressBar and startProcess
-const dropdownCountry = document.getElementById('dropdown1');
+const dropdownCountry = document.getElementById('dropdownCountry');
 const dropdownService = document.getElementById('dropdownService');
 
 // call startProgressBar and startProcess when btnSubmit is clicked
@@ -121,19 +126,34 @@ const clickToReturn = (e) => {
 
 //FUNCIONES
 
-function initText(){
+function initializer(){
     //Text in the glasswindow:
+
+    
+    //obten los setups
+    jsonSetups = JSON.parse(setups);
+    console.log("Ésto es Json Setups...");
+    console.log(jsonSetups);
+
+    //Esto es la colección especifica de países con la que trabajaremos.
+    ddlCountries = jsonSetups[seto];
+    
+
+     //obten los países.
+    jsonPaises = JSON.parse(paises);
+    console.log("Ésto es Json Paises...");
+    console.log(jsonPaises);
 
     addOption("dropdownCountry", "Bulgaria", 359); 
 
     //Obtenemos el json con las variables de idioma.
-    jsonData = JSON.parse(data);
+    jsonTranslations = JSON.parse(traducciones);
 
     //Esto se moverá a un json de lenguajes.
-    intro1_text = jsonData[idioma].intro1_text;
-    intro2_text = jsonData[idioma].intro2_text;
-    intro3_text = jsonData[idioma].intro3_text;
-    btnSubmit_text = jsonData[idioma].btnSubmitInit_text;
+    intro1_text = jsonTranslations[idioma].intro1_text;
+    intro2_text = jsonTranslations[idioma].intro2_text;
+    intro3_text = jsonTranslations[idioma].intro3_text;
+    btnSubmit_text = jsonTranslations[idioma].btnSubmitInit_text;
 
     console.log("Encontramos éste primer valor para el botón...");
     console.log(btnSubmit_text);
@@ -208,11 +228,11 @@ function displayMessage(mensaje_error, pais, servicio) {
  
         //En estos casos no habrá tiempo de espera y se invitará a usar otro servicio.
 
-        noNumber1_text = jsonData[idioma].noNumber1_text;
-        noNumber1bis_text = jsonData[idioma].noNumber1bis_text;
+        noNumber1_text = jsonTranslations[idioma].noNumber1_text;
+        noNumber1bis_text = jsonTranslations[idioma].noNumber1bis_text;
 
-        noNumber2_text = jsonData[idioma].noNumber2_text;
-        noNumber3_text = jsonData[idioma].noNumber3_text;
+        noNumber2_text = jsonTranslations[idioma].noNumber2_text;
+        noNumber3_text = jsonTranslations[idioma].noNumber3_text;
 
 
         //noNumber1_text = 'No available numbers for ' + pais + '-' + servicio + ' right now.';
@@ -338,7 +358,7 @@ function habilitarBoton(){
      btnSubmit.style.display = 'block';
 
      //También los textos de los botones se usarán como texto variable.
-     btnSubmit_text = jsonData[idioma].btnSubmitStart_text;
+     btnSubmit_text = jsonTranslations[idioma].btnSubmitStart_text;
      btnSubmit.value = btnSubmit_text;
           
      /* // enable button

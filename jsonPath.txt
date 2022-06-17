@@ -1,0 +1,5 @@
+$.store.books[*].title
+
+Guarda esta expresión de búsqueda!
+
+$.services[?(@.service == 'Facebook')].service

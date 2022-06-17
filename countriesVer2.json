@@ -1,0 +1,17 @@
+paises = 
+`{
+    "Spain": {"Name": "Spain", "Code": 34, "Active": "True"},
+    "Mexico": {"Name": "Mexico", "Code": "52", "Active": "True"},
+    "Argentina": {"Name": "Mexico", "Code": "55", "Active": "True"},
+    "Colombia": {"Name": "Mexico", "Code": "57", "Active": "True"},
+    "Ecuador": {"Name": "Mexico", "Code": "63", "Active": "True"},
+    "Guatemala": {"Name": "Mexico", "Code": "101", "Active": "True"},
+    "El Salvador": {"Name": "Mexico", "Code": "117", "Active": "True"},
+    "Costa Rica": {"Name": "Mexico", "Code": "69", "Active": "True"},
+    "Panama": {"Name": "Mexico", "Code": "70", "Active": "True"},
+    "Russia": {"Name": "Mexico", "Code": "70", "Active": "True"},
+    "Poland": {"Name": "Mexico", "Code": "70", "Active": "True"},
+    "Morocco": {"Name": "Mexico", "Code": "70", "Active": "True"},
+    "Vietnam": {"Name": "Mexico", "Code": "70", "Active": "True"},
+    "Bulgaria": {"Name": "Mexico", "Code": "70", "Active": "True"}
+}`

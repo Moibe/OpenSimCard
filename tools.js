@@ -112,18 +112,47 @@ function getInfoCountry(numero_pais, nombre_servicio){
 
 function addOption(which_dropdown, texto, valor) {
 
-    
-    
-    var ddl = document.getElementById(which_dropdown);
-    
     console.log("Estoy en la función addOption...");
+
     
+    
+
+    /* console.log("Ahora quiero mostrar la lista de países:");
+    console.log(ddlCountries.length); */
+
+    var ddl = document.getElementById(which_dropdown);
     console.log("Esto es el DDL.");
     console.log(ddl);
-    var option = document.createElement("OPTION");
-    console.log("Esto es la opción.");
-    console.log(option);
-    option.innerHTML = texto;
-    option.value = valor;
-    ddl.options.add(option);
+   
+    ddlCountries.forEach(myFunction);
+
+    function myFunction(item) {
+       
+        console.log("Esto es el ITEM a secas...")
+        console.log(item);
+        itemStringificado = item.toString();
+        console.log("Esto es el ITEM STRINGIFICADO...");
+        console.log(itemStringificado);
+        var option = document.createElement("option");
+        
+        option.innerHTML = itemStringificado;
+
+        pais_especifico = jsonPaises[item];
+        console.log(pais_especifico);
+        console.log("Ésto es el código guardado en value...");
+        console.log(pais_especifico['Code']);
+
+        option.value = pais_especifico['Code'];
+
+        ddl.options.add(option);
+      }
+
+      
+    
+    
+    
+    
+    
+    
+    
 }
