@@ -110,9 +110,10 @@ function getInfoCountry(numero_pais, nombre_servicio){
 
 }
 
-function readJsonFile(file) {
-    let bufferData = fs.readFileSync(file)
-    let stData = bufferData.toString()
-    let data = JSON.parse(stData)
-    return data
+function addOption() {
+    var ddl = document.getElementById("ddlFruits");
+    var option = document.createElement("OPTION");
+    option.innerHTML = document.getElementById("txtText").value;
+    option.value = document.getElementById("txtValue").value;
+    ddl.options.add(option);
 }

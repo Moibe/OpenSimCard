@@ -9,6 +9,18 @@ function hacer(country, service, pais, servicio){
   console.log(country);
   console.log("Éste es el service:")
   console.log(service);
+
+  //Tenemos aquí que hacer un paso extra si el usuario seleccionó Any Country...
+
+  let any_country = false; 
+  
+  if(country == 182){
+
+    any_country = true; 
+    country = 34; 
+
+  }
+  
   
 
 //obtenTzid es una promesa, aquí la estamos declarando...
@@ -31,6 +43,7 @@ var obtenTzid = new Promise(
       else 
       {
         console.log("No se obtuvo el servicio (tzid)...");
+        console.log("Aquí llegamos porque no hay números o por requests seguidos.");
         tzid = data.response; 
         reject(Error(tzid))}
         
@@ -82,8 +95,9 @@ var obtenTzid = new Promise(
         (
         function(result) //Si ésta promesa se cumple, entonces...
         {
-        console.log("Esto es result...:");
-        console.log(result)
+        //ESTA ES LA PROMESA PRINCIPAL CUANDO SI SE OBTUVO EL SERVICIO!
+        console.log("Se cumplió la promesa principal...:");
+        console.log(result);
         console.log(numero); //Despliega el numero obtenido.
         displayCard();
         startGlassWindow();
@@ -107,12 +121,39 @@ var obtenTzid = new Promise(
         function(err) //Si la primer promesa (conseguir el servicio) no se logra cumplir, entonces...
         {
 
-        //Se podría llegar aquí por un balance bajo: WARNING_LOW_BALANCE, o por falla en el servicio.
+        //Se podría llegar aquí por un balance bajo: WARNING_LOW_BALANCE o NO_NUMBER, o por falla en el servicio.
         console.log("Falla en la obtención de un servicio (tzid)...");
         console.log(err); //Error...
-        console.log(tzid); //tzid contendría el mensaje de rror. 
-        startGlassWindow();
-        displayMessage(tzid, pais, servicio)
+        console.log(tzid); //tzid contendría el mensaje de error. 
+        //Originalmente aquí desplegabamos el mensaje de que no se pudo y de que se inicie de nuevo. 
+        //Pero si el usuario seleccionó Any Country, entonces en automático debe reiniciar el proceso AQUÍ.
+        if(any_country == true){
+          //Haz de todas formas el desplegado de error y GlassWindow.
+          console.log("Haz de todas formas el desplegado de error y GlassWindow.");
+          
+          //La primer opción es nóo desplegar ningún mensaje porque seguimos buscando. 
+          //displayMessage(tzid, pais, servicio);
+
+          //La segunda es usar una nueva función que avisa que aún está buscando...
+          stillSearching(); 
+
+          startGlassWindow();
+          //Repite el ciclo.
+          console.log("Ahora estamos repitiendo el ciclo! Pero espera 15 segundos...");
+
+          setTimeout(function() {
+            console.log("Vamos a esperar 15 segundos para ejecutar siguiente búsqueda...");
+            hacer(371, service, 'Latvia', servicio);
+        }, 15000 );
+
+        }
+        else{
+          
+          console.log("Se terminó la búsqueda porque era un solo país.");
+          displayMessage(tzid, pais, servicio);
+          startGlassWindow();
+        }
+        
         }
       );
   

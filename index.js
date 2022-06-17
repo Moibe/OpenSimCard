@@ -3,7 +3,7 @@
 let idioma = 'english';
 let jsonData;
 
-let timing_bar = 5;
+let timing_bar = 7;
 let timing_elements = 0;
 let timing_glass = 0;
 
@@ -45,30 +45,31 @@ const glassIntro = document.getElementById('glassIntro');
 $('#svg-card').css('display', 'none');
 
 //INICIO
-// once dropdown1 and dropdown2 are both selected, call startProgressBar and startProcess
-const dropdown1 = document.getElementById('dropdown1');
-const dropdown2 = document.getElementById('dropdown2');
+// once dropdownCountry and dropdownService are both selected, call startProgressBar and startProcess
+const dropdownCountry = document.getElementById('dropdown1');
+const dropdownService = document.getElementById('dropdownService');
 
 // call startProgressBar and startProcess when btnSubmit is clicked
 btnSubmit.addEventListener('click', function () {
-    if (dropdown1.value != "" && dropdown2.value != "") {
+    if (dropdownCountry.value != "" && dropdownService.value != "") {
 
         //Se estableció ésta búsqueda aquí, porque si se hace después de buscar tzid, no puede escribir...
         //...correctamente errores que lleven los textos de Country y Service.
         // get the value of the first dropdown
-        const Country = dropdown1.options[dropdown1.selectedIndex].value;
+        const Country = dropdownCountry.options[dropdownCountry.selectedIndex].value;
         //get the value of the second dropdown
-        const Service = dropdown2.options[dropdown2.selectedIndex].value;
+        const Service = dropdownService.options[dropdownService.selectedIndex].value;
 
         // get the value of the first dropdown
-        const Pais = dropdown1.options[dropdown1.selectedIndex].innerHTML;
+        const Pais = dropdownCountry.options[dropdownCountry.selectedIndex].innerHTML;
         //get the value of the second dropdown
-        const Servicio = dropdown2.options[dropdown2.selectedIndex].innerHTML;
+        const Servicio = dropdownService.options[dropdownService.selectedIndex].innerHTML;
       
-        
-        startProgressBar();
-        startProcess(Country, Service, Pais, Servicio);
-        
+        //setTimeout(function() {
+            startProgressBar();
+            startProcess(Country, Service, Pais, Servicio);
+        //}, 30000 );
+                        
     }
     else {
         alert("Please select Country and Service options.");
@@ -140,7 +141,7 @@ function initText(){
     addTextRow(intro2_text , 2 ,"intro_dos", 'glassIntro_textrows');
     addTextRow(intro3_text, 3 ,"intro_tres", 'glassIntro_textrows');
     }
-    
+ 
 
 function startProgressBar() {
     console.log("startProgressBar");
@@ -188,6 +189,13 @@ function startGlassWindow(){
 
     //Ésta función solo despliega la ventana, pero no los mensajes que despliega.
     //Esos mensajes se despliegan desde numbers.
+
+}
+
+function stillSearching(){
+
+    addTextRow("Aún estoy buscando...", 1, "renglon_uno", 'glass2_textrows');
+
 
 }
 
@@ -387,12 +395,12 @@ function displayCard() {
 
         //Revisar si está siendo redundante ésto.
         // get the text of the first dropdown
-        const dropdown1Value = dropdown1.options[dropdown1.selectedIndex].innerHTML;
+        const dropdownCountryValue = dropdownCountry.options[dropdownCountry.selectedIndex].innerHTML;
         // get the text of the second dropdown
-        const dropdown2Value = dropdown2.options[dropdown2.selectedIndex].innerHTML;
+        const dropdownServiceValue = dropdownService.options[dropdownService.selectedIndex].innerHTML;
 
-        cardText1.innerHTML = dropdown1Value;
-        cardText2.innerHTML = dropdown2Value;
+        cardText1.innerHTML = dropdownCountryValue;
+        cardText2.innerHTML = dropdownServiceValue;
 
         // generate random phone number
         //let phoneNumber = Math.floor(Math.random() * 10000000000000);
@@ -410,16 +418,18 @@ function displayCard() {
 // long running process goes here
 function startProcess(Country_value, Service_value, Pais_texto, Servicio_texto) {
 
-    // set fake timeout to simulate a long process
+    //El proceso iniciará cuando la barra acabe de cargar.} o al mismo tiempo?
     // when the process is done, show the success message
     // and hide the progress bar
     setTimeout(function () {
         console.log("Timeout...");
         //Antes guarda el país para su uso futuro.
+        console.log("Guarda el PAIS PARA SU USO FUTURO...")
         localStorage.setItem('pais', Pais_texto);
         PaisNode = localStorage.getItem('pais');
         console.log("Éste es el país en el local storage");
         console.log(PaisNode);
+        //Aquí iniciamos la conexión con OnlineSim.
         hacer(Country_value, Service_value, Pais_texto, Servicio_texto)
 
     }, `${timing_bar}000`);
