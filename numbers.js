@@ -2,6 +2,7 @@
 //hacer() obtiene el número y lo despliega al usuario. Es lanzado por el user al terminar de seleccionar país y servicio.
 //leer() se mantiene leyendo la api cada minuto 15 veces. Es lanzado por la glasswindow para saber que desplegar.
 var token = config.MY_API_TOKEN;
+let any_country = false; 
 
 function hacer(country, service, pais, servicio){
 
@@ -12,7 +13,7 @@ function hacer(country, service, pais, servicio){
 
   //Tenemos aquí que hacer un paso extra si el usuario seleccionó Any Country...
 
-  let any_country = false; 
+  
   
   if(country == 182){
 

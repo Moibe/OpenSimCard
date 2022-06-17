@@ -124,6 +124,8 @@ const clickToReturn = (e) => {
 function initText(){
     //Text in the glasswindow:
 
+    addOption("dropdownCountry", "Bulgaria", 359); 
+
     //Obtenemos el json con las variables de idioma.
     jsonData = JSON.parse(data);
 

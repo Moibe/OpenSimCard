@@ -110,10 +110,20 @@ function getInfoCountry(numero_pais, nombre_servicio){
 
 }
 
-function addOption() {
-    var ddl = document.getElementById("ddlFruits");
+function addOption(which_dropdown, texto, valor) {
+
+    
+    
+    var ddl = document.getElementById(which_dropdown);
+    
+    console.log("Estoy en la función addOption...");
+    
+    console.log("Esto es el DDL.");
+    console.log(ddl);
     var option = document.createElement("OPTION");
-    option.innerHTML = document.getElementById("txtText").value;
-    option.value = document.getElementById("txtValue").value;
+    console.log("Esto es la opción.");
+    console.log(option);
+    option.innerHTML = texto;
+    option.value = valor;
     ddl.options.add(option);
 }
