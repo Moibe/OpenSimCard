@@ -1,0 +1,30 @@
+data = 
+`{
+    "normal":
+   {
+    "Spain": 34,
+    "Russia": 7,
+    "Mexico": 52,
+    "Poland" : 48,
+    "Morocco" : 212,
+    "Vietnam" : 84,
+    "Bulgaria" : 359    
+    }
+   ,
+    "latam":
+    {
+    "Mexico": 52,
+    "Argentina": 58,
+    "Colombia": 374,
+    "Ecuador" : 377,
+    "Guatemala" : 512,
+    "El Salvador" : 513,
+    "Costa Rica" : 422,
+    "Panama" : 123
+    }
+    
+}`
+
+
+
+   
