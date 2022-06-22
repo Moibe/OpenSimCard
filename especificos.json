@@ -15,3 +15,14 @@ paises =
     "Vietnam": {"Name": "Mexico", "Code": "70", "Active": "True"},
     "Bulgaria": {"Name": "Mexico", "Code": "70", "Active": "True"}
 }`
+
+servicios = 
+`{
+    "WhatsApp": {"Name": "WhatsApp", "Slug": "whatsApp", "Price": 0.32},
+    "Facebook": {"Name": "Facebook", "Slug": "facebook", "Price": 0.32},
+    "Instagram": {"Name": "Instagram", "Slug": "instagram", "Price": 0.32},
+    "Twitter": {"Name": "Twitter", "Slug": "twitter", "Price": 0.32},
+    "Telegram": {"Name": "Telegram", "Slug": "telegram", "Price": 0.32},
+    "Discord": {"Name": "Discord", "Slug": "discord", "Price": 0.32},
+    "Uber": {"Name": "Uber", "Slug": "uber", "Price": 0.32}
+}`

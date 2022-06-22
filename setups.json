@@ -4,7 +4,7 @@ setups_paises =
 "latam": ["Mexico", "Argentina", "Colombia", "Ecuador", "Guatemala", "El Salvador", "Costa Rica", "Panama"]
 }`
 
-servicios = 
+setups_servicios = 
 `{
 "normal": ["WhatsApp", "Facebook", "Instagram", "Twitter", "Telegram", "Discord"],
 "latam": ["WhatsApp", "Facebook", "Instagram", "Twitter", "Telegram", "Discord"]

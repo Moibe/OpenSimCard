@@ -116,26 +116,26 @@ function addOptionPaises() {
 
     //obten los setups
     jsonSetups_Paises = JSON.parse(setups_paises);
-    console.log("Ésto es Json Setups...");
+    console.log("Ésto es Json Setups Países...");
     console.log(jsonSetups_Paises);
 
     //Esto es la colección especifica de países con la que trabajaremos.
     //Se está usando setups.json y por ahora no se usa seto.json.
-    ddlCountries = jsonSetups_Paises[setup_elegido];
+    ddlCountries = jsonSetups_Paises[setup_paises];
     
 
-    //obten los países de ese setup.
+    //Ahora obtén la información especifica de los países de ese setup.
     jsonPaises = JSON.parse(paises);
-    console.log("Ésto es Json Paises de el setup elegido...");
+    console.log("Éstos son todos los países con su información específica...");
     console.log(jsonPaises);
 
     var ddl = document.getElementById('dropdownCountry');
     console.log("Esto es el DDL.");
     console.log(ddl);
    
-    ddlCountries.forEach(myFunction);
+    ddlCountries.forEach(llenaOpciones);
 
-    function myFunction(item) {
+    function llenaOpciones(item) {
        
         console.log("Esto es el ITEM a secas...")
         console.log(item);
@@ -152,6 +152,51 @@ function addOptionPaises() {
         console.log(pais_especifico['Code']);
 
         option.value = pais_especifico['Code'];
+
+        ddl.options.add(option);
+      }
+ 
+}
+
+function addOptionServicios() {
+
+    console.log("Estoy en la función addOptionServicios...");
+
+    //obten los setups
+    jsonSetups_Servicios = JSON.parse(setups_servicios);
+    console.log("Ésto es Json Setups Servicios...");
+    console.log(jsonSetups_Servicios);
+
+    //Esto es la colección especifica de servicios con la que trabajaremos.
+    //Se está usando setups.json.
+    ddlServices = jsonSetups_Servicios[setup_servicios];
+
+    //Ahora obtén la información específica de cada servicio.
+    jsonServicios = JSON.parse(servicios);
+    console.log("Ésta es la información específica de todos los servicios...");
+    console.log(jsonServicios);
+
+    var ddl = document.getElementById('dropdownService');
+    
+    ddlServices.forEach(llenaOpciones);
+
+    function llenaOpciones(item) {
+       
+        console.log("Esto es el ITEM a secas...")
+        console.log(item);
+        itemStringificado = item.toString();
+        console.log("Esto es el ITEM STRINGIFICADO...");
+        console.log(itemStringificado);
+        var option = document.createElement("option");
+        
+        option.innerHTML = itemStringificado;
+
+        servicio_especifico = jsonServicios[item];
+        console.log(servicio_especifico);
+        console.log("Ésto es el código guardado en value...");
+        console.log(servicio_especifico['Name']);
+
+        option.value = servicio_especifico['Name'];
 
         ddl.options.add(option);
       }

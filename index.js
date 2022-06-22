@@ -4,8 +4,10 @@ let idioma = 'english';
 let jsonTranslations;
 
 //Colección de países a usar.
-let setup_elegido = 'normal';
+let setup_paises = 'normal';
+let setup_servicios = 'normal';
 let jsonSetups_Paises;
+let jsonSetups_Servicios;
 
 // use this variable to set the timing of progress bar
 let timing_bar = 7;
@@ -127,19 +129,15 @@ const clickToReturn = (e) => {
 //FUNCIONES
 
 function initializer(){
-    //Text in the glasswindow:
-
+    
     //SETS DE DROPDOWNS
- 
     addOptionPaises(); 
-    //addOptionServicios(); 
+    addOptionServicios(); 
 
     //LANGUAGE
-    
     //Obtenemos el json con las variables de idioma.
     jsonTranslations = JSON.parse(traducciones);
-
-    //Esto se moverá a un json de lenguajes.
+    
     intro1_text = jsonTranslations[idioma].intro1_text;
     intro2_text = jsonTranslations[idioma].intro2_text;
     intro3_text = jsonTranslations[idioma].intro3_text;
