@@ -110,17 +110,26 @@ function getInfoCountry(numero_pais, nombre_servicio){
 
 }
 
-function addOption(which_dropdown, texto, valor) {
+function addOptionPaises() {
 
-    console.log("Estoy en la función addOption...");
+    console.log("Estoy en la función addOptionPaises...");
 
+    //obten los setups
+    jsonSetups_Paises = JSON.parse(setups_paises);
+    console.log("Ésto es Json Setups...");
+    console.log(jsonSetups_Paises);
+
+    //Esto es la colección especifica de países con la que trabajaremos.
+    //Se está usando setups.json y por ahora no se usa seto.json.
+    ddlCountries = jsonSetups_Paises[setup_elegido];
     
-    
 
-    /* console.log("Ahora quiero mostrar la lista de países:");
-    console.log(ddlCountries.length); */
+    //obten los países de ese setup.
+    jsonPaises = JSON.parse(paises);
+    console.log("Ésto es Json Paises de el setup elegido...");
+    console.log(jsonPaises);
 
-    var ddl = document.getElementById(which_dropdown);
+    var ddl = document.getElementById('dropdownCountry');
     console.log("Esto es el DDL.");
     console.log(ddl);
    
@@ -147,12 +156,5 @@ function addOption(which_dropdown, texto, valor) {
         ddl.options.add(option);
       }
 
-      
-    
-    
-    
-    
-    
-    
-    
+  
 }

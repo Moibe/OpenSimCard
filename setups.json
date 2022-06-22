@@ -1,0 +1,11 @@
+setups_paises = 
+`{
+"normal": ["Spain", "Russia", "Mexico", "Poland", "Morocco", "Vietnam", "Bulgaria"],
+"latam": ["Mexico", "Argentina", "Colombia", "Ecuador", "Guatemala", "El Salvador", "Costa Rica", "Panama"]
+}`
+
+servicios = 
+`{
+"normal": ["WhatsApp", "Facebook", "Instagram", "Twitter", "Telegram", "Discord"],
+"latam": ["WhatsApp", "Facebook", "Instagram", "Twitter", "Telegram", "Discord"]
+}`

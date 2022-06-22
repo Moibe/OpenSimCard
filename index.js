@@ -4,8 +4,8 @@ let idioma = 'english';
 let jsonTranslations;
 
 //Colección de países a usar.
-let seto = 'normal';
-let jsonSetups;
+let setup_elegido = 'normal';
+let jsonSetups_Paises;
 
 // use this variable to set the timing of progress bar
 let timing_bar = 7;
@@ -129,23 +129,13 @@ const clickToReturn = (e) => {
 function initializer(){
     //Text in the glasswindow:
 
+    //SETS DE DROPDOWNS
+ 
+    addOptionPaises(); 
+    //addOptionServicios(); 
+
+    //LANGUAGE
     
-    //obten los setups
-    jsonSetups = JSON.parse(setups);
-    console.log("Ésto es Json Setups...");
-    console.log(jsonSetups);
-
-    //Esto es la colección especifica de países con la que trabajaremos.
-    ddlCountries = jsonSetups[seto];
-    
-
-     //obten los países.
-    jsonPaises = JSON.parse(paises);
-    console.log("Ésto es Json Paises...");
-    console.log(jsonPaises);
-
-    addOption("dropdownCountry", "Bulgaria", 359); 
-
     //Obtenemos el json con las variables de idioma.
     jsonTranslations = JSON.parse(traducciones);
 
