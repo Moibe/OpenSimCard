@@ -1,6 +1,6 @@
 //VARIABLES
 //Idioma
-let idioma = 'english';
+let idioma = 'spanish';
 //Declaramos el json con las variables de idioma.
 let jsonTranslations;
 
@@ -189,7 +189,7 @@ function startProgressBar() {
 function startGlassWindow(){
 
     let glass2Textrows = document.getElementById('glass2_textrows');
-    glass2Textrows.style.height = '150px'
+    glass2Textrows.style.height = '250px'
 
     let glass2 = document.getElementById('glass2');
 
@@ -328,22 +328,14 @@ function stopProgressBar() {
 }
 
 function 
-mensajeEncontrado(mensaje){
+mensajeEncontrado(mensaje_a_escribir){
 
     /* //Con los textos actuales el cambio de altura de la ventana no es necesario.
     let glass2Textrows = document.getElementById('glass2_textrows');
     glass2Textrows.style.height = '150px' */
 
-    exito1_text = jsonTranslations[idioma]. exito1_text;
-    exito2_text = jsonTranslations[idioma]. exito2_text;
-    exito3_text = jsonTranslations[idioma]. exito3_text;
-       
-    //Glasswindow showed when message found...
-    document.getElementById("renglon_uno").innerHTML = bullet_icon + exito1_text;
-    document.getElementById("countDownText").innerHTML = "";
-    document.getElementById("renglon_tres").innerHTML = message_icon + mensaje;
-    document.getElementById("renglon_cinco").innerHTML = payment_icon + exito2_text;
-    document.getElementById("renglon_seis").innerHTML = bullet_icon + exito3_text;
+    //Usará ésta función si sí se consiguió el servicio.
+    writeAtSuccess('glass2_texrows', mensaje_a_escribir);
                 
     clearInterval(countDownTimer);
     
@@ -377,7 +369,7 @@ function displayCard() {
         const dropdownCountryValue = dropdownCountry.options[dropdownCountry.selectedIndex].innerHTML;
         // get the text of the second dropdown
         const dropdownServiceValue = dropdownService.options[dropdownService.selectedIndex].innerHTML;
-
+ 
         cardText1.innerHTML = dropdownCountryValue;
         cardText2.innerHTML = dropdownServiceValue;
 

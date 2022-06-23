@@ -17,18 +17,19 @@ function writeAtInit(glass) {
     
 }
 
-function translateAtInit(){
+function writeAtSuccess(glass, mensaje_a_escribir){
 
-    exito1_text = jsonTranslations[idioma]. exito1_text;
-    exito2_text = jsonTranslations[idioma]. exito2_text;
-    exito3_text = jsonTranslations[idioma]. exito3_text;
+   exito1_text = jsonTranslations[idioma]. exito1_text;
+   exito2_text = jsonTranslations[idioma]. exito2_text;
+   exito3_text = jsonTranslations[idioma]. exito3_text;
        
     //Glasswindow showed when message found...
     document.getElementById("renglon_uno").innerHTML = bullet_icon + exito1_text;
     document.getElementById("countDownText").innerHTML = "";
-    document.getElementById("renglon_tres").innerHTML = message_icon + mensaje;
+    document.getElementById("renglon_tres").innerHTML = message_icon + mensaje_a_escribir;
     document.getElementById("renglon_cinco").innerHTML = payment_icon + exito2_text;
     document.getElementById("renglon_seis").innerHTML = bullet_icon + exito3_text;
+
 
 }
 
@@ -56,7 +57,8 @@ function writeAtStill(glass) {
 
     //NONUMBER
     
-   console.log("Pasamos por NONUMBER..."); 
+    console.log("Pasamos por NONUMBER...");
+    console.log("Y el glass definido es:" + glass) ;
     noNumber1_text = jsonTranslations[idioma].noNumber1_text;
     noNumber1bis_text = jsonTranslations[idioma].noNumber1bis_text;
 
@@ -75,7 +77,8 @@ function writeAtStill(glass) {
     else if(mensaje_error=="WARNING_LOW_BALANCE"){
   
     //LOWBALANCE
-    console.log("Pasamos por LOWBALANCE..."); 
+    console.log("Pasamos por LOWBALANCE...");
+    console.log("Y el glass definido es:" + glass) ; 
     lowBalance1_text = jsonTranslations[idioma].lowBalance1_text;
        
     addTextRow(bullet_icon + lowBalance1_text, 4, "renglon_uno", glass);
@@ -85,12 +88,26 @@ function writeAtStill(glass) {
     startCountdownTimer("low_balance");
 
     }
-    else     
-    {
+    else if(mensaje_error=="EXCEEDED_CONCURRENT_OPERATIONS"){
 
-    //ELSE
+      //EXCEEDED_CONCURRENT_OPERATIONS
+      console.log("Pasamos por EXCEEDED_CONCURRENT_OPERATIONS..."); 
+      console.log("Y el glass definido es:" + glass) ;
+      console.log("Definir que desplegar..."); 
+
+      console.log("Y en éste punto viene vacío el glass recibido.");
+      console.log("Glass Recibido:" + glass);
+
+      
+      
+      
+    }
+    else   {
+
+    //ELSE 
 
     console.log("Pasamos por ELSE... porque el mensaje de error es..." + mensaje_error); 
+    console.log("Y el glass definido es:" + glass) ;
     elseCases1_text = jsonTranslations[idioma].elseCases1_text;
 
     addTextRow(bullet_icon + mensaje_error, 1, glass);

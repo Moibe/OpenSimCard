@@ -215,6 +215,7 @@ function leer(tzid){
    (
      function(result) //Si ésta promesa se cumple, entonces...
      {
+          console.log("El mensaje fue encontrado y será obfuscado....");
           mensajeEncontrado(obfusMessage(mensaje), tzid);
      }, 
      
