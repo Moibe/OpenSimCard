@@ -1,19 +1,19 @@
 paises = 
 `{
-    "Spain": {"name_english": "Spain", "name_spanish1": "España", "Code": 34, "Active": "True"},
+    "Spain": {"name_english": "Spain", "name_spanish": "España", "Code": 34, "Active": "True"},
     "Mexico": {"name_english": "Mexico", "name_spanish": "México", "Code": "52", "Active": "True"},
-    "Argentina": {"name_english": "Argentina", "name_spanish": "Argentina", "Code": "55", "Active": "True"},
+    "Argentina": {"name_english": "Argentina", "name_spanish": "Argentina", "Code": "54", "Active": "True"},
     "Colombia": {"name_english": "Colombia","name_spanish": "Colombia", "Code": "57", "Active": "True"},
-    "Ecuador": {"name_english": "Ecuador","name_spanish": "Ecuador", "Code": "63", "Active": "True"},
-    "Guatemala": {"name_english": "Guatemala","name_spanish": "España", "Code": "101", "Active": "True"},
-    "El Salvador": {"name_english": "El Salvador","name_spanish": "España", "Code": "117", "Active": "True"},
-    "Costa Rica": {"name_english": "Costa Rica","name_spanish": "España", "Code": "69", "Active": "True"},
-    "Panama": {"name_english": "Panama","name_spanish": "España", "Code": "70", "Active": "True"},
-    "Russia": {"name_english": "Russia","name_spanish": "España", "Code": "7", "Active": "True"},
-    "Poland": {"name_english": "Poland","name_spanish": "España", "Code": "70", "Active": "True"},
-    "Morocco": {"name_english": "Morocco","name_spanish": "España", "Code": "70", "Active": "True"},
-    "Vietnam": {"name_english": "Vietnam","name_spanish": "España", "Code": "70", "Active": "True"},
-    "Bulgaria": {"name_english": "Bulgaria","name_spanish": "España", "Code": "70", "Active": "True"}
+    "Ecuador": {"name_english": "Ecuador","name_spanish": "Ecuador", "Code": "593", "Active": "True"},
+    "Guatemala": {"name_english": "Guatemala","name_spanish": "Guatemala", "Code": "502", "Active": "True"},
+    "El Salvador": {"name_english": "El Salvador","name_spanish": "El Salvador", "Code": "503", "Active": "True"},
+    "Costa Rica": {"name_english": "Costa Rica","name_spanish": "Costa Rica", "Code": "506", "Active": "True"},
+    "Panama": {"name_english": "Panama","name_spanish": "Panamá", "Code": "507", "Active": "True"},
+    "Russia": {"name_english": "Russia","name_spanish": "Rusia", "Code": "7", "Active": "True"},
+    "Poland": {"name_english": "Poland","name_spanish": "Polonia", "Code": "48", "Active": "True"},
+    "Morocco": {"name_english": "Morocco","name_spanish": "Marruecos", "Code": "212", "Active": "True"},
+    "Vietnam": {"name_english": "Vietnam","name_spanish": "Vietnam", "Code": "84", "Active": "True"},
+    "Bulgaria": {"name_english": "Bulgaria","name_spanish": "Bulgaria", "Code": "359", "Active": "True"}
 }`
 
 servicios = 
