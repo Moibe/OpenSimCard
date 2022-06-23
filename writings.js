@@ -31,17 +31,15 @@ function writeAtStill(glass) {
  function writeAtMessage(glass, mensaje_error, pais, servicio) {
 
     //ESCRIBIR EN GLASSINTRO
-
+    console.log("Estamos en WriteAtMessage...")
     active_glass = glass;
     console.log("EL ACTIVE GLASS ES:" + active_glass);
 
     if((mensaje_error=="NO_NUMBER")||(mensaje_error=="NO_NUMBER_FOR_FORWARD")){
 
     //NONUMBER
-
-    active_glass = glass;
-    console.log("EL ACTIVE GLASS ES:" + active_glass);
-
+    
+   console.log("Pasamos por NONUMBER..."); 
     noNumber1_text = jsonTranslations[idioma].noNumber1_text;
     noNumber1bis_text = jsonTranslations[idioma].noNumber1bis_text;
 
@@ -60,7 +58,7 @@ function writeAtStill(glass) {
     else if(mensaje_error=="WARNING_LOW_BALANCE"){
   
     //LOWBALANCE
-   
+    console.log("Pasamos por LOWBALANCE..."); 
     lowBalance1_text = jsonTranslations[idioma].lowBalance1_text;
        
     addTextRow(bullet_icon + lowBalance1_text, 4, "renglon_uno", glass);
@@ -75,6 +73,7 @@ function writeAtStill(glass) {
 
     //ELSE
 
+    console.log("Pasamos por ELSE... porque el mensaje de error es..." + mensaje_error); 
     elseCases1_text = jsonTranslations[idioma].elseCases1_text;
 
     addTextRow(bullet_icon + mensaje_error, 1, glass);

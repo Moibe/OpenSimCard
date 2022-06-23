@@ -1,8 +1,10 @@
 //VARIABLES
 //Idioma
-let idioma = 'spanish';
+let idioma = 'english';
 //Declaramos el json con las variables de idioma.
 let jsonTranslations;
+
+let funcion_actual;
 
 //Colección de países a usar.
 let setup_paises = 'normal';
@@ -16,7 +18,7 @@ let timing_elements = 0;
 let timing_glass = 0;
 
 //ICONS
-bullet_icon  = "🧨";
+bullet_icon  = "-";
 timer_icon = "⏱️";
 phone_icon = "📱";
 message_icon = "✉️";
@@ -132,6 +134,9 @@ const clickToReturn = (e) => {
 //FUNCIONES
 
 function initializer(){
+
+    funcion_actual = "initializer";
+    console.log("La función actual es:" + funcion_actual);
     
     //SETS DE DROPDOWNS
     addOptionPaises(); 
@@ -141,13 +146,9 @@ function initializer(){
     //Obtenemos el json con las variables de idioma.
     jsonTranslations = JSON.parse(traducciones);
 
-    btnSubmit_text = jsonTranslations[idioma].btnSubmitInit_text;
-    console.log("Encontramos éste primer valor para el botón...");
-    console.log(btnSubmit_text);
-    btnSubmit.value = btnSubmit_text;
+    //Ésta es la función que se recarga cuando vienes del botón de traducción. 
+    initializer_translatable(); 
 
-    //La función escribe en el Glass que se le indique.
-    writeAtInit('glassIntro_textrows');
     }
  
 
@@ -202,11 +203,18 @@ function startGlassWindow(){
 
 function stillSearching(){
 
+    funcion_actual = "stillSearching";
+    console.log("La función actual es:" + funcion_actual);
+
     writeAtStill('glass2_textrows');
     
 }
 
 function displayMessage(mensaje_error, pais, servicio) {
+
+    funcion_actual = "displayMessage";
+    console.log("La función actual es:" + funcion_actual);
+
     //Ésta función maneja el texto a desplegar y las acciones cuando regresa un error en lugar del servicio.
     //Los mensajes y las acciones correspondientes las ejecuta en WriteAtMessage();
     writeAtMessage('glass2_textrows',mensaje_error, pais, servicio);
@@ -214,6 +222,9 @@ function displayMessage(mensaje_error, pais, servicio) {
 }
 
 function displayCountDown() {
+
+    funcion_actual = "displayCountdown";
+    console.log("La función actual es:" + funcion_actual);
 
     console.log("Estoy en la función DISPLAYCOUNTDOWN!!!");
     writeAtCountDown('glass2_textrows');
@@ -279,7 +290,7 @@ function startCountdownTimer(tipo_de_conteo) {
         }
     }
 
-    }, 4000);
+    }, 1000);
 }
 
 function habilitarBoton(){
