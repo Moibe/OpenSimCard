@@ -1,6 +1,7 @@
 //VARIABLES
 //Idioma
-let idioma = 'english';
+let idioma = 'spanish';
+//Declaramos el json con las variables de idioma.
 let jsonTranslations;
 
 //Colección de países a usar.
@@ -15,7 +16,7 @@ let timing_elements = 0;
 let timing_glass = 0;
 
 //ICONS
-bullet_icon  = "-";
+bullet_icon  = "🧨";
 timer_icon = "⏱️";
 phone_icon = "📱";
 message_icon = "✉️";
@@ -88,7 +89,7 @@ const optionButton = (e) => {
     if (e.classList.contains('optionOne')) {
         e.classList.remove('optionOne')
         e.classList.add('optionTwo')
-        e.innerHTML = `Option B`;
+        e.innerHTML = `Option B ✨ `;
         //formText.innerHTML = `My Form Version B`
         body.classList.add('gradient1')
         body.classList.remove('gradient');
@@ -100,6 +101,8 @@ const optionButton = (e) => {
         glass2.classList.remove('animate__fadeIn')
         $('.confetti__button').attr('disabled', 'false');
         $('.confetti__button').css('cursor', 'default');
+        idioma = 'spanish';
+        runthisfunction();
     }
     else {
         e.classList.remove('optionTwo');
@@ -137,19 +140,14 @@ function initializer(){
     //LANGUAGE
     //Obtenemos el json con las variables de idioma.
     jsonTranslations = JSON.parse(traducciones);
-    
-    intro1_text = jsonTranslations[idioma].intro1_text;
-    intro2_text = jsonTranslations[idioma].intro2_text;
-    intro3_text = jsonTranslations[idioma].intro3_text;
-    btnSubmit_text = jsonTranslations[idioma].btnSubmitInit_text;
 
+    btnSubmit_text = jsonTranslations[idioma].btnSubmitInit_text;
     console.log("Encontramos éste primer valor para el botón...");
     console.log(btnSubmit_text);
     btnSubmit.value = btnSubmit_text;
 
-    addTextRow(intro1_text, 1 ,"intro_uno", 'glassIntro_textrows');
-    addTextRow(intro2_text , 2 ,"intro_dos", 'glassIntro_textrows');
-    addTextRow(intro3_text, 3 ,"intro_tres", 'glassIntro_textrows');
+    //La función escribe en el Glass que se le indique.
+    writeAtInit('glassIntro_textrows');
     }
  
 
@@ -204,75 +202,22 @@ function startGlassWindow(){
 
 function stillSearching(){
 
-    addTextRow("Aún estoy buscando...", 1, "renglon_uno", 'glass2_textrows');
-
-
+    writeAtStill('glass2_textrows');
+    
 }
 
 function displayMessage(mensaje_error, pais, servicio) {
     //Ésta función maneja el texto a desplegar y las acciones cuando regresa un error en lugar del servicio.
-    
-    if((mensaje_error=="NO_NUMBER")||(mensaje_error=="NO_NUMBER_FOR_FORWARD")){
- 
-        //En estos casos no habrá tiempo de espera y se invitará a usar otro servicio.
-
-        noNumber1_text = jsonTranslations[idioma].noNumber1_text;
-        noNumber1bis_text = jsonTranslations[idioma].noNumber1bis_text;
-
-        noNumber2_text = jsonTranslations[idioma].noNumber2_text;
-        noNumber3_text = jsonTranslations[idioma].noNumber3_text;
-
-
-        //noNumber1_text = 'No available numbers for ' + pais + '-' + servicio + ' right now.';
-        //noNumber2_text = 'We are loading new simcards.';
-        //noNumber3_text = 'In the meanwhile try another country or service. Thanks. 💖';
-
-        addTextRow(noNumber1_text + pais + "-" + servicio + noNumber1bis_text, 1, "renglon_uno", 'glass2_textrows');
-        addTextRow(noNumber2_text, 2, "renglon_dos", 'glass2_textrows');
-        addTextRow(noNumber3_text, 3, "renglon_tres", 'glass2_textrows');
-        habilitarBoton();
-
-    }
-    else if(mensaje_error=="WARNING_LOW_BALANCE"){
-
-        //En éste caso no podrás proporcionar el servicio hasta que se descongele saldo o pongas más. 
-
-        lowBalance1_text = 'Service unavailable, please try again in 10 minutes...'
-       
-        addTextRow(bullet_icon + lowBalance1_text, 4, "renglon_uno", 'glass2_textrows');
-        addTextRow(timer_icon + '5:00', 2, "countDownText", 'glass2_textrows');
-        startCountdownTimer("low_balance");
-
-    } else     
-    {
-        //Todos los demás casos
-
-        elseCases1_text = 'We recommend you to wait a bit to try again...';
-
-
-        addTextRow(bullet_icon + mensaje_error, 1, "renglon_uno");
-        addTextRow(timer_icon + '5:00', 2, "countDownText");
-        addTextRow(bullet_icon + elseCases1_text, 4, "renglon_tres");
-        startCountdownTimer("mensaje");
-    }
+    //Los mensajes y las acciones correspondientes las ejecuta en WriteAtMessage();
+    writeAtMessage('glass2_textrows',mensaje_error, pais, servicio);
   
 }
 
 function displayCountDown() {
 
-    simReady1_text = 'Your simcard is ready.';
-    simReady3_text = 'You can use this number for the next:';
-    simReady5_text = 'Ready to receive messages, listening...';
+    console.log("Estoy en la función DISPLAYCOUNTDOWN!!!");
+    writeAtCountDown('glass2_textrows');
     
-    // add p element to the glass2_textrows
-    addTextRow(bullet_icon + simReady1_text, 1 ,"renglon_uno", 'glass2_textrows');
-    addTextRow(phone_icon + numero, 2 ,"renglon_dos", 'glass2_textrows');
-    addTextRow(bullet_icon + simReady3_text , 3 ,"renglon_tres", 'glass2_textrows');
-    addTextRow(timer_icon + '', 4, "countDownText", 'glass2_textrows');
-    addTextRow(listening_icon + simReady5_text, 5, "renglon_cinco", 'glass2_textrows');
-    addTextRow('', 6, "renglon_seis", 'glass2_textrows');
-    
-    startCountdownTimer();
  
 }
 
@@ -322,6 +267,7 @@ function startCountdownTimer(tipo_de_conteo) {
             document.getElementById("listener").innerHTML = bullet_icon + "You can try again anytime you want.";
 
             // enable button
+            console.log("HABILITE BOTON DESDE AFUERA...");
             habilitarBoton();
         }
         if(tipo_de_conteo != "mensaje"){
@@ -333,7 +279,7 @@ function startCountdownTimer(tipo_de_conteo) {
         }
     }
 
-    }, 1000);
+    }, 4000);
 }
 
 function habilitarBoton(){
@@ -347,6 +293,8 @@ function habilitarBoton(){
 
      //También los textos de los botones se usarán como texto variable.
      btnSubmit_text = jsonTranslations[idioma].btnSubmitStart_text;
+     console.log("Este es el valor que pondremos en el botón...");
+     console.log(btnSubmit_text);
      btnSubmit.value = btnSubmit_text;
           
      /* // enable button
@@ -371,21 +319,28 @@ mensajeEncontrado(mensaje){
     /* //Con los textos actuales el cambio de altura de la ventana no es necesario.
     let glass2Textrows = document.getElementById('glass2_textrows');
     glass2Textrows.style.height = '150px' */
-        
+
+    exito1_text = jsonTranslations[idioma]. exito1_text;
+    exito2_text = jsonTranslations[idioma]. exito2_text;
+    exito3_text = jsonTranslations[idioma]. exito3_text;
+       
     //Glasswindow showed when message found...
-        document.getElementById("renglon_uno").innerHTML = bullet_icon + "Your message has been received at:";
-        document.getElementById("countDownText").innerHTML = "";
-        document.getElementById("renglon_tres").innerHTML = message_icon + mensaje;
-        document.getElementById("renglon_cinco").innerHTML = payment_icon + "Complete your payment to release the full message.";
-        document.getElementById("renglon_seis").innerHTML = bullet_icon + "Thanks for using our service :)";
-        clearInterval(countDownTimer);
-        //Reaparece el div del botón Get:
-        //let divBoton = document.getElementById('divBoton');
-        divBoton.style.display = 'flex';
-        //Ver si no es mucho peso construir el botón de paypal en éste momento. 
-        //Los parámetros que se le dan son el tzid que viene del éxito en la obtención del mensaje...
-        //...y de la creación al vuelo del nodo de verificación.
-        construyePaypal(tzid, createVerifNode());
+    document.getElementById("renglon_uno").innerHTML = bullet_icon + exito1_text;
+    document.getElementById("countDownText").innerHTML = "";
+    document.getElementById("renglon_tres").innerHTML = message_icon + mensaje;
+    document.getElementById("renglon_cinco").innerHTML = payment_icon + exito2_text;
+    document.getElementById("renglon_seis").innerHTML = bullet_icon + exito3_text;
+                
+    clearInterval(countDownTimer);
+    
+    
+    //Reaparece el div del botón Get:
+    //let divBoton = document.getElementById('divBoton');
+    divBoton.style.display = 'flex';
+    //Ver si no es mucho peso construir el botón de paypal en éste momento. 
+    //Los parámetros que se le dan son el tzid que viene del éxito en la obtención del mensaje...
+    //...y de la creación al vuelo del nodo de verificación.
+    construyePaypal(tzid, createVerifNode());
         
 }
 

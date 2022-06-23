@@ -1,5 +1,6 @@
 function addTextRow(text, delay, id, glass) {
   
+    console.log("Éste es el glass recibido:" + glass);
     which_glass = glass;
     
     let glass2Textrows = document.getElementById(which_glass);
@@ -201,5 +202,9 @@ function addOptionServicios() {
         ddl.options.add(option);
       }
 
-  
+}
+
+function runthisfunction(){
+    console.log("FUNCIONA ÉSTA FUNCIÓN!!!!!!");
+    console.log("El idioma actual es:" + idioma);
 }

@@ -9,12 +9,17 @@ traducciones =
     "noNumber1bis_text" : " right now.",
     "noNumber2_text" : "We are loading new simcards.",
     "noNumber3_text" : "In the meanwhile try another country or service. Thanks. 💖",
+    "btnSubmitInit_text" : "Get Simcard",
+    "btnSubmitStart_text" : "Start Over",
     "elseCases1_text" : "We recommend you to wait a bit to try again...",
     "simReady1_text" : "Your simcard is ready.",
     "simReady3_text" : "You can use this number for the next:",
     "simReady5_text" : "Ready to receive messages, listening...",
-    "btnSubmitInit_text" : "Get Simcard",
-    "btnSubmitStart_text" : "Start Over"
+    "stillSearching_text" : "Still searching...",
+    "lowBalance1_text" : "Service unavailable, please try again in 10 minutes...",
+    "exito1_text" : "Your message has been received at:",
+    "exito2_text" : "Complete your payment to release the full message.",
+    "exito3_text" : "Thanks for using our service :)"
     }
    ,
     "spanish":
@@ -26,9 +31,18 @@ traducciones =
     "noNumber1bis_text" : " en éste momento.",
     "noNumber2_text" : "Estamos cargando nuevas simcards.",
     "noNumber3_text" : "Mientras tanto intenta con otro país o servicio. Gracias. 💖",
-    "btnSubmit_text" : "Iniciar Otra Vez"
+    "btnSubmitInit_text" : "Obtén Simcard",
+    "btnSubmitStart_text" : "Iniciar Otra Vez",
+    "elseCases1_text" : "Te recomendamos esperar un poco para intentar otra vez...",
+    "simReady1_text" : "Tu simcard está lista.",
+    "simReady3_text" : "Puedes usar éste número por los siguientes:",
+    "simReady5_text" : "Listo para recibir mensajes, escuchando...",
+    "stillSearching_text" : "Aún estoy buscando...",
+    "lowBalance1_text" : "Servicio no disponible, intenta de nuevo en 10 minutos...",
+    "exito1_text" : "Tu mensaje fue recibido en:",
+    "exito2_text" : "Completa el pago para recibir el mensaje completo.",
+    "exito3_text" : "Gracias por usar nuestro servicio :)"
     }
-    
 }`
 
    
