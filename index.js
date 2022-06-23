@@ -135,6 +135,10 @@ const clickToReturn = (e) => {
 
 function initializer(){
 
+    //Momentaneamente haremos más grande el área del glassIntro...
+    let glass2Intro = document.getElementById('glassIntro_textrows');
+    glass2Intro.style.height = '150px';
+
     funcion_actual = "initializer";
     console.log("La función actual es:" + funcion_actual);
     
@@ -278,7 +282,6 @@ function startCountdownTimer(tipo_de_conteo) {
             document.getElementById("listener").innerHTML = bullet_icon + "You can try again anytime you want.";
 
             // enable button
-            console.log("HABILITE BOTON DESDE AFUERA...");
             habilitarBoton();
         }
         if(tipo_de_conteo != "mensaje"){

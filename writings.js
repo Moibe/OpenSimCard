@@ -6,6 +6,8 @@ function writeAtInit(glass) {
    console.log("EL ACTIVE GLASS ES:" + active_glass);
 
    intro1_text = jsonTranslations[idioma].intro1_text;
+   console.log("Probando con el primer texto..."); 
+   console.log("intro1_text es:" +intro1_text);
    intro2_text = jsonTranslations[idioma].intro2_text;
    intro3_text = jsonTranslations[idioma].intro3_text;
  
@@ -13,6 +15,21 @@ function writeAtInit(glass) {
    addTextRow(intro2_text , 2 ,"intro_dos", glass);
    addTextRow(intro3_text, 3 ,"intro_tres", glass);
     
+}
+
+function translateAtInit(){
+
+    exito1_text = jsonTranslations[idioma]. exito1_text;
+    exito2_text = jsonTranslations[idioma]. exito2_text;
+    exito3_text = jsonTranslations[idioma]. exito3_text;
+       
+    //Glasswindow showed when message found...
+    document.getElementById("renglon_uno").innerHTML = bullet_icon + exito1_text;
+    document.getElementById("countDownText").innerHTML = "";
+    document.getElementById("renglon_tres").innerHTML = message_icon + mensaje;
+    document.getElementById("renglon_cinco").innerHTML = payment_icon + exito2_text;
+    document.getElementById("renglon_seis").innerHTML = bullet_icon + exito3_text;
+
 }
 
 function writeAtStill(glass) {

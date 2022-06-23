@@ -205,6 +205,9 @@ function addOptionServicios() {
 }
 
 function runthisfunction(){
-    console.log("FUNCIONA ÉSTA FUNCIÓN!!!!!!");
     console.log("El idioma actual es:" + idioma);
+    console.log("Cambiando idioma a..."); 
+    idioma = "spanish";
+    console.log(idioma);
+    initializer_translatable(); 
 }
