@@ -119,39 +119,53 @@ function addOptionPaises() {
     jsonSetups_Paises = JSON.parse(setups_paises);
     console.log("Ésto es Json Setups Países...");
     console.log(jsonSetups_Paises);
-
-    //Esto es la colección especifica de países con la que trabajaremos.
-    //Se está usando setups.json y por ahora no se usa seto.json.
-    ddlCountries = jsonSetups_Paises[setup_paises];
-    
+ 
 
     //Ahora obtén la información especifica de los países de ese setup.
+    //Ahora el nombre será obtenido de un arreglo dentro del objeto y dependerá del idioma.
     jsonPaises = JSON.parse(paises);
     console.log("Éstos son todos los países con su información específica...");
     console.log(jsonPaises);
 
     var ddl = document.getElementById('dropdownCountry');
-    console.log("Esto es el DDL.");
+    console.log("Esto es el DDL que vamos a poblar.");
     console.log(ddl);
-   
-    ddlCountries.forEach(llenaOpciones);
+
+    //Esto es la colección especifica de países con la que trabajaremos.
+    //Se está usando setups.json y por ahora no se usa seto.json.
+    setupDeCountries = jsonSetups_Paises[setup_paises];   
+    setupDeCountries.forEach(llenaOpciones);
 
     function llenaOpciones(item) {
-       
-        console.log("Esto es el ITEM a secas...")
-        console.log(item);
-        itemStringificado = item.toString();
-        console.log("Esto es el ITEM STRINGIFICADO...");
-        console.log(itemStringificado);
-        var option = document.createElement("option");
-        
-        option.innerHTML = itemStringificado;
 
+        
+        if(idioma == 'english'){
+            nombre_pais = jsonPaises[item].name_english;
+        } else if(idioma == 'spanish') {
+            nombre_pais = jsonPaises[item].name_spanish;
+        } else{
+            nombre_pais = jsonPaises[item].name_english;
+        }
+
+        if(nombre_pais == undefined){
+            console.log("Nombre PAIS es UNDEFINED-undefined...");
+            //Si no se ha dado de alta el nombre en ese idioma, entonces despliegalo en inglés.
+            nombre_pais = jsonPaises[item].name_english;
+        }
+
+        
+        //Guardado de cada texto
+        console.log("Esto es el ITEM a secas...");
+        console.log(item);
+                
+        var option = document.createElement("option");
+        option.innerHTML = nombre_pais;
+
+        //Guardado de cada valor (código LADA)
         pais_especifico = jsonPaises[item];
         console.log(pais_especifico);
         console.log("Ésto es el código guardado en value...");
         console.log(pais_especifico['Code']);
-
         option.value = pais_especifico['Code'];
 
         ddl.options.add(option);
