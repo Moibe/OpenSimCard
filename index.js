@@ -1,6 +1,6 @@
 //VARIABLES
 //Idioma
-let idioma = 'spanish';
+let idioma = 'english';
 //Declaramos el json con las variables de idioma.
 let jsonTranslations;
 
