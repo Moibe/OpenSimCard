@@ -63,7 +63,7 @@ function construyePaypal(tzid, nodo){
     paypalScript.setAttribute("data-currency", "USD");
     paypalScript.setAttribute("data-size", "small");
     paypalScript.setAttribute("data-noshipping", 1);
-    paypalScript.setAttribute("data-return", "http://127.0.0.1:5501/success.html?tzid=" + tzid + "&node=" + nodo);
+    paypalScript.setAttribute("data-return", "http://127.0.0.1:5500/success.html?tzid=" + tzid + "&node=" + nodo);
     paypalScript.setAttribute("data-cancel_return", retorno);
     paypalScript.setAttribute("data-currency_code", "USD");
     paypalScript.setAttribute("data-locale", "es_ES");
