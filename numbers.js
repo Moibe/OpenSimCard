@@ -38,7 +38,7 @@ var obtenTzid = new Promise(
         console.log(data);
         tzid = data.tzid; //Guarda el tzid en la var resultado.
         resolve(tzid);
-        
+        //Aquí SE LLEGÓ A OBTENER CORRECTAMENTE EL SERVICIO.
         
       }
       else 
@@ -75,7 +75,7 @@ var obtenTzid = new Promise(
           { console.log("Si obtuvo el número:");
             console.log(data);
             numero = data[0].number; //Guarda el tzid en la var numero.
-            tiempo = data[0].time; //Guarda el tzid en la var numero.
+            tiempo = data[0].time; //Guarda el tiempo.
             console.log("El tiempo disponible para éste número es...");
             console.log(tiempo)
             resolve(numero);
@@ -191,14 +191,16 @@ function leer(tzid){
      .then(data => 
       //Real
        //{if(data[0].response == 'TZ_NUM_ANSWER') //Si data.response tiene un TZ_NUM_ANSWER significa que ya nos llegó el mensaje.
-       //Fake
-       {if(1 == 1) //Si data.response tiene un TZ_NUM_ANSWER significa que ya nos llegó el mensaje.
+       //Fake(ByPass)
+       {
+        console.log("ESTAMOS POR EL CAMINO CORRECTO...");
+        if(1 == 1) //Aquí estamos bypasseando la información para pruebas. Al minuto de espera marcará como que el mensaje llegó.
        { console.log("Si obtuvo el mensaje:");
          console.log(data);
          //real
          //mensaje = data[0].msg; 
          //fake
-         mensaje = "[53904836] This is your new Instagram code: 540904836."
+         mensaje = "[53904836] This is your new bypassed Instagram code: 540904836."
          resolve(mensaje, tzid);
          exito = 1;
        }

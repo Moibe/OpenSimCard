@@ -4,7 +4,12 @@ let idioma = 'english';
 //Declaramos el json con las variables de idioma.
 let jsonTranslations;
 
+//MOMENTOS DE FUNCIONES (paraa traducción en tiempo real).
 let funcion_actual;
+
+//BYPASSES
+let bypass_leer = true; //Si el valor es true, no esperará el mensaje y te dará uno fake para pruebas. 
+//Éstas acciones suceden en numbers.js
 
 //Colección de países a usar.
 let setup_paises = 'normal';
