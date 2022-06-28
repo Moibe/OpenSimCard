@@ -196,18 +196,20 @@ function leer(tzid){
         console.log("ESTAMOS POR EL CAMINO CORRECTO...");
         if(bypass_leer == true){
           console.log("La variable Bypass fue igual a True...");
+          //Por lo tanto será un mensaje de PRUEBA:
+          //fake
+         mensaje = "[53904836] This is your new bypassed Instagram code: 540904836."
         }
         else{
           console.log("La variable bypass fue igual a false...");
         }
-        
+
         if(1 == 1) //Aquí estamos bypasseando la información para pruebas. Al minuto de espera marcará como que el mensaje llegó.
        { console.log("Si obtuvo el mensaje:");
          console.log(data);
          //real
          //mensaje = data[0].msg; 
-         //fake
-         mensaje = "[53904836] This is your new bypassed Instagram code: 540904836."
+         
          resolve(mensaje, tzid);
          exito = 1;
        }
