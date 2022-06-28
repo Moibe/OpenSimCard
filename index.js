@@ -8,25 +8,35 @@ let jsonTranslations;
 let funcion_actual;
 
 //BYPASSES
-
-//Si el valor es true, no esperará el mensaje y te dará uno fake para pruebas. 
-//Éstas acciones suceden en numbers.js
-let bypass_leer = false; 
-
 //Éste contador es para cuando se bypassea el tiempo que tienes para usar el servicio, para pruebas + cortas.
 let bypass_waitMessage = true; 
 let bypass_timer = 120; 
 
+//Si el valor es true, no esperará el mensaje y te dará uno fake para pruebas. 
+//Éstas acciones suceden en numbers.js
+let bypass_leer = true; 
+
+//Éste servirá para que se pueda ir a compra exitosa apretando el link de cancelar compra.
+let bypass_compra = true; 
+
+//SETUPS
 //Colección de países a usar.
 let setup_paises = 'normal';
 let setup_servicios = 'normal';
 let jsonSetups_Paises;
 let jsonSetups_Servicios;
 
+//TIEMPOS
 // use this variable to set the timing of progress bar
 let timing_bar = 7;
 let timing_elements = 0;
 let timing_glass = 0;
+
+// use this variable to control coundDownTimer waiting time
+let countDownTimerTime = 5;
+let coolDownTimerTime = 4;
+let lowBalanceTimerTime = 10;
+var countDownTimer;
 
 //ICONS
 bullet_icon  = "-";
@@ -36,15 +46,10 @@ message_icon = "✉️";
 listening_icon = "📡";
 payment_icon = "💳";
 
+//PAYMENTS
 //Payment Vars
 merchant = "735A4R6642VWC";
 
-// use this variable to control coundDownTimer waiting time
-let countDownTimerTime = 5;
-let coolDownTimerTime = 4;
-let lowBalanceTimerTime = 10;
-
-var countDownTimer;
 
 //ARRANQUE
 

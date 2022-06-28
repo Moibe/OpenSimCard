@@ -65,7 +65,7 @@ function obtenMensajeFinal(){
       .catch(err => {
         console.error(err);
         console.log("ESTAMOS EN EL CATCH ;) ");
-        console.log("LLEGAR AQUÏ SIGNIFICA QUE NI SI QUIERA EXISTE EL SERVICIO... ;) ");
+        console.log("LLEGAR AQUÍ SIGNIFICA QUE NI SI QUIERA EXISTE EL SERVICIO... ;) ");
         console.log("pero ya no debería llegar aquí porque todas las calls que se le envién se deberán hacer... ;) ");
         //location.replace("http://127.0.0.1:5501/");
       });
@@ -82,7 +82,7 @@ function fillCard(objeto){
     service = objeto[0].service;
 
     //Pequeña corrección por un problema externo que viene de la API. 
-    //En donde el servicio no es Fcebook pero dejaorn el número. 
+    //En donde el servicio no es Fcebook pero dejaron el número. 
 
     if(service == 3223){
         service = "Facebook";
