@@ -194,6 +194,13 @@ function leer(tzid){
        //Fake(ByPass)
        {
         console.log("ESTAMOS POR EL CAMINO CORRECTO...");
+        if(bypass_leer == true){
+          console.log("La variable Bypass fue igual a True...");
+        }
+        else{
+          console.log("La variable bypass fue igual a false...");
+        }
+        
         if(1 == 1) //Aquí estamos bypasseando la información para pruebas. Al minuto de espera marcará como que el mensaje llegó.
        { console.log("Si obtuvo el mensaje:");
          console.log(data);
