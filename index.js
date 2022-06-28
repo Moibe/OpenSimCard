@@ -4,12 +4,18 @@ let idioma = 'spanish';
 //Declaramos el json con las variables de idioma.
 let jsonTranslations;
 
-//MOMENTOS DE FUNCIONES (paraa traducción en tiempo real).
+//MOMENTOS DE FUNCIONES (para traducción en tiempo real).
 let funcion_actual;
 
 //BYPASSES
-let bypass_leer = false; //Si el valor es true, no esperará el mensaje y te dará uno fake para pruebas. 
+
+//Si el valor es true, no esperará el mensaje y te dará uno fake para pruebas. 
 //Éstas acciones suceden en numbers.js
+let bypass_leer = false; 
+
+//Éste contador es para cuando se bypassea el tiempo que tienes para usar el servicio, para pruebas + cortas.
+let bypass_waitMessage = true; 
+let bypass_timer = 120; 
 
 //Colección de países a usar.
 let setup_paises = 'normal';
@@ -260,7 +266,10 @@ function startCountdownTimer(tipo_de_conteo) {
     else {
         conteo = tiempo;
         //Hardcode solo para hacer rápido lo de cuando caduda.
-        conteo = 100;
+        if(bypass_waitMessage == true){
+            conteo = bypass_timer;
+        }
+       
         countDown_message = jsonTranslations[idioma].timeOver_timeOver;
         }
 
