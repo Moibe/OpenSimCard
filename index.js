@@ -258,7 +258,7 @@ function startCountdownTimer(tipo_de_conteo) {
     else {
         conteo = tiempo;
         //Hardcode solo para hacer rápido lo de cuando caduda.
-        conteo = 100;
+        conteo = 60;
         countDown_message = "Your simcard expired."}
 
     //Set the parameters based the count choosen.
@@ -281,27 +281,11 @@ function startCountdownTimer(tipo_de_conteo) {
         if (distance < 0) {
             clearInterval(countDownTimer);
             
-            /* //welcome
-            document.getElementById("renglon_uno").innerHTML = "";
-            //numero
-            document.getElementById("renglon_dos").innerHTML = "";
-            //tittle
-            document.getElementById("renglon_tres").innerHTML = "";
-            document.getElementById("countDownText").innerHTML =countDown_message;
-            //listener
-            document.getElementById("renglon_cuatro").innerHTML = bullet_icon + "You can try again anytime you want.";
-            document.getElementById("renglon_cinco").innerHTML = "";
-            document.getElementById("renglon_seis").innerHTML = ""; */
+           
 
-            addTextRow(bullet_icon + simReady1_text, 1 ,"renglon_uno", glass);
-            addTextRow(phone_icon + numero, 2 ,"renglon_dos", glass);
-            addTextRow(bullet_icon + simReady3_text , 3 ,"renglon_tres", glass);
-            addTextRow(timer_icon + '', 4, "countDownText", glass);
-            addTextRow(listening_icon + simReady5_text, 5, "renglon_cinco", glass);
-            addTextRow('', 6, "renglon_seis", glass);
+            writeAtTimeOver('glass2_textrows', countDown_message);
 
-            // enable button
-            habilitarBoton();
+            
         }
         if(tipo_de_conteo != "mensaje"){
         // run the fake process every minute

@@ -24,6 +24,7 @@ function writeAtSuccess(glass, mensaje_a_escribir){
    exito3_text = jsonTranslations[idioma]. exito3_text;
        
     //Glasswindow showed when message found...
+    //Aquí como ya existe la glasswindow, entonces busca por IDs.
     document.getElementById("renglon_uno").innerHTML = bullet_icon + exito1_text;
     document.getElementById("countDownText").innerHTML = "";
     document.getElementById("renglon_tres").innerHTML = message_icon + mensaje_a_escribir;
@@ -142,4 +143,24 @@ function writeAtStill(glass) {
     //acción extra.
     startCountdownTimer();
     
+}
+
+function writeAtTimeOver(glass, mensaje_a_escribir){
+   //Aquí como ya existe la glasswindow, entonces busca por IDs.
+            //Welcome
+            document.getElementById("renglon_uno").innerHTML = "";
+            //numero
+            document.getElementById("renglon_dos").innerHTML = "";
+            //tittle
+            document.getElementById("renglon_tres").innerHTML = "";
+            document.getElementById("countDownText").innerHTML =countDown_message;
+            //listener
+            document.getElementById("renglon_cinco").innerHTML = bullet_icon + "You can try again anytime you want.";
+            document.getElementById("renglon_seis").innerHTML = ""; 
+            
+            /* addTextRow(mensaje_a_escribir, 1 ,"renglon_uno", glass);
+            addTextRow(bullet_icon + "You can try again anytime you want.", 2 ,"renglon_dos",  glass); */
+            
+            // enable button
+            habilitarBoton();
 }
