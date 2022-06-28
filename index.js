@@ -1,6 +1,6 @@
 //VARIABLES
 //Idioma
-let idioma = 'english';
+let idioma = 'spanish';
 //Declaramos el json con las variables de idioma.
 let jsonTranslations;
 
@@ -251,15 +251,18 @@ function startCountdownTimer(tipo_de_conteo) {
     console.log(tipo_de_conteo);
     if(tipo_de_conteo == "mensaje"){
         conteo = coolDownTimerTime;
-        countDown_message = "Now you can try again..."}
+        countDown_message = jsonTranslations[idioma].timeOver_coolDown;
+        }
     else if(tipo_de_conteo == "low_balance"){
         conteo = lowBalanceTimerTime;
-        countDown_message = "Now you can try again, thanks for waiting..."}
+        countDown_message = jsonTranslations[idioma].timeOver_lowBalance;
+       }
     else {
         conteo = tiempo;
         //Hardcode solo para hacer rápido lo de cuando caduda.
-        conteo = 60;
-        countDown_message = "Your simcard expired."}
+        conteo = 100;
+        countDown_message = jsonTranslations[idioma].timeOver_timeOver;
+        }
 
     //Set the parameters based the count choosen.
     //countDownTime.setMinutes(countDownTime.getMinutes() + conteo);
@@ -280,12 +283,9 @@ function startCountdownTimer(tipo_de_conteo) {
         // If the count down is finished, write some text
         if (distance < 0) {
             clearInterval(countDownTimer);
-            
-           
+         
+            writeAtTimeOver(countDown_message);
 
-            writeAtTimeOver('glass2_textrows', countDown_message);
-
-            
         }
         if(tipo_de_conteo != "mensaje"){
         // run the fake process every minute
@@ -338,7 +338,7 @@ mensajeEncontrado(mensaje_a_escribir){
     glass2Textrows.style.height = '150px' */
 
     //Usará ésta función si sí se consiguió el servicio.
-    writeAtSuccess('glass2_texrows', mensaje_a_escribir);
+    writeAtSuccess(mensaje_a_escribir);
                 
     clearInterval(countDownTimer);
     

@@ -21,7 +21,11 @@ traducciones =
     "lowBalance1_text" : "Service unavailable, please try again in 10 minutes...",
     "exito1_text" : "Your message has been received at:",
     "exito2_text" : "Complete your payment to release the full message.",
-    "exito3_text" : "Thanks for using our service :)"
+    "exito3_text" : "Thanks for using our service :)",
+    "timeOver_coolDown" : "Now you can try again...",
+    "timeOver_lowBalance" : "Now you can try again, thanks for waiting...",
+    "timeOver_timeOver" : "Your simcard expired.", 
+    "timeOver_text" : "You can try again anytime you want."    
     }
    ,
     "spanish":
@@ -45,7 +49,11 @@ traducciones =
     "lowBalance1_text" : "Servicio no disponible, intenta de nuevo en 10 minutos...",
     "exito1_text" : "Tu mensaje fue recibido en:",
     "exito2_text" : "Completa el pago para recibir el mensaje completo.",
-    "exito3_text" : "Gracias por usar nuestro servicio :)"
+    "exito3_text" : "Gracias por usar nuestro servicio :)",
+    "timeOver_coolDown" : "Ya puedes intentar otra vez...",
+    "timeOver_lowBalance" : "Ya puedes intentar otra vez, gracias por la espera...",
+    "timeOver_timeOver" : "Tu simcard expiró.", 
+    "timeOver_text" : "Puedes volver a intentar cuando desees." 
     }
 }`
 

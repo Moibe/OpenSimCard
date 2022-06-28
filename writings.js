@@ -17,7 +17,7 @@ function writeAtInit(glass) {
     
 }
 
-function writeAtSuccess(glass, mensaje_a_escribir){
+function writeAtSuccess(mensaje_a_escribir){
 
    exito1_text = jsonTranslations[idioma]. exito1_text;
    exito2_text = jsonTranslations[idioma]. exito2_text;
@@ -145,22 +145,18 @@ function writeAtStill(glass) {
     
 }
 
-function writeAtTimeOver(glass, mensaje_a_escribir){
+function writeAtTimeOver(mensaje_a_escribir){
    //Aquí como ya existe la glasswindow, entonces busca por IDs.
-            //Welcome
+
+            timeOver_text = jsonTranslations[idioma].timeOver_text;
+        
             document.getElementById("renglon_uno").innerHTML = "";
-            //numero
             document.getElementById("renglon_dos").innerHTML = "";
-            //tittle
             document.getElementById("renglon_tres").innerHTML = "";
-            document.getElementById("countDownText").innerHTML =countDown_message;
-            //listener
-            document.getElementById("renglon_cinco").innerHTML = bullet_icon + "You can try again anytime you want.";
+            document.getElementById("countDownText").innerHTML =mensaje_a_escribir;
+            document.getElementById("renglon_cinco").innerHTML = bullet_icon + timeOver_text;
             document.getElementById("renglon_seis").innerHTML = ""; 
-            
-            /* addTextRow(mensaje_a_escribir, 1 ,"renglon_uno", glass);
-            addTextRow(bullet_icon + "You can try again anytime you want.", 2 ,"renglon_dos",  glass); */
-            
+   
             // enable button
             habilitarBoton();
 }
