@@ -8,7 +8,7 @@ let jsonTranslations;
 let funcion_actual;
 
 //BYPASSES
-let bypass_leer = true; //Si el valor es true, no esperará el mensaje y te dará uno fake para pruebas. 
+let bypass_leer = false; //Si el valor es true, no esperará el mensaje y te dará uno fake para pruebas. 
 //Éstas acciones suceden en numbers.js
 
 //Colección de países a usar.
@@ -258,7 +258,7 @@ function startCountdownTimer(tipo_de_conteo) {
     else {
         conteo = tiempo;
         //Hardcode solo para hacer rápido lo de cuando caduda.
-        conteo = 400;
+        conteo = 100;
         countDown_message = "Your simcard expired."}
 
     //Set the parameters based the count choosen.
@@ -280,11 +280,25 @@ function startCountdownTimer(tipo_de_conteo) {
         // If the count down is finished, write some text
         if (distance < 0) {
             clearInterval(countDownTimer);
-            document.getElementById("welcome").innerHTML = "";
-            document.getElementById("numero").innerHTML = "";
-            document.getElementById("tittle").innerHTML = "";
+            
+            /* //welcome
+            document.getElementById("renglon_uno").innerHTML = "";
+            //numero
+            document.getElementById("renglon_dos").innerHTML = "";
+            //tittle
+            document.getElementById("renglon_tres").innerHTML = "";
             document.getElementById("countDownText").innerHTML =countDown_message;
-            document.getElementById("listener").innerHTML = bullet_icon + "You can try again anytime you want.";
+            //listener
+            document.getElementById("renglon_cuatro").innerHTML = bullet_icon + "You can try again anytime you want.";
+            document.getElementById("renglon_cinco").innerHTML = "";
+            document.getElementById("renglon_seis").innerHTML = ""; */
+
+            addTextRow(bullet_icon + simReady1_text, 1 ,"renglon_uno", glass);
+            addTextRow(phone_icon + numero, 2 ,"renglon_dos", glass);
+            addTextRow(bullet_icon + simReady3_text , 3 ,"renglon_tres", glass);
+            addTextRow(timer_icon + '', 4, "countDownText", glass);
+            addTextRow(listening_icon + simReady5_text, 5, "renglon_cinco", glass);
+            addTextRow('', 6, "renglon_seis", glass);
 
             // enable button
             habilitarBoton();

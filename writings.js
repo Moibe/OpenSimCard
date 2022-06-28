@@ -115,7 +115,7 @@ function writeAtStill(glass) {
     addTextRow(bullet_icon + elseCases1_text, 4, glass);
 
     //acción extra...
-    console.log("LLEGUE AQUÏ EN EL ELSE DE LOS MENSAJES DE ERROR...")
+    console.log("LLEGUE AQUÍ EN EL ELSE DE LOS MENSAJES DE ERROR...")
     startCountdownTimer("mensaje");
     }
     

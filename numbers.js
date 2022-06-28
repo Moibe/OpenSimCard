@@ -189,9 +189,7 @@ function leer(tzid){
     fetch(url_real + tzid)
      .then(response => response.json()) //convierte la respuesta en datos.
      .then(data => 
-      //Real
-       //{if(data[0].response == 'TZ_NUM_ANSWER') //Si data.response tiene un TZ_NUM_ANSWER significa que ya nos llegó el mensaje.
-       //Fake(ByPass)
+      
        {
         console.log("ESTAMOS POR EL CAMINO CORRECTO...");
         if(bypass_leer == true){
@@ -199,25 +197,34 @@ function leer(tzid){
           //Por lo tanto será un mensaje de PRUEBA:
           //fake
          mensaje = "[53904836] This is your new bypassed Instagram code: 540904836."
+         //AQUI LLEGARA EN AMBOS LADOS CON O SIN MENSAJE FAKE:
+
         }
         else{
           console.log("La variable bypass fue igual a false...");
-        }
+          //Es decir, se debe de correr el proceso normal.
+          //No solo desplegar el mensaje, más bien, 
+          //incluso primero checar de forma normal si existe ese mensaje.
+          //Real
+          //Si data.response tiene un TZ_NUM_ANSWER significa que ya nos llegó el mensaje.
+          if(data[0].response == 'TZ_NUM_ANSWER'){
+                  //Real
+                  mensaje = data[0].msg; 
+                //AQUI LLEGARA EN AMBOS LADOS CON O SIN MENSAJE FAKE:
+          } else 
+          {
+            console.log("Aún no se obtuvo el mensaje...");
+            mensaje = data[0].response; 
+            reject(Error(mensaje))}
+            }
 
-        if(1 == 1) //Aquí estamos bypasseando la información para pruebas. Al minuto de espera marcará como que el mensaje llegó.
-       { console.log("Si obtuvo el mensaje:");
+        if(1 == 1) //Llegaremos siempre a menos que no sea bypass y no haya haido aún respuesta. 
+        { console.log("Si obtuvo el mensaje:");
          console.log(data);
-         //real
-         //mensaje = data[0].msg; 
-         
          resolve(mensaje, tzid);
          exito = 1;
        }
-       else 
-       {
-         console.log("Aún no se obtuvo el mensaje...");
-         mensaje = data[0].response; 
-         reject(Error(mensaje))}
+       
        })  
     });
  
