@@ -25,7 +25,9 @@ traducciones =
     "timeOver_coolDown" : "Now you can try again...",
     "timeOver_lowBalance" : "Now you can try again, thanks for waiting...",
     "timeOver_timeOver" : "Your simcard expired.", 
-    "timeOver_text" : "You can try again anytime you want."    
+    "timeOver_text" : "You can try again anytime you want.",
+    "purchased1_text" :  "Thanks for your purchase.", 
+    "purchased2_text" :  "Here is your complete message:"   
     }
    ,
     "spanish":
@@ -53,7 +55,9 @@ traducciones =
     "timeOver_coolDown" : "Ya puedes intentar otra vez...",
     "timeOver_lowBalance" : "Ya puedes intentar otra vez, gracias por la espera...",
     "timeOver_timeOver" : "Tu simcard expiró.", 
-    "timeOver_text" : "Puedes volver a intentar cuando desees." 
+    "timeOver_text" : "Puedes volver a intentar cuando desees.",
+    "purchased1_text" :  "Gracias por tu compra.", 
+    "purchased2_text" :  "Aquí está tu mensaje completo:"   
     }
 }`
 

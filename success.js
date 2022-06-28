@@ -1,3 +1,7 @@
+//Idioma
+jsonTranslations = JSON.parse(traducciones);
+
+//Nodo
 verifNode_Success = localStorage.getItem('verifnode');
 console.log("Ésto es el chequeo desde Success:...");
 console.log(verifNode_Success);
@@ -39,34 +43,39 @@ function obtenMensajeFinal(){
       .then(response => response.json())
       .then(data => {
           if(data[0].response != 'TZ_NUM_WAIT'){
+                //Aquí llega si sí existe pero aún está esperando...
+                console.log("Seguimos en espera de que envíes un mensaje..");
 
-            //Aquí llega si sí existe pero aún está esperando...
-            console.log("Seguimos en espera de que envíes un mensaje..");
- 
-        }
+            }
             else{
-                
-            //Aquí llega si ya le llegó el mensaje.
-            console.log("Esto es data[0].response;");
-            console.log(data[0].response);
-            mensaje = data[0].response;
-            country = data[0].response;
-            service = data[0].response;
-            number = data[0].response;
-            //Task: Aquí solo checa si los datos más recientes quedan en el 0 o en el último.
-            //Resuelto: Cero es el más reciente...
-            //Que en realidad los datos generales como mensaje, country y service, siempre serán los mismos.
+                //Aquí llega si ya le llegó el mensaje.
+                console.log("Esto es data[0].response;");
+                console.log(data[0].response);
+                mensaje = data[0].response;
+                //Task: Aquí solo checa si los datos más recientes quedan en el 0 o en el último.
+                //Resuelto: Cero es el más reciente...
             
-            fillCard(data);
-            //Esto también se debería hacer con promesas...
-            escribeResultados(data[0].response); 
-                }
-          })
+                fillCard(data);
+
+                //Si se bypasseo (la compra no) la lectura del mensaje(bypass_leer),...
+                //entonces: agrega un mensaje genérico.
+   
+                if(bypass_leer==true){
+                    mensaje = "[53904836] This is your new bypassed Instagram code: 540904836."
+                } 
+
+                //Esto también se debería hacer con promesas...
+                escribeResultadosSuccessPayment('glass2_textrows', mensaje); 
+        
+            }
+
+        }
+ 
+          )
       .catch(err => {
         console.error(err);
-        console.log("ESTAMOS EN EL CATCH ;) ");
-        console.log("LLEGAR AQUÍ SIGNIFICA QUE NI SI QUIERA EXISTE EL SERVICIO... ;) ");
-        console.log("pero ya no debería llegar aquí porque todas las calls que se le envién se deberán hacer... ;) ");
+        console.log("Estamos en el catch de la obtención del mensaje final.");
+        //Redireccionaba asumiendo que se llega aquí cuando se ponen direcciones incorrectas pero hay más razones.
         //location.replace("http://127.0.0.1:5501/");
       });
 
@@ -110,15 +119,7 @@ function fillCard(objeto){
 }
   
 
-function escribeResultados(){
 
-    purchased1_text = 'Thanks for your purchase.';
-    purchased2_text = 'Here is your complete message:';
-   
-    addTextRow('Thanks for your purchase.', 1, "renglon_uno", 'glass2_textrows');
-    addTextRow('Here is your complete message:', 2, "renglon_dos", 'glass2_textrows');
-    addTextRow(mensaje, 3, "renglon_tres", 'glass2_textrows');
-    }
 
 
 

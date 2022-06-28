@@ -99,8 +99,8 @@ function writeAtStill(glass) {
       console.log("Y en éste punto viene vacío el glass recibido.");
       console.log("Glass Recibido:" + glass);
 
-      
-      
+      addTextRow("EXCEEDED OPERATIONS", 4, "renglon_uno", glass);
+          
       
     }
     else   {
@@ -160,3 +160,16 @@ function writeAtTimeOver(mensaje_a_escribir){
             // enable button
             habilitarBoton();
 }
+
+function escribeResultadosSuccessPayment(glass, mensaje){
+
+   console.log("El idioma en éste punto si es:" + idioma); 
+   console.log("Y jsonTranslations es:" +jsonTranslations);
+
+   purchased1_text = jsonTranslations[idioma].purchased1_text;
+   purchased2_text = jsonTranslations[idioma].purchased2_text;
+
+   addTextRow(purchased1_text, 1, "renglon_uno", glass);
+   addTextRow(purchased2_text, 2, "renglon_dos", glass);
+   addTextRow(mensaje, 3, "renglon_tres", glass);
+   }

@@ -1,8 +1,17 @@
 //VARIABLES
+
+//SETUPS
+//Colección de países a usar.
+let setup_paises = 'normal';
+let setup_servicios = 'normal';
+console.log("Se creo setup_servicios y es éste:" + setup_servicios);
+let jsonSetups_Paises;
+let jsonSetups_Servicios;
+
 //Idioma
-let idioma = 'spanish';
+let idioma = 'english';
 //Declaramos el json con las variables de idioma.
-let jsonTranslations;
+let jsonTranslations = JSON.parse(traducciones);
 
 //MOMENTOS DE FUNCIONES (para traducción en tiempo real).
 let funcion_actual;
@@ -10,7 +19,7 @@ let funcion_actual;
 //BYPASSES
 //Éste contador es para cuando se bypassea el tiempo que tienes para usar el servicio, para pruebas + cortas.
 let bypass_waitMessage = true; 
-let bypass_timer = 120; 
+let bypass_timer = 50; 
 
 //Si el valor es true, no esperará el mensaje y te dará uno fake para pruebas. 
 //Éstas acciones suceden en numbers.js
@@ -19,16 +28,9 @@ let bypass_leer = true;
 //Éste servirá para que se pueda ir a compra exitosa apretando el link de cancelar compra.
 let bypass_compra = true; 
 
-//SETUPS
-//Colección de países a usar.
-let setup_paises = 'normal';
-let setup_servicios = 'normal';
-let jsonSetups_Paises;
-let jsonSetups_Servicios;
-
 //TIEMPOS
 // use this variable to set the timing of progress bar
-let timing_bar = 7;
+let timing_bar = 6;
 let timing_elements = 0;
 let timing_glass = 0;
 
@@ -49,7 +51,6 @@ payment_icon = "💳";
 //PAYMENTS
 //Payment Vars
 merchant = "735A4R6642VWC";
-
 
 //ARRANQUE
 
@@ -156,15 +157,17 @@ function initializer(){
     glass2Intro.style.height = '150px';
 
     funcion_actual = "initializer";
+    console.log("Se creo setup_servicios y es éste:" + setup_servicios);
     console.log("La función actual es:" + funcion_actual);
     
     //SETS DE DROPDOWNS
     addOptionPaises(); 
     addOptionServicios(); 
+    
 
     //LANGUAGE
     //Obtenemos el json con las variables de idioma.
-    jsonTranslations = JSON.parse(traducciones);
+    //jsonTranslations = JSON.parse(traducciones);
 
     //Ésta es la función que se recarga cuando vienes del botón de traducción. 
     initializer_translatable(); 
