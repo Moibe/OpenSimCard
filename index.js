@@ -16,21 +16,29 @@ let jsonTranslations = JSON.parse(traducciones);
 //MOMENTOS DE FUNCIONES (para traducción en tiempo real).
 let funcion_actual;
 
-//BYPASSES
+////BYPASSES
+
+//BYPASS TIEMPO DE ESPERA OFICIAL
+//Si está en true, no recibe el tiempo de espera oficial de espera y en cambio espera la cantidad de tiempo...
+//... que tú le indiques.
 //Éste contador es para cuando se bypassea el tiempo que tienes para usar el servicio, para pruebas + cortas.
 let bypass_waitMessage = true; 
-let bypass_timer = 50; 
+let bypass_timer = 60; 
 
+//BYPASS LECTOR LISTENING
 //Si el valor es true, no esperará el mensaje y te dará uno fake para pruebas. 
 //Éstas acciones suceden en numbers.js
 let bypass_leer = true; 
 
-//Éste servirá para que se pueda ir a compra exitosa apretando el link de cancelar compra.
+//BYPASS COMPRA
+//Éste servirá para que se pueda ir a compra exitosa apretando el link de cancelar compra...
+//...para poder hacer la compra e ir a la success page sin tener que comprar.
+//Cuando no hay bypass compra ni siquiera ponemos dirección de cancelar pq eso favorece al modelo de negocio.
 let bypass_compra = true; 
 
 //TIEMPOS
 // use this variable to set the timing of progress bar
-let timing_bar = 6;
+let timing_bar = 5;
 let timing_elements = 0;
 let timing_glass = 0;
 
@@ -103,45 +111,89 @@ btnSubmit.addEventListener('click', function () {
     }
 });
 
+//BOTON CHANGE
 //Utilidades del botón.
+//El botón hace una serie de acciones dependiendo del modo en el que está...
+//Por ejemplo, si está en inglés, cambia a español, y viceversa.
+//Los estados son optionOne y optionTwo.
 const optionButton = (e) => {
+    //Primer SET de acciones estando en su primer estado o estado default.
     if (e.classList.contains('optionOne')) {
+        
+        //Remueve el estado anterior y coloca el nuevo.
         e.classList.remove('optionOne')
         e.classList.add('optionTwo')
-        e.innerHTML = `Option B ✨ `;
+
+        //El Idioma
+        idioma = 'spanish';
+
+        //Corre los translatables iniciales.
+        runthisfunction();
+        
+        //Cambia el nombre desplegado en la opción.
+        e.innerHTML = `Español ✨ `;
+        
+        //El título de la forma.
         //formText.innerHTML = `My Form Version B`
-        body.classList.add('gradient1')
+        
+        //El fondo. 
+        body.classList.add('gradient1');
         body.classList.remove('gradient');
+        
         // $('#adddedSuccessfull').css('display', 'none')
+
+        //Los colores de la barra. 
         $('.growing-bar').removeClass('growing_barA')
         $('.growing-bar').removeClass('growing_barBPurple')
         $('.growing-bar').addClass('growingBarAnimation')
+
+        //Los movimientos del glass.
         glass2.classList.remove('animate__fadeInRight')
         glass2.classList.remove('animate__fadeIn')
+        //El confetti
         $('.confetti__button').attr('disabled', 'false');
         $('.confetti__button').css('cursor', 'default');
-        idioma = 'spanish';
-        runthisfunction();
+        
     }
+    //Segundo SET de acciones estándo en el segundo estado después de haber recibido un click.
     else {
+
+        //Remueve el estado anterior y coloca el nuevo.
         e.classList.remove('optionTwo');
         e.classList.add('optionOne');
-        e.innerHTML = `Option A`;
+
+        //El Idioma
+        idioma = 'english';
+
+        //Corre los translatables iniciales.
+        runthisfunction();
+
+        //Cambia el nombre desplegado en la opción.
+        e.innerHTML = `English`;
+        
+        //El título de la forma.
         //formText.innerHTML = `My Form Version A`
-        body.classList.remove('gradient1')
-        body.classList.add('gradient')
+        
+        //El fondo. 
+        body.classList.remove('gradient1');
+        body.classList.add('gradient');
+
         // $('#adddedSuccessfull').css('display', 'none')
-        $('.growing-bar').removeClass('growingBarAnimation')
-        $('.growing-bar').removeClass('growing_barBPurple')
-        $('.growing-bar').addClass('growing_barA')
-        glass2.classList.remove('animate__fadeInRight')
-        glass2.classList.remove('animate__fadeIn')
-        $('.confetti__button').attr('disabled', 'false')
+        
+        //La Barra 
+        $('.growing-bar').removeClass('growingBarAnimation');
+        $('.growing-bar').removeClass('growing_barBPurple');
+        $('.growing-bar').addClass('growing_barA');
+
+        //El Glass
+        glass2.classList.remove('animate__fadeInRight');
+        glass2.classList.remove('animate__fadeIn');
+
+        //El Confetti
+        $('.confetti__button').attr('disabled', 'false');
         $('.confetti__button').css('cursor', 'default');
     }
 }
-
-
 
 // reset the form
 const clickToReturn = (e) => {

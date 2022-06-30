@@ -44,8 +44,8 @@ function construyePaypal(tzid, nodo){
 
     if(bypass_compra==true){
         console.log("El bypass de compra está activo...");
-        retorno = "http://127.0.0.1:5501/success.html?tzid=" + tzid + "&node=" + nodo;
-    console.log("Esto es retorno:" + retorno);
+        retorno = "http://127.0.0.1:5500/success.html?tzid=" + tzid + "&node=" + nodo;
+        console.log("Esto es retorno:" + retorno);
     }
     else{
         retorno="";
@@ -230,7 +230,6 @@ function addOptionServicios() {
 function runthisfunction(){
     console.log("El idioma actual es:" + idioma);
     console.log("Cambiando idioma a..."); 
-    idioma = "spanish";
     console.log(idioma);
     initializer_translatable(); 
 }
