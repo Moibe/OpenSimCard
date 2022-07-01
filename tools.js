@@ -44,7 +44,7 @@ function construyePaypal(tzid, nodo){
 
     if(bypass_compra==true){
         console.log("El bypass de compra está activo...");
-        retorno = "http://127.0.0.1:5500/success.html?tzid=" + tzid + "&node=" + nodo;
+        retorno = "http://opensimcard.com/success.html?tzid=" + tzid + "&node=" + nodo;
         console.log("Esto es retorno:" + retorno);
     }
     else{
@@ -64,6 +64,7 @@ function construyePaypal(tzid, nodo){
     paypalScript.setAttribute("data-size", "small");
     paypalScript.setAttribute("data-noshipping", 1);
     paypalScript.setAttribute("data-return", "http://127.0.0.1:5500/success.html?tzid=" + tzid + "&node=" + nodo);
+    paypalScript.setAttribute("data-return", "https://opensimcard.com/success.html?tzid=" + tzid + "&node=" + nodo);
     paypalScript.setAttribute("data-cancel_return", retorno);
     paypalScript.setAttribute("data-currency_code", "USD");
     paypalScript.setAttribute("data-locale", "es_ES");

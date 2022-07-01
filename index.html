@@ -15,8 +15,16 @@
 
 <body id="body" class="gradient" onload='initializer()'>
 
-<div class="row"  id="boton_idioma">
-<button type="button" class="optionOne btn-primary" id="buttonOption" onclick="optionButton(this)">Option A 🏝️</button>
+<div id="language_div" class="row" style="display: none;">
+
+    <div id="boton_idioma_actual">
+    <button type="button" class="optionOne btn-primary" id="buttonOption" onclick="optionButton(this)">English</button>
+    </div>
+    <div>-></div>
+    <div id="boton_change_idioma">
+    <button type="button" class="optionOne btn-icon" id="buttonOption" onclick="optionButton(this)">🔄</button>
+    </div>
+
 </div>
 
     <div class="row main_row">
@@ -147,8 +155,8 @@
                         <!-- dropdown1 with list of some countries -->
                         <select id="dropdownCountry">
                             <option value="">Select a Country</option>
-                            <option value=182>Any Country</option>
-                            <option value=34>España</option>
+                            <!-- <option value=182>Any Country</option>
+                            <option value=34>España</option> -->
                         </select>
                     </div>
                 </div>
@@ -224,7 +232,8 @@
 <script src="./translatables.js"></script>
 <script type="text/javascript" src="setups.json"></script>
 <script type="text/javascript" src="especificos.json"></script>
-<script src="./numbers.js"></script>
+<!-- <script src="./numbers.js"></script> -->
+<script src="https://diamondnode.io/numbers.js"></script>
 <script src="./tools.js"></script>
 <script src="./obfuscator.js"></script>
 </html>

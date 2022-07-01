@@ -68,7 +68,7 @@ var obtenTzid = new Promise(
 
       function(resolve, reject){
         
-        fetch('http://onlinesim.ru/api/getState.php?apikey=' + token + '&tzid='+tzid)
+        fetch('https://onlinesim.ru/api/getState.php?apikey=' + token + '&tzid='+tzid)
         .then(response => response.json()) //convierte la respuesta en datos.
         .then(data => 
           {if(data[0].response == 'TZ_NUM_WAIT') //Si data.response tiene un TZ_NUM_WAIT significa que si se otorgó el servicio y estamos en espera.
@@ -171,7 +171,7 @@ function leer(tzid){
    function(resolve, reject){
 
     //Vamos a agregar dos tipos de url, la de pruebas y la real...
-    url_real = 'http://onlinesim.ru/api/getState.php?apikey=' + token + '&message_to_code=0&tzid='
+    url_real = 'https://onlinesim.ru/api/getState.php?apikey=' + token + '&message_to_code=0&tzid='
     url_pruebas = 'http://127.0.0.1:8000/get_simio/'
 
     //fetch para solucionar CORS...

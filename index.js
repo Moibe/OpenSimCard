@@ -23,12 +23,12 @@ let funcion_actual;
 //... que tú le indiques.
 //Éste contador es para cuando se bypassea el tiempo que tienes para usar el servicio, para pruebas + cortas.
 let bypass_waitMessage = true; 
-let bypass_timer = 60; 
+let bypass_timer = 900; 
 
 //BYPASS LECTOR LISTENING
 //Si el valor es true, no esperará el mensaje y te dará uno fake para pruebas. 
 //Éstas acciones suceden en numbers.js
-let bypass_leer = true; 
+let bypass_leer = false; 
 
 //BYPASS COMPRA
 //Éste servirá para que se pueda ir a compra exitosa apretando el link de cancelar compra...
@@ -57,8 +57,9 @@ listening_icon = "📡";
 payment_icon = "💳";
 
 //PAYMENTS
-//Payment Vars
-merchant = "735A4R6642VWC";
+//Payment Vars 
+//merchant = "735A4R6642VWC"; //Kim
+merchant = "8EGDH39V2EZSN"; //Dreamnet
 
 //ARRANQUE
 
@@ -206,7 +207,7 @@ function initializer(){
 
     //Momentaneamente haremos más grande el área del glassIntro...
     let glass2Intro = document.getElementById('glassIntro_textrows');
-    glass2Intro.style.height = '150px';
+    glass2Intro.style.height = '100px';
 
     funcion_actual = "initializer";
     console.log("Se creo setup_servicios y es éste:" + setup_servicios);
@@ -260,7 +261,7 @@ function startProgressBar() {
 function startGlassWindow(){
 
     let glass2Textrows = document.getElementById('glass2_textrows');
-    glass2Textrows.style.height = '250px'
+    glass2Textrows.style.height = '160px';
 
     let glass2 = document.getElementById('glass2');
 

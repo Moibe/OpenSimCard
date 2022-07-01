@@ -42,7 +42,7 @@ function obtenMensajeFinal(){
     fetch(url)
       .then(response => response.json())
       .then(data => {
-          if(data[0].response != 'TZ_NUM_WAIT'){
+          if(data[0].response == 'TZ_NUM_WAIT'){
                 //Aquí llega si sí existe pero aún está esperando...
                 console.log("Seguimos en espera de que envíes un mensaje..");
 
@@ -51,7 +51,7 @@ function obtenMensajeFinal(){
                 //Aquí llega si ya le llegó el mensaje.
                 console.log("Esto es data[0].response;");
                 console.log(data[0].response);
-                mensaje = data[0].response;
+                mensaje = data[0].msg;
                 //Task: Aquí solo checa si los datos más recientes quedan en el 0 o en el último.
                 //Resuelto: Cero es el más reciente...
             
@@ -61,7 +61,7 @@ function obtenMensajeFinal(){
                 //entonces: agrega un mensaje genérico.
    
                 if(bypass_leer==true){
-                    mensaje = "[53904836] This is your new bypassed Instagram code: 540904836."
+                    mensaje = "[53904836] This is your new code: 540904836."
                 } 
 
                 //Esto también se debería hacer con promesas...

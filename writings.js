@@ -70,6 +70,12 @@ function writeAtStill(glass) {
     addTextRow(noNumber2_text, 2, "renglon_dos", glass);
     addTextRow(noNumber3_text, 3, "renglon_tres", glass);
 
+    let glass2Textrows1 = document.getElementById('glass2_textrows');
+    console.log("WHATS GO SE REALIZARÁ CAMBIO.");
+    console.log(glass2Textrows1.style.height);
+    glass2Textrows1.style.height = '100px';
+    console.log(glass2Textrows1.style.height);
+
     //acción extra...
     habilitarBoton();
 
