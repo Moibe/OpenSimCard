@@ -32,54 +32,6 @@ function checkNode(tzid_recibido, nodo_recibido){
 
 }
 
-function obtenMensajeFinal(){
-    //No se va a hacer el fetch si no coincide el código verificador, para evitar llamados innecesarios.
-    url = 'http://onlinesim.ru/api/getState.php?apikey=' + varmain + '&message_to_code=0&tzid=' + tzidparam + '&msg_list=0'
-    console.log("Ésta es la url...")
-    console.log(url);
-
-
-    fetch(url)
-      .then(response => response.json())
-      .then(data => {
-          if(data[0].response == 'TZ_NUM_WAIT'){
-                //Aquí llega si sí existe pero aún está esperando...
-                console.log("Seguimos en espera de que envíes un mensaje..");
-
-            }
-            else{
-                //Aquí llega si ya le llegó el mensaje.
-                console.log("Esto es data[0].response;");
-                console.log(data[0].response);
-                mensaje = data[0].msg;
-                //Task: Aquí solo checa si los datos más recientes quedan en el 0 o en el último.
-                //Resuelto: Cero es el más reciente...
-            
-                fillCard(data);
-
-                //Si se bypasseo (la compra no) la lectura del mensaje(bypass_leer),...
-                //entonces: agrega un mensaje genérico.
-   
-                if(bypass_leer==true){
-                    mensaje = "[53904836] This is your new code: 540904836."
-                } 
-
-                //Esto también se debería hacer con promesas...
-                escribeResultadosSuccessPayment('glass2_textrows', mensaje); 
-        
-            }
-
-        }
- 
-          )
-      .catch(err => {
-        console.error(err);
-        console.log("Estamos en el catch de la obtención del mensaje final.");
-        //Redireccionaba asumiendo que se llega aquí cuando se ponen direcciones incorrectas pero hay más razones.
-        //location.replace("http://127.0.0.1:5501/");
-      });
-
-}
 
 function fillCard(objeto){
     console.log("Estamos dentro de la función FILLCARD."); 
