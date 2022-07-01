@@ -32,7 +32,6 @@ function checkNode(tzid_recibido, nodo_recibido){
 
 }
 
-
 function fillCard(objeto){
     console.log("Estamos dentro de la función FILLCARD."); 
     console.log("Ésto es el objeto de datos del response...");
@@ -49,7 +48,6 @@ function fillCard(objeto){
         service = "Facebook";
     }
 
-
     number = objeto[0].number;
     
     // get cardText1
@@ -59,7 +57,7 @@ function fillCard(objeto){
 
     //Fill
     
-    //Ésto no se usará más, pero getInfoCountry puede servir para mucha otras cosas...
+    //Ésto no se usará más, pero getInfoCountry puede servir para muchas otras cosas...
     //cardText1.innerHTML = getInfoCountry(country, service);
     cardText2.innerHTML = capitalize(service);
     cardText3.innerHTML = number;
@@ -69,14 +67,3 @@ function fillCard(objeto){
     console.log(PaisCard);
     cardText1.innerHTML = PaisCard;
 }
-  
-
-
-
-
-
-  
-
-      
-
-

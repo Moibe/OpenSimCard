@@ -23,12 +23,12 @@ let funcion_actual;
 //... que tú le indiques.
 //Éste contador es para cuando se bypassea el tiempo que tienes para usar el servicio, para pruebas + cortas.
 let bypass_waitMessage = true; 
-let bypass_timer = 900; 
+let bypass_timer = 60 
 
 //BYPASS LECTOR LISTENING
 //Si el valor es true, no esperará el mensaje y te dará uno fake para pruebas. 
 //Éstas acciones suceden en numbers.js
-let bypass_leer = false; 
+let bypass_leer = true; 
 
 //BYPASS COMPRA
 //Éste servirá para que se pueda ir a compra exitosa apretando el link de cancelar compra...
@@ -38,7 +38,7 @@ let bypass_compra = true;
 
 //TIEMPOS
 // use this variable to set the timing of progress bar
-let timing_bar = 5;
+let timing_bar = 4;
 let timing_elements = 0;
 let timing_glass = 0;
 
@@ -474,7 +474,7 @@ function startProcess(Country_value, Service_value, Pais_texto, Servicio_texto) 
         console.log("Éste es el país en el local storage");
         console.log(PaisNode);
         //Aquí iniciamos la conexión con OnlineSim.
-        hacer(Country_value, Service_value, Pais_texto, Servicio_texto)
+        hacer(Country_value, Service_value, Pais_texto, Servicio_texto);
 
     }, `${timing_bar}000`);
 }
