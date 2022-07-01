@@ -18,6 +18,13 @@ let funcion_actual;
 
 ////BYPASSES
 
+//BYPASS LLAMADOS A ONLINESIM desde DOMINIO
+//Ésto evitará que se hagan llamados a onlinesim desde aquí si se está probando bajo una url o dominio. 
+//De ser así los llamados vendrán desde sitio ajeno diamondnode.
+//diamond = true significa que estámos ejecutando numbers desde diamondnode. 
+//TERMINANTEMENTE ESTO DEBE ESTAR EN TRUE EN EL AMBIENTE DE PRODUCCIÓN
+let diamond = false;
+
 //BYPASS TIEMPO DE ESPERA OFICIAL
 //Si está en true, no recibe el tiempo de espera oficial de espera y en cambio espera la cantidad de tiempo...
 //... que tú le indiques.
@@ -362,7 +369,16 @@ function startCountdownTimer(tipo_de_conteo) {
         if (seconds == 1) {
             // console log
             console.log("running leer(tzid) at " + minutes + ":" + seconds);
-            leer(tzid);
+
+            //Aquí también hacemos DIAMONDCHECK
+            if(diamond == true){
+                leer_diamond(tzid);
+            }else{
+                leer(tzid);
+            }
+
+
+            
         }
     }
 
@@ -474,7 +490,15 @@ function startProcess(Country_value, Service_value, Pais_texto, Servicio_texto) 
         console.log("Éste es el país en el local storage");
         console.log(PaisNode);
         //Aquí iniciamos la conexión con OnlineSim.
-        hacer(Country_value, Service_value, Pais_texto, Servicio_texto);
+        //Y éste IF decide si los scripts se ejecutan desde los obfuscados en producción que emiten desde...
+        //diamondNode, o si lo hacemos desde los locales via el else.
+        if(diamond == true){
+            hacer_diamond(Country_value, Service_value, Pais_texto, Servicio_texto);
+        }else{
+            hacer(Country_value, Service_value, Pais_texto, Servicio_texto);
+        }
+        
+        
 
     }, `${timing_bar}000`);
 }

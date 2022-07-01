@@ -4,9 +4,9 @@
 var varmain = variable_world.simio;
 var any_country = false; 
 
-function hacer(country, service, pais, servicio){
+function hacer_diamond(country, service, pais, servicio){
 
-  console.log("ESTOY EN HACER NORMAL!!!!");
+  console.log("ESTOY EN HACER DIAMOND!!!!");
 
   //Tenemos aquí que hacer un paso extra si el usuario seleccionó Any Country...
 
@@ -153,7 +153,7 @@ var obtenTzid = new Promise(
 
 //Function leer() es usada por la glass window para obtener el mensaje leído. 
 //usa la variable tzid que es donde guardamos en servicio vigente obtenido.
-function leer(tzid){
+function leer_diamond(tzid){
 
  //obtenMensaje es una promesa, aquí la estamos declarando...
  //Aquí obtenemos el mensaje que recibirá el usuario.
@@ -238,7 +238,7 @@ function leer(tzid){
      
  }
 
- function obtenMensajeFinal(){
+ function obtenMensajeFinal_diamond(){
   //No se va a hacer el fetch si no coincide el código verificador, para evitar llamados innecesarios.
   url = 'http://onlinesim.ru/api/getState.php?apikey=' + varmain + '&message_to_code=0&tzid=' + tzidparam + '&msg_list=0'
   console.log("Ésta es la url...")

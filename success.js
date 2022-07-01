@@ -24,7 +24,14 @@ function checkNode(tzid_recibido, nodo_recibido){
 
     if(nodo_recibido == nodoOficial){
         console.log("Ambos son iguales!");
-        obtenMensajeFinal();
+
+        //DIAMONDCHECK
+        if(diamond == true){
+            obtenMensajeFinal();
+        }else{
+            obtenMensajeFinal_diamond();
+        }
+        
     }
     else{
         console.log("Son DIFERENTES!!!");
