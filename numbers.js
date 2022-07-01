@@ -1,7 +1,7 @@
 //Éste documento contiene dos funciones: 
 //hacer() obtiene el número y lo despliega al usuario. Es lanzado por el user al terminar de seleccionar país y servicio.
 //leer() se mantiene leyendo la api cada minuto 15 veces. Es lanzado por la glasswindow para saber que desplegar.
-var token = config.MY_API_TOKEN;
+var varmain = config.MY_API_TOKEN;
 let any_country = false; 
 
 function hacer(country, service, pais, servicio){
@@ -30,7 +30,7 @@ var obtenTzid = new Promise(
   
   function(resolve, reject){
     
-    fetch('https://onlinesim.ru/api/getNum.php?apikey=' + token + '&service='+service+ '&country=' +country)
+    fetch('https://onlinesim.ru/api/getNum.php?apikey=' + varmain + '&service='+service+ '&country=' +country)
     .then(response => response.json()) //convierte la respuesta en datos.
     .then(data => 
       {if(data.response == 1) //Si data.response tiene un 1 significa que si se otorgó el servicio.
@@ -68,7 +68,7 @@ var obtenTzid = new Promise(
 
       function(resolve, reject){
         
-        fetch('https://onlinesim.ru/api/getState.php?apikey=' + token + '&tzid='+tzid)
+        fetch('https://onlinesim.ru/api/getState.php?apikey=' + varmain + '&tzid='+tzid)
         .then(response => response.json()) //convierte la respuesta en datos.
         .then(data => 
           {if(data[0].response == 'TZ_NUM_WAIT') //Si data.response tiene un TZ_NUM_WAIT significa que si se otorgó el servicio y estamos en espera.
@@ -171,7 +171,7 @@ function leer(tzid){
    function(resolve, reject){
 
     //Vamos a agregar dos tipos de url, la de pruebas y la real...
-    url_real = 'https://onlinesim.ru/api/getState.php?apikey=' + token + '&message_to_code=0&tzid='
+    url_real = 'https://onlinesim.ru/api/getState.php?apikey=' + varmain + '&message_to_code=0&tzid='
     url_pruebas = 'http://127.0.0.1:8000/get_simio/'
 
     //fetch para solucionar CORS...

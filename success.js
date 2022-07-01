@@ -34,7 +34,7 @@ function checkNode(tzid_recibido, nodo_recibido){
 
 function obtenMensajeFinal(){
     //No se va a hacer el fetch si no coincide el código verificador, para evitar llamados innecesarios.
-    url = 'http://onlinesim.ru/api/getState.php?apikey=C9zkn1LW4uKXy71-cKUVjb82-v5VxJK39-Q1pzusA5-nVPk96AW8h1J9J5&message_to_code=0&tzid=' + tzidparam + '&msg_list=0'
+    url = 'http://onlinesim.ru/api/getState.php?apikey=' + varmain + '&message_to_code=0&tzid=' + tzidparam + '&msg_list=0'
     console.log("Ésta es la url...")
     console.log(url);
 
