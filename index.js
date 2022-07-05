@@ -23,7 +23,7 @@ let funcion_actual;
 //De ser así los llamados vendrán desde sitio ajeno diamondnode.
 //diamond = true significa que estámos ejecutando numbers desde diamondnode. 
 //TERMINANTEMENTE ESTO DEBE ESTAR EN TRUE EN EL AMBIENTE DE PRODUCCIÓN
-let diamond = false;
+let diamond = true;
 
 //BYPASS TIEMPO DE ESPERA OFICIAL
 //Si está en true, no recibe el tiempo de espera oficial de espera y en cambio espera la cantidad de tiempo...
