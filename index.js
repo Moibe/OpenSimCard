@@ -56,7 +56,7 @@ let lowBalanceTimerTime = 10;
 var countDownTimer;
 
 //ICONS
-bullet_icon  = "-";
+bullet_icon  = "🗺️";
 timer_icon = "⏱️";
 phone_icon = "📱";
 message_icon = "✉️";
@@ -321,8 +321,7 @@ function startCountdownTimer(tipo_de_conteo) {
 
     //Establece la fecha de éste momento sea cual sea el tipo de contador.
     let countDownTime = new Date();
-    console.log("Tipo de Conteo:");
-    console.log(tipo_de_conteo);
+    
     if(tipo_de_conteo == "mensaje"){
         conteo = coolDownTimerTime;
         countDown_message = jsonTranslations[idioma].timeOver_coolDown;
@@ -396,12 +395,7 @@ function habilitarBoton(){
 
      //También los textos de los botones se usarán como texto variable.
      btnSubmit_text = jsonTranslations[idioma].btnSubmitStart_text;
-     console.log("Este es el valor que pondremos en el botón...");
-     console.log(btnSubmit_text);
      btnSubmit.value = btnSubmit_text;
-          
-     /* // enable button
-     btnPaypal.style.display = 'block'; */
      
      // reload the page on click
      btnSubmit.addEventListener('click', clickToReturn);
@@ -482,13 +476,11 @@ function startProcess(Country_value, Service_value, Pais_texto, Servicio_texto) 
     // when the process is done, show the success message
     // and hide the progress bar
     setTimeout(function () {
-        console.log("Timeout...");
+        
         //Antes guarda el país para su uso futuro.
-        console.log("Guarda el PAIS PARA SU USO FUTURO...")
         localStorage.setItem('pais', Pais_texto);
         PaisNode = localStorage.getItem('pais');
-        console.log("Éste es el país en el local storage");
-        console.log(PaisNode);
+        
         //Aquí iniciamos la conexión con OnlineSim.
         //Y éste IF decide si los scripts se ejecutan desde los obfuscados en producción que emiten desde...
         //diamondNode, o si lo hacemos desde los locales via el else.
@@ -497,7 +489,6 @@ function startProcess(Country_value, Service_value, Pais_texto, Servicio_texto) 
         }else{
             hacer(Country_value, Service_value, Pais_texto, Servicio_texto);
         }
-        
         
 
     }, `${timing_bar}000`);
