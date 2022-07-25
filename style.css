@@ -1,5 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
 
+.titulo {
+    color: rgb(255, 255, 255);
+}
+
+
 div {
     /* display: block; */
     border: 0px solid rgb(247, 243, 24);
