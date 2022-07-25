@@ -1,7 +1,7 @@
 //Éste documento contiene dos funciones: 
 //hacer() obtiene el número y lo despliega al usuario. Es lanzado por el user al terminar de seleccionar país y servicio.
 //leer() se mantiene leyendo la api cada minuto 15 veces. Es lanzado por la glasswindow para saber que desplegar.
-var varmain = variable_world.simio;
+var varmain = variable_world.api;
 var any_country = false; 
 
 function hacer_diamond(country, service, pais, servicio){
