@@ -29,7 +29,7 @@ let lowBalanceTimerTime = 10;
 var countDownTimer;
 
 //ICONS
-bullet_icon  = "🗺️";
+bullet_icon  = "💀";
 timer_icon = "⏱️";
 phone_icon = "📱";
 message_icon = "✉️";
