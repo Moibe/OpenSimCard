@@ -1,5 +1,4 @@
 function initializer_translatable(){
-
     //GLASS
     const container = document.getElementById('glassIntro_textrows');
     container.textContent = '';
