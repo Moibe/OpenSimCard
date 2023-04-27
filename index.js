@@ -463,7 +463,6 @@ function startProcess(Country_value, Service_value, Pais_texto, Servicio_texto) 
             hacer(Country_value, Service_value, Pais_texto, Servicio_texto);
         }
         
-
     }, `${timing_bar}000`);
 }
 
